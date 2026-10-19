@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>城東高校 推薦作文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* 城東の回をひとりで撮るときにZoomで共有する画面。→キーだけで1→6と進む */
+:root{
+  --bg:#f6f7f4; --fg:#16201c; --sub:#55625c; --paper:#ffffff; --line:#d5dbd6;
+  --accent:#1b6b4f; --accent-fg:#ffffff; --red:#c8202b; --mark:#ffe680;
+  --f:"BIZ UDPGothic","Yu Gothic","Hiragino Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --fg:#e8eee9; --sub:#9fb0a7; --paper:#1b2420; --line:#33423b;
+  --accent:#3fa37d; --accent-fg:#0d1411; --red:#ff6b6b; --mark:#5c4d10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --fg:#e8eee9; --sub:#9fb0a7; --paper:#1b2420; --line:#33423b;
+  --accent:#3fa37d; --accent-fg:#0d1411; --red:#ff6b6b; --mark:#5c4d10; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-block:18px 28px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tabs button{font:inherit;font-weight:700;font-size:1.05rem;padding:9px 14px;border-radius:8px;border:2px solid var(--line);background:var(--paper);color:var(--fg);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.tabs button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.hint{font-size:.85rem;color:var(--sub);margin-left:auto}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-height:52vh}
+.head{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}
+.head h1{margin:0;font-size:2rem}
+.head .meta{font-size:1.2rem;color:var(--sub)}
+.text{font-size:clamp(1.3rem,2.6vw,2.05rem);line-height:1.9;margin:0}
+mark{background:var(--mark);color:inherit;padding:0 .1em}
+.word{font-weight:700;font-size:1.1em}
+.big{font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:700;line-height:1.6;margin:0}
+.eq{color:var(--red)}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:clamp(1.2rem,2.4vw,1.8rem);line-height:1.6}
+.list b{display:inline-block;min-width:6.5em;color:var(--sub);font-weight:700}
+.src{font-size:.85rem;color:var(--sub);margin:0}
+@media (max-width:600px){.card{padding:18px}.head h1{font-size:1.5rem}}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="tabs" role="tablist" aria-label="画面" id="tabs"></div>
+  <article class="card" id="card" aria-live="polite"></article>
+  <p class="src" id="src"></p>
+</div>
+<script>
+var SRC_THEME="出典：東京都教育委員会「推薦に基づく選抜で実施した小論文・作文、実技検査のテーマ等一覧」令和5〜8年度";
+var SRC_HAITEN="出典：東京都教育委員会「令和9年度 東京都立高等学校入学者選抜 実施方法一覧」106ページ（推薦に基づく選抜・満点の欄）";
+var TAIL='<mark>という言葉がある。自分の体験を例に挙げ、この言葉についてのあなたの考えを述べよ。</mark>';
+var PAGES=[
+ {tab:"1 配点",src:SRC_HAITEN,html:'<div class="head"><h1>城東高校　推薦（2027年1月）</h1><span class="meta">作文　50分　540〜600字</span></div>'+
+   '<p class="big">内申（調査書）400　｜　面接 200　｜　作文 200</p>'+
+   '<p class="big">作文＋面接 400 <span class="eq">＝</span> 内申 400</p>'},
+ {tab:"2 令和8年度",src:SRC_THEME,html:'<div class="head"><h1>城東高校　令和8年度</h1><span class="meta">2026年1月実施　／　540〜600字</span></div><p class="text"><span class="word">「知るだけでは不十分である。どう使うかが大切である。」</span>'+TAIL+'</p>'},
+ {tab:"3 令和7年度",src:SRC_THEME,html:'<div class="head"><h1>城東高校　令和7年度</h1><span class="meta">2025年1月実施</span></div><p class="text"><span class="word">「時間を大切にすることは未来を切り拓く」</span>'+TAIL+'</p>'},
+ {tab:"4 令和6年度",src:SRC_THEME,html:'<div class="head"><h1>城東高校　令和6年度</h1><span class="meta">2024年1月実施</span></div><p class="text"><span class="word">「本当のやさしさは、強さや厳しさを伴うものである」</span>'+TAIL+'</p>'},
+ {tab:"5 令和5年度",src:SRC_THEME,html:'<div class="head"><h1>城東高校　令和5年度</h1><span class="meta">2023年1月実施</span></div><p class="text"><span class="word">「学ぶことは、自分自身をつくり変えることである。」</span>'+TAIL+'</p>'},
+ {tab:"6 4年を並べる",src:SRC_THEME,html:'<div class="head"><h1>城東高校　4年分の言葉</h1></div><ul class="list">'+
+   '<li><b>令和8年度</b>知るだけでは不十分である。どう使うかが大切である。</li>'+
+   '<li><b>令和7年度</b>時間を大切にすることは未来を切り拓く</li>'+
+   '<li><b>令和6年度</b>本当のやさしさは、強さや厳しさを伴うものである</li>'+
+   '<li><b>令和5年度</b>学ぶことは、自分自身をつくり変えることである。</li></ul>'+
+   '<p class="text">後ろは4年とも同じ　'+TAIL+'</p>'}
+];
+var idx=0, tabs=document.getElementById('tabs'), card=document.getElementById('card'), src=document.getElementById('src');
+function render(){
+  tabs.innerHTML=PAGES.map(function(p,i){return '<button type="button" role="tab" data-i="'+i+'" aria-selected="'+(i===idx)+'">'+p.tab+'</button>';}).join('')+'<span class="hint">キーボードの → で次へ、← で戻る</span>';
+  card.innerHTML=PAGES[idx].html; src.textContent=PAGES[idx].src;
+}
+tabs.addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(b){idx=+b.dataset.i;render();}});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'){idx=Math.min(PAGES.length-1,idx+1);render();}
+  if(e.key==='ArrowLeft'){idx=Math.max(0,idx-1);render();}
+});
+render();
+</script>
+</body></html>
