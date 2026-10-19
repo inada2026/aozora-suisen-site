@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<title>推薦作文 4年分の原文</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* 画面共有で読む1枚。上に学校と年度のタブ、真ん中に原文を大きく */
+:root{
+  --bg:#f6f7f4; --fg:#16201c; --sub:#55625c; --paper:#ffffff; --line:#d5dbd6;
+  --accent:#1b6b4f; --accent-fg:#ffffff; --red:#c8202b; --mark:#ffe680;
+  --f:"BIZ UDPGothic","Yu Gothic","Hiragino Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --fg:#e8eee9; --sub:#9fb0a7; --paper:#1b2420; --line:#33423b;
+  --accent:#3fa37d; --accent-fg:#0d1411; --red:#ff6b6b; --mark:#5c4d10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --fg:#e8eee9; --sub:#9fb0a7; --paper:#1b2420; --line:#33423b;
+  --accent:#3fa37d; --accent-fg:#0d1411; --red:#ff6b6b; --mark:#5c4d10; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-block:18px 28px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:16px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:700;font-size:1.15rem;padding:10px 18px;border-radius:8px;border:2px solid var(--line);background:var(--paper);color:var(--fg);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.tabs button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.school button{font-size:1rem;padding:8px 14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px 32px;display:flex;flex-direction:column;gap:18px}
+.head{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}
+.head h1{margin:0;font-size:2rem}
+.head .meta{font-size:1.2rem;color:var(--sub)}
+.text{font-size:clamp(1.3rem,2.6vw,2.05rem);line-height:1.9;margin:0}
+mark{background:var(--mark);color:inherit;padding:0 .1em}
+.cond{color:var(--red);font-weight:700}
+.word{font-weight:700;font-size:1.1em}
+.note{font-size:1.15rem;font-weight:700;color:var(--red);margin:0}
+.src{font-size:.85rem;color:var(--sub);margin:0}
+.hint{font-size:.85rem;color:var(--sub)}
+@media (max-width:600px){.card{padding:18px}.head h1{font-size:1.5rem}}
+</style>
+
+<div class="wrap">
+  <div class="bar">
+    <div class="tabs school" role="tablist" aria-label="学校">
+      <button type="button" id="s-adachi" role="tab" data-school="adachi" aria-selected="true">足立高校</button>
+      <button type="button" id="s-joto" role="tab" data-school="joto" aria-selected="false">城東高校</button>
+    </div>
+    <span class="hint">キーボードの ← → でも年度を切り替え</span>
+  </div>
+  <div class="tabs" role="tablist" aria-label="年度" id="years"></div>
+  <article class="card" id="card" aria-live="polite"></article>
+  <p class="src">出典：東京都教育委員会「東京都立高等学校入学者選抜における推薦に基づく選抜で実施した小論文・作文、実技検査のテーマ等一覧」令和5〜8年度</p>
+</div>
+
+<script>
+var DATA={
+ adachi:{name:"足立高校",meta:"作文　50分　480〜600字",years:[
+  {y:"令和8年度",when:"2026年1月",t:'本校では学習面や生活面など、あらゆる場面で自ら考え行動する力の育成を重視しています。あなたがあきらめずに行動したことを<mark>自身の経験をもとに</mark>具体的に書きなさい。また、その経験によってあなたがどう変わったのかを書き、それを<mark>今後の学校生活にどう生かしていくか</mark>述べなさい。書く際には以下の条件に従うこと。<br><span class="cond">条件　【ふさわしい題】を１行程度で付けなさい。</span>'},
+  {y:"令和7年度",when:"2025年1月",t:'本校では新しい取り組みに挑戦する姿勢を大切にしています。これまでに挑戦したことを、<mark>自身の経験を基に</mark>、理由も含めて一つ挙げなさい。また、その挑戦によって、あなたが他人や集団にどのように貢献できたかを書き、<mark>今後の学校生活にどう生かしていくか</mark>述べなさい。書く際には以下の条件に従うこと。<br><span class="cond">条件　【ふさわしい題】を１行程度で付けなさい。</span>'},
+  {y:"令和6年度",when:"2024年1月",t:'あなたは学校行事の中心的な役割を任されました。「他人と協力する」ことを重視し、準備や行事当日の運営をしていく中で必要な力を二つ挙げ、その理由も書きなさい。<br>また、<mark>今後の学校生活にどう生かしていくか</mark>具体的に述べなさい。',note:"この年だけ、題の条件がありません"},
+  {y:"令和5年度",when:"2023年1月",t:'今は、コミュニケーションの手段としてスマートフォンやパソコンが多用されています。あなたが考えるよりよいコミュニケーションとはどのようなものですか。<br><span class="cond">【ふさわしい題】を１行程度で付けた上で、</span><mark>具体例を挙げながら</mark>説明し、それを<mark>今後の学校生活にどう生かしていくか</mark>、述べなさい。'}
+ ]},
+ joto:{name:"城東高校",meta:"作文　50分　540〜600字",years:[
+  {y:"令和8年度",when:"2026年1月",t:'<span class="word">「知るだけでは不十分である。どう使うかが大切である。」</span><mark>という言葉がある。自分の体験を例に挙げ、この言葉についてのあなたの考えを述べよ。</mark>'},
+  {y:"令和7年度",when:"2025年1月",t:'<span class="word">「時間を大切にすることは未来を切り拓く」</span><mark>という言葉がある。自分の体験を例に挙げ、この言葉についてのあなたの考えを述べよ。</mark>'},
+  {y:"令和6年度",when:"2024年1月",t:'<span class="word">「本当のやさしさは、強さや厳しさを伴うものである」</span><mark>という言葉がある。自分の体験を例に挙げ、この言葉についてのあなたの考えを述べよ。</mark>'},
+  {y:"令和5年度",when:"2023年1月",t:'<span class="word">「学ぶことは、自分自身をつくり変えることである。」</span><mark>という言葉がある。自分の体験を例に挙げ、この言葉についてのあなたの考えを述べよ。</mark>'}
+ ]}
+};
+var school="adachi", idx=0;
+var yearsEl=document.getElementById('years'), card=document.getElementById('card');
+function render(){
+  var s=DATA[school], d=s.years[idx];
+  yearsEl.innerHTML=s.years.map(function(v,i){return '<button type="button" role="tab" id="y-'+i+'" data-i="'+i+'" aria-selected="'+(i===idx)+'">'+v.y+'</button>';}).join('');
+  card.innerHTML='<div class="head"><h1>'+s.name+'　'+d.y+'</h1><span class="meta">'+d.when+'実施　／　'+s.meta+'</span></div><p class="text">'+d.t+'</p>'+(d.note?'<p class="note">'+d.note+'</p>':'');
+  document.querySelectorAll('[data-school]').forEach(function(b){b.setAttribute('aria-selected',b.dataset.school===school);});
+}
+yearsEl.addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(b){idx=+b.dataset.i;render();}});
+document.querySelectorAll('[data-school]').forEach(function(b){b.addEventListener('click',function(){school=b.dataset.school;idx=0;render();});});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'){idx=Math.min(3,idx+1);render();}
+  if(e.key==='ArrowLeft'){idx=Math.max(0,idx-1);render();}
+});
+render();
+</script>
+
+</html>
