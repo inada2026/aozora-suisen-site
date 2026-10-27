@@ -18,3 +18,16 @@ body[data-page="top"] .mobile-menu nav a,body[data-page="soudan"] .mobile-menu n
 /* 動画が2つ続くときは、2つ目を右に置いて互い違いにする（2026-10-27 稲田さん） */
 @media(min-width:769px){.video-row+.video-row{grid-template-columns:1fr 260px}.indexed .video-row+.video-row{grid-template-columns:1fr 200px}.video-row+.video-row>figure{order:2}.video-row+.video-row+.video-row{grid-template-columns:260px 1fr}.indexed .video-row+.video-row+.video-row{grid-template-columns:200px 1fr}.video-row+.video-row+.video-row>figure{order:0}}
 @media(max-width:1000px) and (min-width:769px){.indexed .video-row+.video-row,.indexed .video-row+.video-row+.video-row{grid-template-columns:1fr}.indexed .video-row+.video-row>figure{order:0}.video-row+.video-row{grid-template-columns:1fr 220px}}
+
+/* トップの写真を講師4人にして、写真の下に文字を置く形（2026-10-27） */
+.hero.hero-light{min-height:0;display:block;background:var(--warm);color:var(--ink)}
+.hero.hero-light::before{display:none}
+.hero-light .hero-photo{margin:0}
+.hero-light .hero-photo img{width:100%;aspect-ratio:1600/769;max-height:440px;object-fit:cover;object-position:50% 22%}
+.hero-light .hero-inner{padding-top:56px;padding-bottom:72px}
+.hero-light h1{color:var(--navy)}
+.hero-light .hero-body .cta{background:var(--navy);color:var(--white)}
+.hero-light .hero-body .cta:hover{background:var(--deep)}
+.hero-light .hero-body .line-link,.hero-light .small,.hero-light .chk a{color:var(--navy)}
+.hero-light .photo-caption{color:var(--muted)}
+@media(max-width:768px){.hero.hero-light{min-height:0}.hero-light .hero-inner{padding-top:32px;padding-bottom:48px}}
