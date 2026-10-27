@@ -14,3 +14,7 @@ body[data-page="top"] .mobile-menu nav a,body[data-page="soudan"] .mobile-menu n
 .hero .small{color:var(--on-dark)}.nowrap{white-space:nowrap}
 
 .video-pending{display:block;width:fit-content;margin:0 0 12px;padding:6px 14px;border:1px solid var(--terra);border-radius:3px;background:var(--paper);color:var(--navy);font-size:14px;font-weight:600;letter-spacing:.06em}.video-note{display:block;margin:28px 0 16px}
+
+/* 動画が2つ続くときは、2つ目を右に置いて互い違いにする（2026-10-27 稲田さん） */
+@media(min-width:769px){.video-row+.video-row{grid-template-columns:1fr 260px}.indexed .video-row+.video-row{grid-template-columns:1fr 200px}.video-row+.video-row>figure{order:2}.video-row+.video-row+.video-row{grid-template-columns:260px 1fr}.indexed .video-row+.video-row+.video-row{grid-template-columns:200px 1fr}.video-row+.video-row+.video-row>figure{order:0}}
+@media(max-width:1000px) and (min-width:769px){.indexed .video-row+.video-row,.indexed .video-row+.video-row+.video-row{grid-template-columns:1fr}.indexed .video-row+.video-row>figure{order:0}.video-row+.video-row{grid-template-columns:1fr 220px}}
