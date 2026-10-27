@@ -35,3 +35,6 @@ body[data-page="top"] .site-header,body[data-page="soudan"] .site-header{positio
 body[data-page="top"] .site-header .brand,body[data-page="soudan"] .site-header .brand,body[data-page="top"] .desktop-nav a,body[data-page="soudan"] .desktop-nav a{color:var(--navy)}
 body[data-page="top"] .site-header .brand small,body[data-page="soudan"] .site-header .brand small{color:var(--muted)}
 body[data-page="top"] .desktop-nav a:last-child,body[data-page="soudan"] .desktop-nav a:last-child{color:var(--white)}
+
+/* 受験生チャレンジ支援貸付の見出しの下に、制度の動画を置く（2026-10-27） */
+.heading-video{margin:28px 36px 0 0}.heading-video figcaption{font-size:12px;color:var(--muted);margin-top:8px}@media(max-width:768px){.heading-video{margin:20px 0 8px}}
