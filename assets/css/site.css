@@ -31,3 +31,7 @@ body[data-page="top"] .mobile-menu nav a,body[data-page="soudan"] .mobile-menu n
 .hero-light .hero-body .line-link,.hero-light .small,.hero-light .chk a{color:var(--navy)}
 .hero-light .photo-caption{color:var(--muted)}
 @media(max-width:768px){.hero.hero-light{min-height:0}.hero-light .hero-inner{padding-top:32px;padding-bottom:48px}}
+body[data-page="top"] .site-header,body[data-page="soudan"] .site-header{position:relative;background:var(--warm);border-bottom:1px solid var(--line);color:var(--navy)}
+body[data-page="top"] .site-header .brand,body[data-page="soudan"] .site-header .brand,body[data-page="top"] .desktop-nav a,body[data-page="soudan"] .desktop-nav a{color:var(--navy)}
+body[data-page="top"] .site-header .brand small,body[data-page="soudan"] .site-header .brand small{color:var(--muted)}
+body[data-page="top"] .desktop-nav a:last-child,body[data-page="soudan"] .desktop-nav a:last-child{color:var(--white)}
