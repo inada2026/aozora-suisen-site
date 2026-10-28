@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>推薦対策コース 受講生のページ｜あおぞら作文教室</title>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+/* このページだけの部品。色と文字は site.css の変数をそのまま使う */
+.brand-logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--navy)}
+.brand-logo img{width:72px;height:auto}
+.brand-logo span{font-family:var(--heading);font-size:24px;line-height:1.35;font-weight:600}
+.brand-logo small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.progress{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted)}
+.progress .track{width:160px;height:4px;background:var(--line)}
+.progress .track span{display:block;height:100%;width:0;background:var(--terra);transition:width .4s}
+.progress b{font:20px var(--heading);color:var(--navy)}
+
+.page-hero .course{font-family:var(--heading);color:var(--navy);font-size:46px;font-weight:600;line-height:1.3;margin:0 0 6px;letter-spacing:.02em}
+.page-hero .course small{display:block;font:500 13px var(--body);letter-spacing:.14em;color:var(--terra);margin-bottom:10px}
+.page-hero h1{font-size:28px;line-height:1.6;color:var(--ink);margin-bottom:22px}
+.page-hero h1 .l{display:inline-block;white-space:nowrap}
+.page-hero .lead{font-size:15px;line-height:2}
+.page-hero figure img{aspect-ratio:4/3;object-fit:cover}
+.page-hero .teachers-photo img{aspect-ratio:auto}
+
+.teacher-note{display:grid;grid-template-columns:200px 1fr;gap:0 56px;align-items:center;max-width:900px}
+.teacher-note .portrait{width:200px;height:200px}
+.teacher-note figcaption{text-align:center;font-size:13px;margin-top:16px}
+.teacher-note h2{font-size:26px;margin-bottom:18px}
+.teacher-note p{font-size:15px;line-height:2}
+
+.lesson{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;padding:26px 0;border-top:1px solid var(--line)}
+.lesson:last-child{border-bottom:1px solid var(--line)}
+.lesson .thumbnail{display:block;text-decoration:none;align-self:start}
+.lesson .thumbnail .len{position:absolute;right:6px;bottom:6px;background:rgba(15,26,48,.85);color:#fff;font-size:11px;padding:0 7px;border-radius:2px}
+.lesson .thumbnail .play{position:absolute;left:8px;bottom:8px;width:28px;height:28px;border-radius:50%;background:rgba(253,252,250,.95);display:flex;align-items:center;justify-content:center}
+.lesson .thumbnail .play::after{content:"";margin-left:3px;border-left:9px solid var(--navy);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.lesson .no{font:15px var(--heading);color:var(--terra)}
+.lesson h3{margin:2px 0 10px;font-size:19px}
+.lesson h3 a{text-decoration:none}
+.lesson h3 a:hover{text-decoration:underline}
+.kadai{border-left:2px solid var(--terra);padding:2px 0 2px 16px;font-size:14px;line-height:1.9;margin:0 0 14px}
+.kadai b{display:block;font:500 12px var(--body);letter-spacing:.12em;color:var(--terra)}
+.watched{font:13px var(--body);color:var(--navy);background:none;border:1px solid var(--line);border-radius:4px;padding:8px 16px;min-height:40px;cursor:pointer}
+.watched:hover{border-color:var(--navy)}
+.watched[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.lesson.done .thumbnail::after{content:"見終わった";position:absolute;left:0;top:0;background:var(--terra);color:#fff;font-size:11px;padding:2px 10px}
+
+.types{display:flex;flex-wrap:wrap;gap:0 26px;border-bottom:1px solid var(--line);margin-bottom:0}
+.types button{font:14px var(--body);color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;padding:12px 0;margin-bottom:-1px;cursor:pointer;min-height:44px}
+.types button[aria-selected="true"]{color:var(--navy);border-color:var(--terra)}
+.types + div .lesson:first-child{border-top:none}
+.coming{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
+.coming b{font:500 12px var(--body);letter-spacing:.1em;color:var(--terra);white-space:nowrap;padding-top:2px}
+.coming p{margin:0}
+.lesson + .coming{border-top:none}
+
+.late .route{list-style:none;padding:0;margin:26px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.late .route li{margin:0;font-family:var(--heading);font-size:18px}
+.late .route .s{border:1px solid rgba(240,236,232,.5);padding:6px 16px}
+.late .route .a{opacity:.6}
+
+@media(max-width:768px){
+  .brand-logo{gap:10px}
+  .brand-logo img{width:68px}
+  .brand-logo span{font-size:18px;white-space:nowrap}
+  .progress .track{display:none}
+  .brand-logo span small{display:none}
+  .progress{gap:8px}
+  .progress span.label{display:none}
+  .page-hero{padding:44px 0 56px}
+  .page-hero .course{font-size:34px}
+  .page-hero h1{font-size:22px}
+  .progress .track{width:72px}
+  .page-hero h1{font-size:28px}
+  .teacher-note{grid-template-columns:1fr;text-align:left}
+  .teacher-note figure{justify-self:center;margin-bottom:24px}
+  .lesson{grid-template-columns:120px minmax(0,1fr);gap:16px}
+}
+@media(max-width:440px){
+  .lesson{grid-template-columns:1fr}
+  .progress span.label{display:none}
+}
+@media print{.watched,.progress{display:none}}
+
+/* 講師の写真を上の帯に（2026-10-27） */
+.page-hero{padding-top:0}
+.page-hero>.wrap{align-items:end}
+.page-hero .hero-band{margin:0 0 52px}
+.page-hero .hero-band img{width:100%;aspect-ratio:1600/769;max-height:380px;object-fit:cover;object-position:50% 22%}
+.page-hero .hero-band figcaption{font-size:11px;color:var(--muted);padding-top:8px}
+.page-hero .flow.compact{margin:0}
+@media(max-width:768px){.page-hero{padding-top:0}.page-hero .hero-band{margin-bottom:28px}.page-hero>.wrap{gap:8px}}
+</style>
+<script src="assets/js/motion.js"></script></head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+
+<header class="site-header"><div class="wrap">
+  <a class="brand-logo" href="kouza.html"><img src="assets/img/logo.svg" alt="あおぞら作文教室"><span>都立推薦対策コース<small>受講生のページ</small></span></a>
+  <div class="progress" aria-live="polite"><span class="label">見終わった動画</span><span class="track"><span id="bar"></span></span><span><b id="n">0</b> / <span id="total">0</span></span></div>
+</div></header>
+
+<main id="main">
+
+<section class="page-hero">
+<figure class="hero-band"><img src="assets/img/teachers-1600.webp" srcset="assets/img/teachers-800.webp 800w, assets/img/teachers-1600.webp 1600w" sizes="100vw" alt="あおぞら作文教室の講師たち" width="1600" height="769"><figcaption class="wrap">あおぞら作文教室の講師たち（左から3人目が塾長の眞野玲子）</figcaption></figure>
+<div class="wrap">
+  <div>
+    <p class="course"><small>受講生のページ　11月〜1月末</small>都立推薦対策コース</p>
+    <h1><span class="l">動画で学んで　</span><span class="l">書いて　見てもらう</span></h1>
+    <p class="lead">上から順に動画を見て、見終わったら課題をノートに書きましょう。ノートは次の授業に持ってきてください。</p>
+  </div>
+  <div>
+    <ol class="flow compact">
+      <li><span class="step-number">1</span><div>動画を見る　1本は数分〜10分ほど</div></li>
+      <li><span class="step-number">2</span><div>課題をノートに書く　5〜10分でできます</div></li>
+      <li><span class="step-number">3</span><div>次の授業で、眞野先生に見てもらう</div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="section warm"><div class="wrap teacher-note">
+  <figure><img class="portrait" src="assets/img/portrait.webp" alt="眞野玲子"><figcaption>塾長　眞野玲子</figcaption></figure>
+  <div>
+    <h2>動画で基礎を　授業でその子に合わせて</h2>
+    <p>書き方の基礎は、動画で何度でも見返せます。授業の時間は、一人ひとりの作文と志望校に合わせた指導に使います。分からないところは、そのままにせず授業で聞いてください。</p>
+  </div>
+</div></section>
+
+<section class="section indexed"><div class="wrap">
+  <span class="section-number">01</span>
+  <div class="section-heading"><p class="eyebrow">入会した週</p><h2>まず全体の地図をつかむ</h2><p class="small">推薦入試で何が聞かれるのか、志望校がどんな子を求めているのかを知ります。</p></div>
+  <div id="s1"></div>
+</div></section>
+
+<section class="section paper indexed"><div class="wrap">
+  <span class="section-number">02</span>
+  <div class="section-heading"><p class="eyebrow">11月前半・全員</p><h2>書く力の基礎</h2><p class="small">原稿用紙の使い方から、意見の書き方まで。ここが全部の土台になります。</p></div>
+  <div id="s2"></div>
+</div></section>
+
+<section class="section indexed"><div class="wrap">
+  <span class="section-number">03</span>
+  <div class="section-heading"><p class="eyebrow">11月後半・自分の型だけ</p><h2>志望校の「型」の対策</h2><p class="small">01の1本目の課題で調べた、自分の志望校の型をえらんでください。</p></div>
+  <div><div class="types" role="tablist" id="types"></div><div id="s3"></div></div>
+</div></section>
+
+<section class="section paper indexed"><div class="wrap">
+  <span class="section-number">04</span>
+  <div class="section-heading"><p class="eyebrow">11月後半〜12月</p><h2>面接と自己PRカード</h2><p class="small">自分のよさを、志望校が求める姿とつなげて話せるようにします。</p></div>
+  <div><div id="s4"></div><div class="coming"><b>撮影中</b><p>面接の動画4本（話すのが得意な子／苦手な子／「自分には何もない」と思っている子／自己PR）を、公開したらここに追加します。</p></div></div>
+</div></section>
+
+<section class="section indexed"><div class="wrap">
+  <span class="section-number">05</span>
+  <div class="section-heading"><p class="eyebrow">11月〜12月・志望校の回だけ</p><h2>志望校別の対策</h2></div>
+  <div><div class="coming"><b>順に公開</b><p>学校ごとの動画を、撮影した順に追加します。見たら、その学校の過去問を1年分書いて、個別指導で見てもらいましょう。</p></div></div>
+</div></section>
+
+<section class="section paper indexed"><div class="wrap">
+  <span class="section-number">06</span>
+  <div class="section-heading"><p class="eyebrow">12月・1月</p><h2>直前の対策</h2></div>
+  <div><div class="coming"><b>12月から</b><p>本番の前に見ておきたいポイントを、12月と1月に公開します。</p></div></div>
+</div></section>
+
+<section class="section navy late"><div class="wrap" style="max-width:760px">
+  <p class="eyebrow">12月から始める人へ</p>
+  <h2>この順番で進めれば間に合います</h2>
+  <ol class="route"><li class="s">01 地図</li><li class="a">→</li><li class="s">03 自分の型</li><li class="a">→</li><li class="s">04 面接</li><li class="a">→</li><li class="s">05 志望校</li></ol>
+  <p>02の基礎は、最初の授業で眞野先生が「この動画を」とえらんだものだけで大丈夫です。</p>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <div class="footer-head"><a class="brand" href="kouza.html">あおぞら作文教室</a><p>都立推薦対策コース　受講生のページ</p></div>
+</div></footer>
+
+<script>
+// 動画の一覧（YouTubeのid・題・長さ・課題）。差し替えはここだけ
+var DATA = {
+  s1: [
+    ["t_Tl-pd2Tvg","作文の出題3パターンと、面接の原稿づくり","5:46","自分の志望校が3パターンのどれか、学校のホームページで過去問を見て書きましょう。"],
+    ["iTaot2gS1TM","「本校の期待する生徒の姿」徹底解説","9:22","志望校の「期待する生徒の姿」を書き写して、自分に当てはまるところに線を引きましょう。"],
+    ["CV-3_2e7P5k","推薦入試の作文問題 どんどん難しくなっています","12:42",""]
+  ],
+  s2: [
+    ["WsOJa3EtI5Q","合格を勝ち取る 基本の書き方","2:28","原稿用紙の使い方を守って、自己紹介を200字で書きましょう。"],
+    ["Vtg2SD2IHfc","上手く伝わる作文とは？","2:41","前の課題の200字を、伝わる形に書き直しましょう。"],
+    ["NurBsmPgDvU","意見作文の書き方","4:43","「中学生に宿題は必要か」について、あなたの意見と理由を1つ、150字で書きましょう。"],
+    ["TohpMXjq1Dg","読み手を引きつける作文の技法","7:39","前の課題の書き出しを、2通り書いてみましょう。"],
+    ["iuL7tGx0yO0","作文に必要な3つの視点","8:17","同じテーマを3つの視点からメモしましょう（文にしなくて大丈夫です）。"]
+  ],
+  s3: [
+    ["テーマ型", [
+      ["VmLs0R7adMU","流れが重要！ 課題・解決・提案","8:06","身近な課題を1つ選び、「課題→解決→提案」の順にメモしましょう。"]
+    ]],
+    ["資料読み取り型", [
+      ["jeS7ErfrjJ8","資料読み取りのコツ","9:31","志望校の過去問の資料を見て、読み取れることを3つ箇条書きにしましょう。"],
+      ["Cd7wLJg-85I","苦戦しがちな読解問題のコツ 前編","6:32",""],
+      ["slrdICCnrhI","苦戦しがちな読解問題のコツ 後編","9:56","過去問の文章を読んで、筆者の言いたいことを1文でまとめましょう。"]
+    ]],
+    ["志望動機型", [
+      ["T_Xq1Lzjpb8","志望動機の書き方とコツ","0:51","その学校を選んだ理由を、思いつくだけ箇条書きにしましょう。"]
+    ]],
+    ["チャレンジスクール", []]
+  ],
+  s4: [
+    ["CJA0zIDUIe4","しっかり自己アピールしよう","5:48","中学校でがんばったことを3つ、箇条書きにしましょう。"],
+    ["0RiFGwD5K_w","自分を知る 相手を知る 大切なのはマッチング","7:52","01で線を引いた「期待する生徒の姿」と、がんばったこと3つをつなげて1文にしましょう。"]
+  ]
+};
+
+var KEY = "aozora30-done", KEY_TYPE = "aozora30-type";
+function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+var done = load(KEY, {}) || {}, ids = [];
+
+function lesson(v, n) {
+  var id = v[0], url = "https://www.youtube.com/watch?v=" + id;
+  var el = document.createElement("article");
+  el.className = "lesson" + (done[id] ? " done" : "");
+  el.innerHTML =
+    '<a class="thumbnail" href="' + url + '" target="_blank" rel="noopener" aria-label="' + esc(v[1]) + 'を見る">' +
+      '<img loading="lazy" alt="" src="https://i.ytimg.com/vi/' + id + '/mqdefault.jpg"><span class="play"></span><span class="len">' + v[2] + '</span></a>' +
+    '<div><span class="no">' + ("0" + n).slice(-2) + '</span>' +
+      '<h3><a href="' + url + '" target="_blank" rel="noopener">' + esc(v[1]) + '</a></h3>' +
+      (v[3] ? '<p class="kadai"><b>課題</b>' + esc(v[3]) + '</p>' : '') +
+      '<button type="button" class="watched" aria-pressed="' + (done[id] ? "true" : "false") + '">' + (done[id] ? "見終わった" : "見終わったら押す") + '</button></div>';
+  var b = el.querySelector(".watched");
+  b.addEventListener("click", function () {
+    done[id] = !done[id];
+    el.classList.toggle("done", done[id]);
+    b.setAttribute("aria-pressed", done[id] ? "true" : "false");
+    b.textContent = done[id] ? "見終わった" : "見終わったら押す";
+    save(KEY, done); update();
+  });
+  return el;
+}
+function track(list) { list.forEach(function (v) { if (ids.indexOf(v[0]) < 0) ids.push(v[0]); }); }
+
+["s1", "s2", "s4"].forEach(function (k) {
+  var box = document.getElementById(k);
+  DATA[k].forEach(function (v, i) { box.appendChild(lesson(v, i + 1)); });
+  track(DATA[k]);
+});
+
+var types = document.getElementById("types"), panel = document.getElementById("s3");
+DATA.s3.forEach(function (g) { track(g[1]); });
+var cur = load(KEY_TYPE, 0);
+if (typeof cur !== "number" || cur < 0 || cur >= DATA.s3.length) cur = 0;
+function showType(i) {
+  cur = i; save(KEY_TYPE, i);
+  Array.prototype.forEach.call(types.children, function (t, j) { t.setAttribute("aria-selected", j === i ? "true" : "false"); });
+  panel.innerHTML = "";
+  var list = DATA.s3[i][1];
+  if (list.length) list.forEach(function (v, j) { panel.appendChild(lesson(v, j + 1)); });
+  else panel.innerHTML = '<div class="coming"><b>準備中</b><p>チャレンジスクールの動画は準備中です。志願申告書と作文は、個別指導でいっしょに進めます。</p></div>';
+}
+DATA.s3.forEach(function (g, i) {
+  var t = document.createElement("button");
+  t.type = "button"; t.setAttribute("role", "tab"); t.textContent = g[0];
+  t.addEventListener("click", function () { showType(i); });
+  types.appendChild(t);
+});
+showType(cur);
+
+function update() {
+  var n = ids.filter(function (id) { return done[id]; }).length;
+  document.getElementById("bar").style.width = (ids.length ? n / ids.length * 100 : 0) + "%";
+  document.getElementById("n").textContent = n;
+  document.getElementById("total").textContent = ids.length;
+}
+update();
+</script>
+</body>
+</html>
