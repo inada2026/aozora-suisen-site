@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>江北高校 推薦小論文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* 10/29 江北高校の回でZoomに共有する画面。→キーだけで1→9と進む */
+:root{
+  --bg:#f6f7f4; --fg:#16201c; --sub:#55625c; --paper:#ffffff; --line:#d5dbd6;
+  --accent:#1b6b4f; --accent-fg:#ffffff; --red:#c8202b; --mark:#ffe680;
+  --f:"BIZ UDPGothic","Yu Gothic","Hiragino Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --fg:#e8eee9; --sub:#9fb0a7; --paper:#1b2420; --line:#33423b;
+  --accent:#3fa37d; --accent-fg:#0d1411; --red:#ff6b6b; --mark:#5c4d10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --fg:#e8eee9; --sub:#9fb0a7; --paper:#1b2420; --line:#33423b;
+  --accent:#3fa37d; --accent-fg:#0d1411; --red:#ff6b6b; --mark:#5c4d10; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-block:18px 28px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tabs button{font:inherit;font-weight:700;font-size:1.05rem;padding:9px 14px;border-radius:8px;border:2px solid var(--line);background:var(--paper);color:var(--fg);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.tabs button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.hint{font-size:.85rem;color:var(--sub);margin-left:auto}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-height:52vh}
+.head{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}
+.head h1{margin:0;font-size:2rem}
+.head .meta{font-size:1.2rem;color:var(--sub)}
+.text{font-size:clamp(1.3rem,2.6vw,2.05rem);line-height:1.9;margin:0}
+.text.sm{font-size:clamp(1.1rem,2vw,1.55rem);line-height:1.8}
+mark{background:var(--mark);color:inherit;padding:0 .1em}
+.word{font-weight:700;font-size:1.1em}
+.big{font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:700;line-height:1.6;margin:0}
+.eq{color:var(--red)}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:clamp(1.2rem,2.4vw,1.8rem);line-height:1.6}
+.list b{display:inline-block;min-width:6.5em;color:var(--sub);font-weight:700}
+.src{font-size:.85rem;color:var(--sub);margin:0}
+@media (max-width:600px){.card{padding:18px}.head h1{font-size:1.5rem}}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="tabs" role="tablist" aria-label="画面" id="tabs"></div>
+  <article class="card" id="card" aria-live="polite"></article>
+  <p class="src" id="src"></p>
+</div>
+<script>
+var PAGES=[
+ {tab:"1 配点",src:"出典：東京都教育委員会「令和9年度 東京都立高等学校入学者選抜 実施方法一覧（普通科）」109ページ／字数・時間：令和8年度の問題用紙（学校のホームページ）",html:"<div class=\"head\"><h1>江北高校　推薦（2027年1月）</h1><span class=\"meta\">小論文　50分　150〜200字＋300〜400字</span></div><p class=\"big\">内申（調査書）450　｜　面接 150　｜　小論文 300</p><p class=\"big\">小論文＋面接 450 <span class=\"eq\">＝</span> 内申 450</p><p class=\"text\">昨年度（令和8年度）　募集64人 → 応募187人　2.92倍</p>"},
+ {tab:"2 令和8年度・大問1",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和8年度　テーマ：可処分所得と社会保障　大問1</h1></div><p class=\"text sm\">（資料Ⅰ〜Ⅲ：可処分所得・月収・税と社会保険料の割合）<br>問１「資料Ⅰから，1999年の可処分所得に対する2019年の可処分所得の割合を％で答えなさい。」<br>問２「1999年から2019年の可処分所得が資料Ⅰのように推移した理由について，1999年から2009年と2009年から2019年の２つの期間に着目して，資料Ⅱ，資料Ⅲから読み取れることを150字以上200字以内で述べなさい。」</p>"},
+ {tab:"3 令和8年度・大問2",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和8年度　テーマ：可処分所得と社会保障　大問2</h1></div><p class=\"text sm\">（資料Ⅳ〜Ⅶ：社会保障給付費の見通し・各国の比較）<br>意見「税金と社会保険料の負担を小さくして，可処分所得を増やすべきだ。」<br>「その意見に対して賛成か反対かあなたの立場を明確にし,資料Ⅳ～資料Ⅶの中から３つ以上の資料を活用して，「2040年の日本の社会で考えられる課題と今後の日本の社会保障の在り方」について，あなたの考えを300字以上400字以内で述べなさい。」</p>"},
+ {tab:"4 令和7年度・大問1",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和7年度　テーマ：日本の農業　大問1</h1></div><p class=\"text sm\">（資料Ⅰ・Ⅱ：農業就業人口の現状と予想推移）<br>問１「資料Ⅰより，2020年の農業就業人口に対する2050年の農業就業人口の割合を％で答えなさい。」<br>問２「資料Ⅰ，資料Ⅱを活用し，2020年と2050年を比較して，日本の農業就業人口の推移とその要因について，150字以上200字以内で述べなさい。」</p>"},
+ {tab:"5 令和7年度・大問2",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和7年度　テーマ：日本の農業　大問2</h1></div><p class=\"text sm\">（資料Ⅲ〜Ⅴ：ロボット市場・食品ロス・農産物の輸出額）<br>「３つの提案の中からあなたが同意する提案を１つ選び，また，資料Ⅲ～資料Ⅴの中から２つの資料を活用して，「持続可能な農業の実現に向けた取組」について，あなたの考えを300字以上400字以内で述べなさい。」<br>提案Ａ「生産現場の立場から，高収量・高付加価値化等によって，農業を支えていく。」<br>提案Ｂ「流通・小売・輸出等の立場から，流通コストの低減等によって，農業を支えていく。」<br>提案Ｃ「行政の立場から，効率的・効果的な情報受発信等によって，農業を支えていく。」</p>"},
+ {tab:"6 令和6年度・大問1",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和6年度　テーマ：少子高齢化　大問1</h1></div><p class=\"text sm\">（資料Ⅰ〜Ⅲ：高齢化の推移・出生数・世界の高齢化率）<br>問１「資料Ⅰから2030年の総人口に対する65歳以上の割合を％で答えなさい。」<br>問２「資料Ⅰ，資料Ⅱ，資料Ⅲを活用して，現在の日本の高齢化の状況とその要因および世界と比べた日本の高齢化率の状況について，150字以上200字以内で述べなさい。」</p>"},
+ {tab:"7 令和6年度・大問2",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和6年度　テーマ：少子高齢化　大問2</h1></div><p class=\"text sm\">（資料Ⅳ〜Ⅵ：平均寿命と健康寿命・支える割合・2040年の未来予測）<br>「日本の少子高齢化は，今後も進むことが予想されています。資料Ⅳ，資料Ⅴを活用したうえで，2040年の社会の状況について述べ，資料Ⅵのア～オのうちから１つ選び，2040年の社会で，あなたがどのように社会貢献していくかについて300字以上400字以内で述べなさい。」</p>"},
+ {tab:"8 令和5年度・大問1",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和5年度　テーマ：異文化理解と英語　大問1</h1></div><p class=\"text sm\">（資料Ⅰ：「異文化理解力・対応力」の調査）<br>「グラフ・表Ａ，グラフ・表Ｂを活用して，日本と諸外国について「異文化理解力・対応力」を身に付けていると思うかに着目して，どのようなことが読み取れるか，150字以上200字以内で述べなさい。」</p>"},
+ {tab:"9 令和5年度・大問2",src:"出典：江北高校ホームページ 推薦 小論文",html:"<div class=\"head\"><h1>江北高校　令和5年度　テーマ：異文化理解と英語　大問2</h1></div><p class=\"text sm\">（資料Ⅱ〜Ⅳ：母語人口・話されている言語・ウェブサイトの言語）<br>「なぜ，英語を学ぶのか」についての2つのグループの意見（Ａ：英語を学ぶべき／Ｂ：そこまで学ぶ必要はない）<br>問１　空欄Ｘ・Ｙに入る数字を答える（計算）<br>問２「「なぜ，英語を学ぶのか」について，２つのグループのどちらを支持するか明確にした上で，３つの資料を活用し，あなたの考えを300字以上400字以内で述べなさい。」</p>"}
+];
+var idx=0, tabs=document.getElementById('tabs'), card=document.getElementById('card'), src=document.getElementById('src');
+function render(){
+  tabs.innerHTML=PAGES.map(function(p,i){return '<button type="button" role="tab" data-i="'+i+'" aria-selected="'+(i===idx)+'">'+p.tab+'</button>';}).join('')+'<span class="hint">キーボードの → で次へ、← で戻る</span>';
+  card.innerHTML=PAGES[idx].html; src.textContent=PAGES[idx].src;
+}
+tabs.addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(b){idx=+b.dataset.i;render();}});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'){idx=Math.min(PAGES.length-1,idx+1);render();}
+  if(e.key==='ArrowLeft'){idx=Math.max(0,idx-1);render();}
+});
+render();
+</script>
+</body></html>
