@@ -73,5 +73,35 @@ body[data-page="top"] .desktop-nav a:last-child,body[data-page="soudan"] .deskto
 .video-facade .play{left:auto;top:auto;right:10px;bottom:10px;margin:0;width:44px;height:32px;border-radius:9px}.video-facade .play::after{left:17px;top:9px;border-width:7px 0 7px 12px}
 .video-facade .play{display:none}.video-facade:hover img{opacity:.9}
 
-.hero-light .hero-photo img.sakura{object-position:0 50%}
-@media(min-width:769px){.hero-light .hero-photo img.sakura{aspect-ratio:1916/821;max-height:600px;object-position:50% 30%}}
+.hero-light .hero-photo img.sakura{object-position:50% 50%}
+@media(min-width:769px){.hero-light .hero-photo img.sakura{aspect-ratio:1300/490;max-height:none;object-position:50% 50%}}
+
+/* 10/30 文字を大きく・本文の幅を広く（眞野先生「文字が小さい」10/29） */
+body{font-size:18px}
+.wrap{width:min(1160px,calc(100% - 64px))}
+.eyebrow{font-size:15px}
+.hero h1,.hero-light h1{font-size:46px}
+.hero-body{max-width:860px}.hero-body p{font-size:18px}.hero-body>.small,.hero .small{font-size:15px}
+.hero .photo-caption,.hero-light .photo-caption{font-size:13px}
+.desktop-nav a{font-size:15px}.brand{font-size:24px}.brand small{font-size:13px}
+.cta{font-size:17px}.line-link{font-size:16px}
+.atmosphere p{font-size:16px}.atmosphere small{font-size:13px}
+.section.reading>.wrap,.section.empathy>.wrap,.section.questions>.wrap,.section.fees>.wrap,.section.closing>.wrap{max-width:920px}
+h2{font-size:32px}h3{font-size:23px}.indexed h2,.school h2{font-size:28px}
+.video-copy p,.flow li div,.faq>div,.reading-grid p,.text-link,.fee-pending{font-size:17px}
+.faq summary{font-size:18px}.empathy .ruled-list li{font-size:18px}
+.thumbnail-question{font-size:15px}.facts,.price{font-size:16px}.small,.source-links{font-size:15px}
+footer nav a{font-size:14px}.footer-head p{font-size:15px}.chk{font-size:13px}
+.video-row{grid-template-columns:320px 1fr}.indexed .video-row{grid-template-columns:260px 1fr}
+@media(max-width:768px){
+body{font-size:17px}.wrap{width:calc(100% - 32px)}
+.hero h1,.hero-light h1{font-size:30px}.hero-body p{font-size:17px}
+.eyebrow{font-size:14px}.cta{font-size:16px}.line-link{font-size:15px}
+h2{font-size:26px}.indexed h2,.school h2{font-size:26px}
+.video-copy p,.flow li div,.faq>div,.reading-grid p,.text-link{font-size:16px}
+.faq summary,.empathy .ruled-list li{font-size:17px}
+.atmosphere p{font-size:15px}.atmosphere small{font-size:12px}
+.video-row,.indexed .video-row{grid-template-columns:1fr}.video-row figure{max-width:100%}
+}
+
+html,body{overflow-x:clip}
