@@ -72,3 +72,6 @@ body[data-page="top"] .desktop-nav a:last-child,body[data-page="soudan"] .deskto
 .video-facade{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer}.video-facade img{width:100%;height:100%;object-fit:cover;display:block}.video-facade .play{position:absolute;left:50%;top:50%;width:64px;height:46px;margin:-23px 0 0 -32px;border-radius:12px;background:rgba(220,0,0,.9)}.video-facade .play::after{content:"";position:absolute;left:26px;top:14px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}.video-facade:hover .play{background:#f00}
 .video-facade .play{left:auto;top:auto;right:10px;bottom:10px;margin:0;width:44px;height:32px;border-radius:9px}.video-facade .play::after{left:17px;top:9px;border-width:7px 0 7px 12px}
 .video-facade .play{display:none}.video-facade:hover img{opacity:.9}
+
+.hero-light .hero-photo img.sakura{object-position:50% 0}
+@media(min-width:769px){.hero-light .hero-photo img.sakura{aspect-ratio:2732/826;max-height:none;object-position:30% 0}}
