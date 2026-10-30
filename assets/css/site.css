@@ -73,5 +73,5 @@ body[data-page="top"] .desktop-nav a:last-child,body[data-page="soudan"] .deskto
 .video-facade .play{left:auto;top:auto;right:10px;bottom:10px;margin:0;width:44px;height:32px;border-radius:9px}.video-facade .play::after{left:17px;top:9px;border-width:7px 0 7px 12px}
 .video-facade .play{display:none}.video-facade:hover img{opacity:.9}
 
-.hero-light .hero-photo img.sakura{object-position:50% 0}
-@media(min-width:769px){.hero-light .hero-photo img.sakura{aspect-ratio:2732/826;max-height:none;object-position:30% 0}}
+.hero-light .hero-photo img.sakura{object-position:0 50%}
+@media(min-width:769px){.hero-light .hero-photo img.sakura{aspect-ratio:1916/821;max-height:600px;object-position:50% 30%}}
