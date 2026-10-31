@@ -179,7 +179,9 @@ h3{font-size:21px}
 .teacher{background:var(--yellow-soft)}
 .teacher h2{color:var(--orange-deep);margin-bottom:6px}
 .teacher-main{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:start;margin-top:34px}
-.teacher-main img{border-radius:50%;border:6px solid #fff;box-shadow:0 0 0 2px var(--line)}
+.teacher-main>div{min-width:0}
+.face{aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid #fff;box-shadow:0 0 0 2px var(--line);background:#fff}
+.face img{width:100%;height:100%;object-fit:cover;transform:scale(1.14)}
 .teacher-role{font-size:14px;font-weight:700;margin:0}
 .teacher-name{font-size:30px;font-weight:900;color:var(--navy);margin:0 0 14px}
 .tabs{border:3px solid var(--orange);background:#fff}
@@ -251,7 +253,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
   .flow{grid-template-columns:1fr 1fr;gap:26px 18px}
   .flow li::after{display:none}
   .qa-videos .grid{grid-template-columns:1fr}
-  .teacher-main img{max-width:220px;margin:auto}
+  .face{max-width:220px;margin:auto;width:100%}
   .tabs label{flex:1 1 33%;font-size:14px}
   .event-date{justify-self:start}
   .btn{width:100%;font-size:17px;padding:12px 18px}
