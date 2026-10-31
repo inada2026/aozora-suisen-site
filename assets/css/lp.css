@@ -265,3 +265,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
 .big-num{margin:0;text-align:center;font-weight:700;color:var(--orange);font-size:clamp(80px,11vw,130px);line-height:1;background:#fff;border-radius:6px;padding:40px 10px}
 .big-num small{font-size:.4em;color:var(--navy)}
 .big-num span{display:block;font-size:17px;color:var(--navy);margin-top:12px}
+
+.safety{max-width:760px;margin:34px auto 0;padding:20px 24px;border:2px solid var(--navy);border-radius:6px;background:var(--cream);font-size:15px}
+.safety-title{font-weight:700;color:var(--navy);margin:0 0 6px}
+.safety p:last-child{margin:0}
