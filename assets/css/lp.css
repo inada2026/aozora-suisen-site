@@ -96,7 +96,7 @@ h3{font-size:21px}
 .about li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);margin:0}
 .about .num{font-size:64px;font-weight:900;line-height:1;color:var(--orange)}
 .about h3{margin-bottom:6px}
-.about p{margin:0}
+.about li p{margin:0}
 
 /* オレンジ帯：ねらい */
 .on-orange{background:linear-gradient(115deg,var(--orange) 0 62%,var(--yellow) 62%);color:#fff;position:relative}
