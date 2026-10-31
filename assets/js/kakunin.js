@@ -53,6 +53,7 @@
     '.kk-btns button{font:inherit;font-size:14px;font-weight:700;border-radius:999px;padding:6px 16px;cursor:pointer;border:2px solid #1f2a44;background:#fff;color:#1f2a44}',
     '.kk-btns .kk-ok.on,.kk-btns .kk-done.on{background:#1e7d3a;border-color:#1e7d3a;color:#fff}',
     '.kk-btns .kk-done{background:#f28c00;border-color:#f28c00;color:#fff}',
+    '.kk-sub{margin:12px 0 6px;font-size:14px;color:#5b5b5b}',
     '.kk-state{margin:8px 0 0;font-size:14px;font-weight:700;color:#1e7d3a}',
     '.kk-box.kk-fin{border-color:#1e7d3a}',
     '.kk-panel{position:fixed;right:12px;bottom:12px;z-index:30;background:#1f2a44;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.3);font-size:14px;max-width:320px}',
@@ -77,8 +78,10 @@
     box.className = 'kk-box';
     box.innerHTML = '<div class="kk-head"><span class="kk-no">確認 ' + (i + 1) + '</span>' + it.title + '</div>' +
       '<p class="kk-ask">' + it.ask + '</p>' +
-      '<textarea placeholder="ここをクリックして答えてください。音声入力できます。"></textarea>' +
-      '<div class="kk-btns"><button type="button" class="kk-done">この答えで決定</button><button type="button" class="kk-ok">このままでOK</button></div>' +
+      '<div class="kk-btns"><button type="button" class="kk-ok">今のままでいい</button></div>' +
+      '<p class="kk-sub">直してほしいときは、下に書いてから「書いた内容で直してほしい」を押してください。</p>' +
+      '<textarea placeholder="ここをクリックして書いてください。音声入力できます。"></textarea>' +
+      '<div class="kk-btns"><button type="button" class="kk-done">書いた内容で直してほしい</button></div>' +
       '<p class="kk-state"></p>';
     var ta = box.querySelector('textarea'), ok = box.querySelector('.kk-ok'), done = box.querySelector('.kk-done'), st = box.querySelector('.kk-state');
     var s = saved[it.id] || {};
@@ -88,9 +91,9 @@
       box.classList.toggle('kk-fin', !!(v.done || v.ok));
       ok.classList.toggle('on', !!v.ok);
       done.classList.toggle('on', !!v.done);
-      if (v.ok) st.textContent = '✓ 回答済み（このままでOK）。あとからでも直せます。';
-      else if (v.done) st.textContent = '✓ 回答済み。あとからでも直せます。';
-      else if ((v.text || '').trim()) st.textContent = '書いた内容はこの画面に残っています。書き終わったら「この答えで決定」を押してください。';
+      if (v.ok) st.textContent = '✓ 回答済み（今のままでいい）。あとからでも変えられます。';
+      else if (v.done) st.textContent = '✓ 回答済み（書いた内容で直します）。あとからでも変えられます。';
+      else if ((v.text || '').trim()) st.textContent = '書いた内容はこの画面に残っています。書き終わったら「書いた内容で直してほしい」を押してください。';
       else st.textContent = '';
     }
     function put(o) { saved[it.id] = Object.assign({ text: ta.value }, saved[it.id] || {}, o, { text: ta.value }); save(); paint(); }
@@ -105,7 +108,7 @@
   var panel = document.createElement('div');
   panel.className = 'kk-panel';
   panel.innerHTML = '<b>確認（<span class="kk-count">0</span>/' + ITEMS.length + ' 回答済み）</b>' +
-    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。答えたら「この答えで決定」を押してください。直すところがなければ「このままでOK」を押してください。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li><li>この案内が画面を覆って見にくいと思いますので、読み終わったら、いちばん下の「小さくする」を押してください。答えを送るときに、また「開く」で出せます。</li></ol>' +
+    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。今のままでよければ「今のままでいい」を、直してほしいときは書いてから「書いた内容で直してほしい」を押してください。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li><li>この案内が画面を覆って見にくいと思いますので、読み終わったら、いちばん下の「小さくする」を押してください。答えを送るときに、また「開く」で出せます。</li></ol>' +
     '<a class="kk-line" href="#" target="_blank" rel="noopener">答えをLINEで稲田に送る</a>' +
     '<button type="button" class="kk-copy">LINEが開かないときは、ここを押して答えをコピー</button>' +
     '<button type="button" class="kk-hide">小さくする</button>';
@@ -117,7 +120,7 @@
       var s = saved[it.id] || {};
       var v = (s.text || '').trim();
       if (!v && !s.ok) return;
-      lines.push('確認' + (i + 1) + '（' + it.title + '）：' + (v ? v : 'このままでOK') + (v && s.ok ? '（このままでOK）' : ''));
+      lines.push('確認' + (i + 1) + '（' + it.title + '）：' + (s.ok ? '今のままでいい' : (v || '')));
     });
     return lines.join('\n');
   }
