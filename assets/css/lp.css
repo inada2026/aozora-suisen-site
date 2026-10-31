@@ -273,3 +273,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
 .fv-short .wrap{display:block;min-height:0}
 .fv-short .fv-copy{padding:64px 0;max-width:720px}
 .fv-lead{font-size:18px;margin:0 0 28px}
+
+/* 広い画面では、ページ全体を大きく見せる（横1400px以上で中身が小さく、引いて見えるため） */
+@media (min-width:1400px){body{zoom:1.15}}
+@media (min-width:1700px){body{zoom:1.3}}
+@media (min-width:2100px){body{zoom:1.5}}
