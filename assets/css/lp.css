@@ -194,7 +194,7 @@ h3{font-size:21px}
 #t1:checked~.tab-labels label[for=t1],#t2:checked~.tab-labels label[for=t2],#t3:checked~.tab-labels label[for=t3]{background:#fff;color:var(--orange-deep)}
 #t1:checked~#p1,#t2:checked~#p2,#t3:checked~#p3{display:block}
 .tabs input:focus-visible~.tab-labels{outline:3px solid var(--navy)}
-.staff{margin-top:44px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+.staff{margin:44px auto 0;max-width:760px}
 .staff img{border-radius:6px}
 .staff p{margin:0 0 10px}
 
@@ -259,3 +259,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
   .btn{width:100%;font-size:17px;padding:12px 18px}
   .sticky-cta{display:grid}
 }
+
+.big-num{margin:0;text-align:center;font-weight:900;color:var(--orange);font-size:clamp(80px,11vw,130px);line-height:1;background:#fff;border-radius:6px;padding:40px 10px}
+.big-num small{font-size:.4em;color:var(--navy)}
+.big-num span{display:block;font-size:17px;color:var(--navy);margin-top:12px}
