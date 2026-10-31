@@ -52,7 +52,9 @@
     '.kk-panel b{display:block;font-size:15px;margin-bottom:6px}',
     '.kk-panel a,.kk-panel button{display:block;width:100%;margin-top:6px;text-align:center;font:inherit;font-weight:700;border-radius:999px;padding:8px;cursor:pointer;text-decoration:none;border:0}',
     '.kk-panel .kk-line{background:#06c755;color:#fff}',
-    '.kk-panel .kk-copy{background:#fff;color:#1f2a44}',
+    '.kk-panel .kk-copy{background:transparent;color:#fff;font-weight:400;font-size:12px;text-decoration:underline;padding:4px}',
+    '.kk-steps{margin:4px 0 6px;padding-left:1.3em;font-size:13px;line-height:1.6}',
+    '.kk-steps li{margin:0 0 4px}',
     '.kk-panel .kk-hide{background:transparent;color:#ccc;font-weight:400;font-size:12px;padding:2px}',
     '@media (max-width:860px){.kk-panel{left:8px;right:8px;bottom:78px;max-width:none}}'
   ].join('\n');
@@ -82,11 +84,11 @@
 
   var panel = document.createElement('div');
   panel.className = 'kk-panel';
-  panel.innerHTML = '<b>眞野さんの確認（<span class="kk-count">0</span>/' + ITEMS.length + '）</b>' +
-    '赤い枠の所に、思ったことを書いてください。書いた内容はこの画面に残ります。' +
-    '<a class="kk-line" href="#" target="_blank" rel="noopener">書いた内容をLINEで送る</a>' +
-    '<button type="button" class="kk-copy">書いた内容をコピーする</button>' +
-    '<button type="button" class="kk-hide">この案内をたたむ</button>';
+  panel.innerHTML = '<b>確認（<span class="kk-count">0</span>/' + ITEMS.length + ' 答えました）</b>' +
+    '<ol class="kk-steps"><li>赤い枠のところに答えます（話して入力できます）</li><li>全部終わったら、下の緑のボタンを押します。LINEが開くので、稲田を選んで送ってください</li></ol>' +
+    '<a class="kk-line" href="#" target="_blank" rel="noopener">答えをLINEで稲田に送る</a>' +
+    '<button type="button" class="kk-copy">LINEが開かないときは、ここを押して答えをコピー</button>' +
+    '<button type="button" class="kk-hide">小さくする</button>';
   document.body.appendChild(panel);
 
   function summary() {
@@ -107,14 +109,15 @@
   panel.querySelector('.kk-copy').addEventListener('click', function () {
     var t = summary();
     (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () {
-      panel.querySelector('.kk-copy').textContent = 'コピーしました';
+      panel.querySelector('.kk-copy').textContent = 'コピーしました。LINEに貼り付けて送ってください';
     }, function () { window.prompt('この文をコピーしてください', t); });
   });
   panel.querySelector('.kk-hide').addEventListener('click', function () {
     var shown = panel.dataset.min !== '1';
     panel.dataset.min = shown ? '1' : '0';
     [].forEach.call(panel.querySelectorAll('.kk-line,.kk-copy'), function (x) { x.style.display = shown ? 'none' : ''; });
-    this.textContent = shown ? '案内を開く' : 'この案内をたたむ';
+    this.textContent = shown ? '開く' : '小さくする';
+    var st = panel.querySelector('.kk-steps'); if (st) st.style.display = shown ? 'none' : '';
   });
   update();
 })();
