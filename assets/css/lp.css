@@ -325,3 +325,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
 html{scroll-padding-top:80px}
 .more-link{text-align:center;margin:26px 0 0;font-weight:600}
 @media (max-width:860px){.gnav .head-line{display:none}}
+
+.case .voice{font-size:21px;font-weight:600;color:var(--navy);line-height:1.6;margin:8px 0 14px;padding:16px 18px;background:#fff;border-radius:14px;position:relative}
+.case .voice::after{content:"";position:absolute;left:26px;bottom:-12px;border-style:solid;border-width:12px 10px 0 10px;border-color:#fff transparent transparent transparent}
+.mano-quote{max-width:780px;margin:30px auto 0;padding:22px 26px;background:var(--cream);border-left:6px solid var(--orange);font-size:17px;line-height:1.9}
+.mano-quote cite{display:block;margin-top:8px;font-style:normal;font-weight:600;color:var(--navy);text-align:right}
