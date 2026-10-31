@@ -49,7 +49,10 @@
     '.kk-box textarea:focus{border-color:#f28c00;outline:none}',
     '.kk-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}',
     '.kk-btns button{font:inherit;font-size:14px;font-weight:700;border-radius:999px;padding:6px 16px;cursor:pointer;border:2px solid #1f2a44;background:#fff;color:#1f2a44}',
-    '.kk-btns .kk-ok.on{background:#1e7d3a;border-color:#1e7d3a;color:#fff}',
+    '.kk-btns .kk-ok.on,.kk-btns .kk-done.on{background:#1e7d3a;border-color:#1e7d3a;color:#fff}',
+    '.kk-btns .kk-done{background:#f28c00;border-color:#f28c00;color:#fff}',
+    '.kk-state{margin:8px 0 0;font-size:14px;font-weight:700;color:#1e7d3a}',
+    '.kk-box.kk-fin{border-color:#1e7d3a}',
     '.kk-panel{position:fixed;right:12px;bottom:12px;z-index:30;background:#1f2a44;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.3);font-size:14px;max-width:320px}',
     '.kk-panel b{display:block;font-size:15px;margin-bottom:6px}',
     '.kk-panel a,.kk-panel button{display:block;width:100%;margin-top:6px;text-align:center;font:inherit;font-weight:700;border-radius:999px;padding:8px;cursor:pointer;text-decoration:none;border:0}',
@@ -72,14 +75,27 @@
     box.className = 'kk-box';
     box.innerHTML = '<div class="kk-head"><span class="kk-no">確認 ' + (i + 1) + '</span>' + it.title + '</div>' +
       '<p class="kk-ask">' + it.ask + '</p>' +
-      '<textarea placeholder="ここを押して入力してください（スマホはマイクのボタンで話して入力できます）"></textarea>' +
-      '<div class="kk-btns"><button type="button" class="kk-ok">このままでOK</button></div>';
-    var ta = box.querySelector('textarea'), ok = box.querySelector('.kk-ok');
+      '<textarea placeholder="ここをクリックして答えてください。音声入力できます。"></textarea>' +
+      '<div class="kk-btns"><button type="button" class="kk-done">この答えで決定</button><button type="button" class="kk-ok">このままでOK</button></div>' +
+      '<p class="kk-state"></p>';
+    var ta = box.querySelector('textarea'), ok = box.querySelector('.kk-ok'), done = box.querySelector('.kk-done'), st = box.querySelector('.kk-state');
     var s = saved[it.id] || {};
     ta.value = s.text || '';
-    if (s.ok) ok.classList.add('on');
-    ta.addEventListener('input', function () { saved[it.id] = { text: ta.value, ok: ok.classList.contains('on') }; save(); });
-    ok.addEventListener('click', function () { ok.classList.toggle('on'); saved[it.id] = { text: ta.value, ok: ok.classList.contains('on') }; save(); });
+    function paint() {
+      var v = saved[it.id] || {};
+      box.classList.toggle('kk-fin', !!(v.done || v.ok));
+      ok.classList.toggle('on', !!v.ok);
+      done.classList.toggle('on', !!v.done);
+      if (v.ok) st.textContent = '✓ 回答済み（このままでOK）。あとからでも直せます。';
+      else if (v.done) st.textContent = '✓ 回答済み。あとからでも直せます。';
+      else if ((v.text || '').trim()) st.textContent = '書いた内容はこの画面に残っています。書き終わったら「この答えで決定」を押してください。';
+      else st.textContent = '';
+    }
+    function put(o) { saved[it.id] = Object.assign({ text: ta.value }, saved[it.id] || {}, o, { text: ta.value }); save(); paint(); }
+    ta.addEventListener('input', function () { put({ done: false, ok: false }); });
+    done.addEventListener('click', function () { if (!ta.value.trim()) { ta.focus(); st.textContent = '先に答えを入力してください。'; return; } put({ done: true, ok: false }); });
+    ok.addEventListener('click', function () { var on = !(saved[it.id] || {}).ok; put({ ok: on, done: false }); });
+    paint();
     if (it.how === 'append') el.appendChild(box);
     else { var ref = el._kkLast || el; ref.parentNode.insertBefore(box, ref.nextSibling); el._kkLast = box; }
   });
@@ -87,7 +103,7 @@
   var panel = document.createElement('div');
   panel.className = 'kk-panel';
   panel.innerHTML = '<b>確認（<span class="kk-count">0</span>/' + ITEMS.length + ' 回答済み）</b>' +
-    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li></ol>' +
+    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。答えたら「この答えで決定」を押してください。直すところがなければ「このままでOK」を押してください。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li></ol>' +
     '<a class="kk-line" href="#" target="_blank" rel="noopener">答えをLINEで稲田に送る</a>' +
     '<button type="button" class="kk-copy">LINEが開かないときは、ここを押して答えをコピー</button>' +
     '<button type="button" class="kk-hide">小さくする</button>';
@@ -104,7 +120,7 @@
     return lines.join('\n');
   }
   function update() {
-    var n = ITEMS.filter(function (it) { var s = saved[it.id] || {}; return (s.text || '').trim() || s.ok; }).length;
+    var n = ITEMS.filter(function (it) { var s = saved[it.id] || {}; return s.done || s.ok; }).length;
     panel.querySelector('.kk-count').textContent = n;
     panel.querySelector('.kk-line').href = 'https://line.me/R/share?text=' + encodeURIComponent(summary());
   }
