@@ -330,3 +330,14 @@ html{scroll-padding-top:80px}
 .case .voice::after{content:"";position:absolute;left:26px;bottom:-12px;border-style:solid;border-width:12px 10px 0 10px;border-color:#fff transparent transparent transparent}
 .mano-quote{max-width:780px;margin:30px auto 0;padding:22px 26px;background:var(--cream);border-left:6px solid var(--orange);font-size:17px;line-height:1.9}
 .mano-quote cite{display:block;margin-top:8px;font-style:normal;font-weight:600;color:var(--navy);text-align:right}
+
+.results{background:#fff}
+.result-years{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:900px;margin:0 auto}
+.result-year{background:var(--cream);border-top:6px solid var(--orange);border-radius:6px;padding:22px 26px}
+.ry-head{margin:0;font-weight:700;color:var(--navy);font-size:20px}
+.ry-head small{font-size:14px;font-weight:500;color:var(--muted);margin-left:6px}
+.ry-big{margin:6px 0 12px;font-size:22px;font-weight:700;color:var(--navy)}
+.ry-big b{font-size:56px;color:var(--orange);margin:0 4px 0 10px;line-height:1}
+.result-year ul{margin:0;padding-left:1.2em;columns:2;column-gap:20px;font-size:15px}
+.result-year li{margin:0 0 4px;break-inside:avoid}
+@media (max-width:860px){.result-years{grid-template-columns:1fr}.result-year ul{columns:1}}
