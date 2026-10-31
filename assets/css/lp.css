@@ -356,3 +356,19 @@ html{scroll-padding-top:80px}
 .loan-lead-h{font-size:22px;font-weight:700;margin:0 0 6px}
 .loan-lead p:last-child{margin:0;font-size:16px}
 .loan-lead+.loan{margin-top:18px}
+
+.howbook{max-width:900px;margin:10px auto 34px;background:var(--cream);border:2px solid var(--line);border-radius:10px;padding:24px 26px}
+.howbook h3{font-size:22px;margin:0 0 14px;color:var(--navy)}
+.hb-step{margin:0 0 16px}
+.hb-img{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center}
+.hb-img img{border:1px solid var(--line);border-radius:6px;background:#fff}
+.hb-txt{margin:0 0 10px;font-size:16px;line-height:1.8}
+.hb-n{display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;background:#e60000;color:#fff;font-weight:700;font-size:15px;margin-right:8px}
+.hb-note{margin:6px 0 0;font-weight:600;color:var(--navy)}
+@media (max-width:860px){.hb-img{grid-template-columns:1fr}.howbook{padding:18px 16px}}
+
+.event-lead{width:min(860px,calc(100% - 40px));margin:0 auto 34px;text-align:center}
+.ev-kicker{color:var(--yellow);font-weight:700;margin:0 0 6px}
+.event-lead h2{color:#fff;text-align:center}
+.event-lead p:last-child{margin:0;font-size:16px}
+.ev-title{color:#fff;font-size:22px;margin:0 0 10px}
