@@ -86,8 +86,8 @@
 
   var panel = document.createElement('div');
   panel.className = 'kk-panel';
-  panel.innerHTML = '<b>確認（<span class="kk-count">0</span>/' + ITEMS.length + ' 答えました）</b>' +
-    '<ol class="kk-steps"><li>赤い枠のところに答えます（話して入力できます）</li><li>全部終わったら、下の緑のボタンを押します。LINEが開くので、稲田を選んで送ってください</li></ol>' +
+  panel.innerHTML = '<b>確認（<span class="kk-count">0</span>/' + ITEMS.length + ' 回答済み）</b>' +
+    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li></ol>' +
     '<a class="kk-line" href="#" target="_blank" rel="noopener">答えをLINEで稲田に送る</a>' +
     '<button type="button" class="kk-copy">LINEが開かないときは、ここを押して答えをコピー</button>' +
     '<button type="button" class="kk-hide">小さくする</button>';
