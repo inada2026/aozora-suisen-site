@@ -15,7 +15,7 @@ p,ul,ol,figure{margin:0 0 18px}
 h1,h2,h3,.lead,.btn,summary{word-break:auto-phrase;text-wrap:pretty}
 h1,h2,h3{margin:0;line-height:1.45;color:var(--navy);font-weight:700}
 h3{font-weight:600}
-.fv h1{font-weight:700}
+.fv h1{font-weight:600}
 h2{font-size:clamp(25px,3.4vw,34px);text-align:center;margin-bottom:14px}
 h3{font-size:21px}
 .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
@@ -52,7 +52,7 @@ h3{font-size:21px}
 .fv .wrap{display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:20px;min-height:600px}
 .fv-copy{padding:56px 0 60px}
 .fv-q{font-size:clamp(22px,2.6vw,30px);font-weight:700;margin:0 0 6px;letter-spacing:.02em}
-.fv h1{color:#fff;font-size:clamp(34px,4.6vw,54px);line-height:1.35;margin-bottom:26px;text-shadow:0 2px 0 rgba(0,0,0,.08)}
+.fv h1{color:#fff;font-size:clamp(34px,4.6vw,54px);line-height:1.35;margin-bottom:26px}
 .fv-tags{list-style:none;padding:0;margin:0 0 30px;display:grid;gap:10px;justify-items:start}
 .fv-tags li{background:#fff;color:var(--navy);font-weight:500;font-size:clamp(17px,1.9vw,22px);padding:6px 16px;margin:0}
 .fv-tags li b{color:var(--orange-deep)}
