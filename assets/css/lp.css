@@ -341,3 +341,13 @@ html{scroll-padding-top:80px}
 .result-year ul{margin:0;padding-left:1.2em;columns:2;column-gap:20px;font-size:15px}
 .result-year li{margin:0 0 4px;break-inside:avoid}
 @media (max-width:860px){.result-years{grid-template-columns:1fr}.result-year ul{columns:1}}
+
+/* スマホ：最初の画面で女の子の写真が見えるように、写真を上に出す。見出しは1行が収まる大きさに */
+@media (max-width:860px){
+  .fv .wrap{display:flex;flex-direction:column}
+  .fv-photo{order:-1;height:250px;margin:0 -20px}
+  .fv-photo img{object-position:20% 22%}
+  .fv-copy{padding:24px 0 30px}
+  .fv h1{font-size:clamp(24px,7.2vw,30px);margin-bottom:18px}
+  .fv-tags li{font-size:15px}
+}
