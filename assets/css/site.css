@@ -157,3 +157,5 @@ h1,h2,h3{word-break:auto-phrase;text-wrap:pretty}
 
 /* 橙の帯の中のボタンは白文字にしない（黄色の上で読めないため） */
 .page-hero .cta,.page-hero .cta span,.hero .cta,.hero .cta span{color:#1f2a44!important}
+
+@media (max-width:768px){.section.closing p,.closing .section-body p,.page-hero p{text-align:left}}

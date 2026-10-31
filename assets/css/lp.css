@@ -372,3 +372,9 @@ html{scroll-padding-top:80px}
 .event-lead h2{color:#fff;text-align:center}
 .event-lead p:last-child{margin:0;font-size:16px}
 .ev-title{color:#fff;font-size:22px;margin:0 0 10px}
+
+/* スマホ：真ん中寄せの説明文が2行になると、2行目が「校です」のように真ん中にぽつんと残る。説明文は左端そろえにする（見出しは真ん中のまま） */
+@media (max-width:860px){
+  .sec-sub,.cta-note,.event-lead p,.loan-lead p,.closing p,.curri-note,.more-link,.video-cap{text-align:left}
+  .sec-sub{margin-left:0;margin-right:0}
+}
