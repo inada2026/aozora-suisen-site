@@ -351,3 +351,8 @@ html{scroll-padding-top:80px}
   .fv h1{font-size:clamp(24px,7.2vw,30px);margin-bottom:18px}
   .fv-tags li{font-size:15px}
 }
+
+.loan-lead{max-width:760px;margin:40px auto 0;text-align:center;color:#fff}
+.loan-lead-h{font-size:22px;font-weight:700;margin:0 0 6px}
+.loan-lead p:last-child{margin:0;font-size:16px}
+.loan-lead+.loan{margin-top:18px}
