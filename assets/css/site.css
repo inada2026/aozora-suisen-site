@@ -112,13 +112,13 @@ html,body{overflow-x:clip}
 :root{--navy:#1f2a44;--terra:#d96f00;--paper:#fff3c4;--warm:#fffaf0;--line:#eadfca;
   --heading:"Noto Sans JP","Hiragino Sans","メイリオ",Meiryo,sans-serif;--body:"Noto Sans JP","Hiragino Sans","メイリオ",Meiryo,sans-serif}
 body{font-size:17px;line-height:1.9;background:#fff}
-h1,h2,h3{font-family:var(--heading);font-weight:900;color:var(--navy)}
+h1,h2,h3{font-family:var(--heading);font-weight:700;color:var(--navy)}
 h1{font-size:clamp(30px,4vw,42px)}
 h2{font-size:clamp(24px,3vw,32px)}
 h3{font-size:21px}
 .site-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
 .site-header>.wrap{min-height:68px}
-.brand{font-family:var(--heading);font-weight:900;font-size:20px;color:var(--navy)}
+.brand{font-family:var(--heading);font-weight:700;font-size:20px;color:var(--navy)}
 .brand small{color:#d96f00;font-weight:700;font-size:12px}
 .desktop-nav a{font-weight:700}
 .desktop-nav a:last-child{background:#f28c00;color:#fff;border-radius:999px;padding:8px 18px;border:0}
@@ -130,11 +130,11 @@ h3{font-size:21px}
 .section.navy{background:#1f2a44}
 .section-heading h2{display:inline;background:linear-gradient(transparent 60%,#ffc928 60%,#ffc928 92%,transparent 92%)}
 .section.navy .section-heading h2{background:none;color:#fff}
-.section-number,.step-number{color:#f28c00;font-weight:900}
-.cta{background:#ffc928;color:var(--navy);border:3px solid var(--navy);border-radius:999px;box-shadow:0 5px 0 var(--navy);font-weight:900;font-size:18px;padding:14px 30px;text-decoration:none}
+.section-number,.step-number{color:#f28c00;font-weight:700}
+.cta{background:#ffc928;color:var(--navy);border:3px solid var(--navy);border-radius:999px;box-shadow:0 5px 0 var(--navy);font-weight:700;font-size:18px;padding:14px 30px;text-decoration:none}
 .cta:hover{background:#ffd54f}
-.line-link{display:inline-block;background:#06c755;color:#fff!important;border-radius:999px;padding:10px 24px;font-weight:900;text-decoration:none}
-.faq summary,details summary{font-weight:900;color:var(--navy)}
+.line-link{display:inline-block;background:#06c755;color:#fff!important;border-radius:999px;padding:10px 24px;font-weight:700;text-decoration:none}
+.faq summary,details summary{font-weight:700;color:var(--navy)}
 table.facts th,table.price th{background:#fff3c4;color:var(--navy)}
 table.price td,table.price th{font-size:17px}
 .fee-note{font-size:14px;color:#5b5b5b}
@@ -143,3 +143,6 @@ footer a,footer .brand{color:#fff}
 .chk,.checklist{display:none}
 .draft-note{opacity:.7;font-size:12px}
 @media (max-width:768px){body{font-size:16px}.cta{width:100%;justify-content:center;font-size:17px}}
+
+h3{font-weight:600}
+.faq summary,details summary{font-weight:600}
