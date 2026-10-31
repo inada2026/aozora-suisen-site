@@ -320,3 +320,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
 @media (max-width:860px){.plans4{grid-template-columns:1fr}.howto div{grid-template-columns:5em 1fr}}
 
 .preview-only{margin:0 0 12px;padding:6px 12px;background:#ffe2e2;color:#a40000;font-weight:700;font-size:14px;border-radius:4px}
+
+.gnav .head-line{background:var(--green);color:#fff;padding:9px 18px;border-radius:999px}
+html{scroll-padding-top:80px}
+.more-link{text-align:center;margin:26px 0 0;font-weight:600}
+@media (max-width:860px){.gnav .head-line{display:none}}
