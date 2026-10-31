@@ -63,7 +63,7 @@ h3{font-size:21px}
 .fv-photo img{position:absolute;inset:40px 0 0 0;width:100%;height:calc(100% - 40px);object-fit:cover;object-position:18% 30%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);border-bottom:0}
 .fv-photo figcaption{position:absolute;right:0;bottom:8px;font-size:11px;color:rgba(31,42,68,.75)}
 .fv-numbers{background:var(--navy);color:#fff}
-.fv-numbers ul{list-style:none;margin:0;padding:22px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.fv-numbers ul{list-style:none;margin:0 auto;max-width:900px;padding:22px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
 .fv-numbers li{margin:0;font-size:14px;line-height:1.5}
 .fv-numbers b{display:block;font-size:clamp(28px,3.6vw,40px);font-weight:900;color:var(--yellow);line-height:1.2}
 
