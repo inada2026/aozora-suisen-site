@@ -154,3 +154,6 @@ h3{font-weight:600}
 
 h1,h2,h3{word-break:auto-phrase;text-wrap:pretty}
 .indexed .section-heading h2,.section-heading h2{font-size:clamp(22px,2.4vw,28px)}
+
+/* 橙の帯の中のボタンは白文字にしない（黄色の上で読めないため） */
+.page-hero .cta,.page-hero .cta span,.hero .cta,.hero .cta span{color:#1f2a44!important}
