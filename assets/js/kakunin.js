@@ -1,9 +1,9 @@
 // 確認用：眞野さんに見ていただきたい所に赤い枠と入力欄を出す（本番の公開では、このファイルを外す）
 (function () {
   var ITEMS = [
-    { id: 'k01', at: '.fv-copy', how: 'append', title: '一番上の見出しと、白い帯の言葉',
+    { id: 'k01', at: '.fv', how: 'after', title: '一番上の見出しと、白い帯の言葉',
       ask: '「自分には何もない」と言うお子さんにも／推薦の材料は毎日の中にあります／書く前に話すから、書くことが見つかる。眞野さんならどう言いますか？' },
-    { id: 'k02', at: '.fv-copy', how: 'append', title: '右の女の子の写真',
+    { id: 'k02', at: '.fv', how: 'after', title: '一番上の女の子の写真',
       ask: 'いまはAIで作ったイメージの絵です。使ってよい写真（教室や、生徒さんの後ろ姿など）があれば教えてください。' },
     { id: 'k03', at: '.fv-numbers', how: 'after', title: '合格実績',
       ask: '推薦の合格実績（年度・人数・学校名）を、ここに載せたいです。載せてよい数字を教えてください。' },
@@ -46,7 +46,7 @@
     '.kk-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}',
     '.kk-btns button{font:inherit;font-size:14px;font-weight:700;border-radius:999px;padding:6px 16px;cursor:pointer;border:2px solid #1f2a44;background:#fff;color:#1f2a44}',
     '.kk-btns .kk-ok.on{background:#1e7d3a;border-color:#1e7d3a;color:#fff}',
-    '.kk-panel{position:fixed;left:12px;bottom:12px;z-index:30;background:#1f2a44;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.3);font-size:14px;max-width:320px}',
+    '.kk-panel{position:fixed;right:12px;bottom:12px;z-index:30;background:#1f2a44;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.3);font-size:14px;max-width:320px}',
     '.kk-panel b{display:block;font-size:15px;margin-bottom:6px}',
     '.kk-panel a,.kk-panel button{display:block;width:100%;margin-top:6px;text-align:center;font:inherit;font-weight:700;border-radius:999px;padding:8px;cursor:pointer;text-decoration:none;border:0}',
     '.kk-panel .kk-line{background:#06c755;color:#fff}',
@@ -74,7 +74,8 @@
     if (s.ok) ok.classList.add('on');
     ta.addEventListener('input', function () { saved[it.id] = { text: ta.value, ok: ok.classList.contains('on') }; save(); });
     ok.addEventListener('click', function () { ok.classList.toggle('on'); saved[it.id] = { text: ta.value, ok: ok.classList.contains('on') }; save(); });
-    if (it.how === 'append') el.appendChild(box); else el.parentNode.insertBefore(box, el.nextSibling);
+    if (it.how === 'append') el.appendChild(box);
+    else { var ref = el._kkLast || el; ref.parentNode.insertBefore(box, ref.nextSibling); el._kkLast = box; }
   });
 
   var panel = document.createElement('div');
