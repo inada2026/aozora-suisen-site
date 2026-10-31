@@ -62,7 +62,7 @@
     '.kk-panel .kk-copy{background:transparent;color:#fff;font-weight:400;font-size:12px;text-decoration:underline;padding:4px}',
     '.kk-steps{margin:4px 0 6px;padding-left:1.3em;font-size:13px;line-height:1.6}',
     '.kk-steps li{margin:0 0 4px}',
-    '.kk-panel .kk-hide{background:transparent;color:#ccc;font-weight:400;font-size:12px;padding:2px}',
+    '.kk-panel .kk-hide{background:transparent;color:#fff;font-weight:700;font-size:14px;padding:6px;border:1px solid rgba(255,255,255,.6)!important}',
     '@media (max-width:860px){.kk-panel{left:8px;right:8px;bottom:78px;max-width:none}}'
   ].join('\n');
   document.head.appendChild(css);
@@ -105,7 +105,7 @@
   var panel = document.createElement('div');
   panel.className = 'kk-panel';
   panel.innerHTML = '<b>確認（<span class="kk-count">0</span>/' + ITEMS.length + ' 回答済み）</b>' +
-    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。答えたら「この答えで決定」を押してください。直すところがなければ「このままでOK」を押してください。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li></ol>' +
+    '<ol class="kk-steps"><li>赤枠のところをクリックして答えてください。音声入力できます。答えたら「この答えで決定」を押してください。直すところがなければ「このままでOK」を押してください。</li><li>全部終わったら、下の「答えをLINEで稲田に送る」のボタンを押してください。LINEが開くので、稲田を選んで送ってください。</li><li>この案内が画面を覆って見にくいと思いますので、読み終わったら、いちばん下の「小さくする」を押してください。答えを送るときに、また「開く」で出せます。</li></ol>' +
     '<a class="kk-line" href="#" target="_blank" rel="noopener">答えをLINEで稲田に送る</a>' +
     '<button type="button" class="kk-copy">LINEが開かないときは、ここを押して答えをコピー</button>' +
     '<button type="button" class="kk-hide">小さくする</button>';
