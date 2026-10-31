@@ -344,7 +344,7 @@ html{scroll-padding-top:80px}
 
 /* スマホ：最初の画面で女の子の写真が見えるように、写真を上に出す。見出しは1行が収まる大きさに */
 @media (max-width:860px){
-  .fv .wrap{display:flex;flex-direction:column}
+  .fv .wrap{display:flex;flex-direction:column;align-items:stretch}
   .fv-photo{order:-1;height:250px;margin:0 -20px}
   .fv-photo img{object-position:20% 22%}
   .fv-copy{padding:24px 0 30px}
