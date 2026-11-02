@@ -462,13 +462,15 @@ html{scroll-padding-top:80px}
   .fv-ava{width:44px;height:44px;border-width:2px;background-size:441px auto;background-position:-93px -31px}
   .fv-chat-say{font-size:15px;padding:9px 16px;border-radius:22px}
 }
-/* 写真と青い背景の境目をグラデーションでなじませる：写真の左側を広く透かして、後ろの青に溶け込ませる（スマホは下側） */
-.fv-imgclip img{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 14%,rgba(0,0,0,.8) 32%,#000 46%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 14%,rgba(0,0,0,.8) 32%,#000 46%)}
+/* 写真と青い背景の境目をグラデーションでなじませる：写真を左へ広げ、左側をゆるやかに広く透かす（スマホは下側） */
+.fv-imgclip img{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.08) 14%,rgba(0,0,0,.3) 28%,rgba(0,0,0,.65) 42%,rgba(0,0,0,.92) 54%,#000 62%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.08) 14%,rgba(0,0,0,.3) 28%,rgba(0,0,0,.65) 42%,rgba(0,0,0,.92) 54%,#000 62%)}
 @media (max-width:860px){
   .fv-imgclip img{-webkit-mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.4) 14%,rgba(0,0,0,.85) 30%,#000 42%);mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.4) 14%,rgba(0,0,0,.85) 30%,#000 42%)}
 }
 /* パソコン：写真を青い部分の上の端と右の端まで広げる（上の空きと右の水色の帯をなくす） */
 @media (min-width:861px){
   .fv-photo img{top:0;height:100%}
+  .fv-photo{margin-left:-160px}
+  .fv-copy{position:relative;z-index:3}
   .fv-photo figcaption{right:16px}
 }

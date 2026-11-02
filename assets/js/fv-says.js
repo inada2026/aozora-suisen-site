@@ -30,7 +30,7 @@
     var nw0 = img.naturalWidth || 1916, nh0 = img.naturalHeight || 821;
     var dw0 = Math.max(ir.width/nw0, ir.height/nh0)*nw0;
     if(dw0 > ir.width + 1){
-      var want = (window.matchMedia('(max-width:860px)').matches ? 0.42 : 0.6) * ir.width;
+      var want = (window.matchMedia('(max-width:860px)').matches ? 0.42 : 0.56) * ir.width;
       var p = (BODY_CX*dw0 - want) / (dw0 - ir.width);
       p = Math.max(0, Math.min(1, p));
       var cur = getComputedStyle(img).objectPosition.split(' ');
@@ -93,6 +93,9 @@
         if(!best || k < best.k - 0.5) best = {x:cx0, y:cy0, k:k};
       });
       x = best.x; y = best.y;
+      // 画面の右端からはみ出す分だけ左へ戻す（実際の表示位置で測る）
+      var vr = document.documentElement.clientWidth - 8, fl = fig.getBoundingClientRect().left;
+      if(fl + x + w > vr) x = Math.max(4, vr - fl - w);
       placed.push({l:x, t:y, r:x+w, b:y+h});
       s.style.left = x + 'px'; s.style.top = y + 'px'; s.style.right = 'auto';
       // しっぽ：吹き出しの縁で口にいちばん近い点に置き、口の方へ回す
