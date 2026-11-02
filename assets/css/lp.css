@@ -429,12 +429,13 @@ html{scroll-padding-top:80px}
 .fv-say .tail::before,.fv-say .tail::after{content:"";position:absolute;left:0;clip-path:polygon(0 0,100% 50%,0 100%)}
 .fv-say .tail::before{top:0;bottom:0;right:0;left:5px;background:var(--navy)}
 .fv-say .tail::after{top:3.5px;bottom:3.5px;right:6px;background:#fff}
-.motion .fv-say{animation:sayPop .55s cubic-bezier(.3,1.6,.5,1) both}
-.motion .fv-say.s1{animation-delay:1.0s}
-.motion .fv-say.s2{animation-delay:1.7s}
-.motion .fv-say.s3{animation-delay:2.4s}
+.motion .fv-say{opacity:0}
+.motion .fv-says.go .fv-say{opacity:1;animation:sayPop .55s cubic-bezier(.3,1.6,.5,1) both}
+.motion .fv-says.go .fv-say.s1{animation-delay:.3s}
+.motion .fv-says.go .fv-say.s2{animation-delay:1.0s}
+.motion .fv-says.go .fv-say.s3{animation-delay:1.7s}
 @keyframes sayPop{0%{opacity:0;transform:scale(.3)}100%{opacity:1;transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.motion .fv-say{animation:none}}
+@media (prefers-reduced-motion:reduce){.motion .fv-say{animation:none;opacity:1}}
 @media (max-width:860px){
   .fv-photo img{object-position:6% 28%}
   .fv-say{font-size:12.5px;line-height:1.45;padding:5px 10px;border-width:2px;border-radius:12px;box-shadow:3px 3px 0 rgba(22,58,102,.2)}
@@ -451,12 +452,13 @@ html{scroll-padding-top:80px}
 .fv-chat-say{position:relative;flex:1 1 auto;background:#fff;color:var(--navy);border-radius:28px;padding:12px 22px;font-size:clamp(16px,1.5vw,19px);font-weight:500;line-height:1.5;box-shadow:3px 3px 0 rgba(0,0,0,.15)}
 .fv-chat-say b{color:var(--orange-deep);background:linear-gradient(transparent 62%,var(--yellow-soft) 62%)}
 .fv-chat-say::before{content:"";position:absolute;left:-13px;top:50%;margin-top:-9px;border-style:solid;border-width:9px 16px 9px 0;border-color:transparent #fff transparent transparent}
-.motion.fvb .fv-chat-row{animation:chatPop .5s cubic-bezier(.3,1.5,.5,1) both}
-.motion.fvb .fv-chat-row.c1{animation-delay:.9s}
-.motion.fvb .fv-chat-row.c2{animation-delay:1.5s}
-.motion.fvb .fv-chat-row.c3{animation-delay:2.1s}
+.motion.fvb .fv-chat-row{opacity:0}
+.motion.fvb .fv-chat.go .fv-chat-row{opacity:1;animation:chatPop .5s cubic-bezier(.3,1.5,.5,1) both}
+.motion.fvb .fv-chat.go .fv-chat-row.c1{animation-delay:.2s}
+.motion.fvb .fv-chat.go .fv-chat-row.c2{animation-delay:.8s}
+.motion.fvb .fv-chat.go .fv-chat-row.c3{animation-delay:1.4s}
 @keyframes chatPop{0%{opacity:0;transform:translateX(-14px) scale(.85)}100%{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.motion.fvb .fv-chat-row{animation:none}}
+@media (prefers-reduced-motion:reduce){.motion.fvb .fv-chat-row{animation:none;opacity:1}}
 @media (max-width:860px){
   .fvb .fv-chat{gap:9px;margin-bottom:20px}
   .fv-ava{width:44px;height:44px;border-width:2px;background-size:441px auto;background-position:-93px -31px}

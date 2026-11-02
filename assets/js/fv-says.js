@@ -134,4 +134,13 @@
   if(window.ResizeObserver){ new ResizeObserver(function(){ layout(); }).observe(fig); }
   window.addEventListener('load', layout);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  // 吹き出しは、画面に入ってきたときにポンポンポンと出す（ページを開いた瞬間に終わってしまわないように）
+  (function(){
+    var targets = [fig.querySelector('.fv-says'), document.querySelector('.fv-chat')].filter(Boolean);
+    if(!('IntersectionObserver' in window)){ targets.forEach(function(t){ t.classList.add('go'); }); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('go'); io.unobserve(e.target); } });
+    }, {threshold: 0.5});
+    targets.forEach(function(t){ io.observe(t); });
+  })();
 })();
