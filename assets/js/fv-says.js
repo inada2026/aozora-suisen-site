@@ -38,29 +38,51 @@
     var r = R_SRC*dw;
     var phone = window.matchMedia('(max-width:860px)').matches;
     var W = fr.width, H = fr.height;
+    // 重なってはいけない物：顔（髪を含む）・見出しの各行・無料相談の文とボタン・先に置いた吹き出し
+    var fb = fig.getBoundingClientRect();
+    function rel(rc){ return {l:rc.left-fb.left, t:rc.top-fb.top, r:rc.right-fb.left, b:rc.bottom-fb.top}; }
+    var face = {l:mx-2.3*r, t:my-1.9*r, r:mx+1.4*r, b:my+1.0*r};
+    var obst = [];
+    var h1 = document.getElementById('fv-title');
+    if(h1 && !phone){ var rg = document.createRange(); rg.selectNodeContents(h1); [].forEach.call(rg.getClientRects(), function(lr){ obst.push(rel(lr)); }); }
+    if(!phone){ ['.fv-free','.fv .cta-pair .btn'].forEach(function(q){ [].forEach.call(document.querySelectorAll(q), function(e){ obst.push(rel(e.getBoundingClientRect())); }); }); }
+    var placed = [];
+    function ov(a, b, m){ m = m||0; return Math.max(0, Math.min(a.r+m, b.r) - Math.max(a.l-m, b.l)) * Math.max(0, Math.min(a.b+m, b.b) - Math.max(a.t-m, b.t)); }
+    function cost(x, y, w, h){
+      var bx = {l:x, t:y, r:x+w, b:y+h}, c = 0;
+      c += ov(bx, face, 6) * 100;                                   // 顔は絶対に隠さない
+      obst.forEach(function(o){ c += ov(bx, o, 10) * 20; });
+      placed.forEach(function(o){ c += ov(bx, o, 8) * 20; });
+      if(y < 4) c += (4 - y) * w * 5; if(y + h > H - 4) c += (y + h - H + 4) * w * 5;
+      if(x + w > W - 4) c += (x + w - W + 4) * h * 5;
+      if(phone && x < 6) c += (6 - x) * h * 5;
+      return c;
+    }
     says.forEach(function(s, i0){
       var i = CYCLE ? (phone ? 0 : 1) : i0;
       var w = s.offsetWidth, h = s.offsetHeight, x, y;
-      if(!phone){
-        if(i===0){ x = mx + 0.3*r - w/2; y = my - 1.75*r - 18 - h; }      // 頭の上
-        else if(i===1){ x = mx + 1.8*r + 26; y = my - 0.3*r - h/2; }      // 顔の右
-        else { x = mx - 2.4*r - 34 - w; y = my - 0.4*r - h/2; }          // 顔の左横（少し離して、しっぽを長く）
-        x = Math.min(x, W - w - 4); y = Math.max(y, 4);
-        // 見出しの文字に重ならないよう、同じ高さの行の右端より右へ寄せる
-        var h1 = document.getElementById('fv-title');
-        if(h1){
-          var fb = fig.getBoundingClientRect(), rg = document.createRange(); rg.selectNodeContents(h1);
-          [].forEach.call(rg.getClientRects(), function(lr){
-            var top = lr.top - fb.top, bot = lr.bottom - fb.top, right = lr.right - fb.left;
-            if(bot > y - 6 && top < y + h + 6 && x < right + 14) x = right + 14;
-          });
-        }
-      } else {
-        if(i===0){ x = mx + 2.6*r + 10; y = my - 3.2*r - h/2; }           // 頭の右上（髪より外）
-        else if(i===1){ x = mx - 1.6*r - w; y = my + 2.6*r; }             // 左下
-        else { x = mx + 2.6*r + 10; y = my + 1.8*r; }                     // 右下
-        x = Math.max(6, Math.min(x, W - w - 6)); y = Math.max(6, Math.min(y, H - h - 6));
-      }
+      var C = !phone ? [
+        // 頭の上 → 頭の右上
+        [[mx + 0.3*r - w/2, my - 1.9*r - 16 - h], [mx + 0.9*r, my - 1.9*r - 16 - h], [mx - 0.6*r - w/2, my - 1.9*r - 16 - h]],
+        // 顔の右 → 右下
+        [[mx + 1.4*r + 30, my - 0.3*r - h/2], [mx + 1.4*r + 30, my + 0.9*r], [mx + 1.4*r + 30, my - 1.6*r - h/2]],
+        // 顔の左横（少し離す） → あごの左 → 肩の左下 → 右下
+        [[mx - 2.3*r - 34 - w, my - 0.4*r - h/2], [mx - 2.3*r - 24 - w, my + 1.0*r], [mx - 1.2*r - w, my + 1.8*r], [mx - 0.6*r - w, my + 2.6*r], [mx + 1.4*r + 30, my + 2.4*r]]
+      ][i] : [
+        [[mx + 2.6*r + 10, my - 3.2*r - h/2], [mx + 1.8*r + 10, my - 2.2*r - h], [mx - 2.6*r - w, my - 3.2*r - h/2]],
+        [[mx - 1.6*r - w, my + 2.6*r], [mx - 2.6*r - w, my + 1.4*r], [mx - 1.0*r - w, my + 3.4*r]],
+        [[mx + 2.6*r + 10, my + 1.8*r], [mx + 1.8*r + 10, my + 3.0*r], [mx + 2.6*r + 10, my + 0.4*r]]
+      ][i];
+      var best = null;
+      C.forEach(function(c){
+        var cx0 = c[0], cy0 = c[1];
+        if(phone){ cx0 = Math.max(6, Math.min(cx0, W - w - 6)); cy0 = Math.max(6, Math.min(cy0, H - h - 6)); }
+        else { cx0 = Math.min(cx0, W - w - 4); cy0 = Math.max(4, Math.min(cy0, H - h - 4)); }
+        var k = cost(cx0, cy0, w, h);
+        if(!best || k < best.k - 0.5) best = {x:cx0, y:cy0, k:k};
+      });
+      x = best.x; y = best.y;
+      placed.push({l:x, t:y, r:x+w, b:y+h});
       s.style.left = x + 'px'; s.style.top = y + 'px'; s.style.right = 'auto';
       // しっぽ：吹き出しの縁で口にいちばん近い点に置き、口の方へ回す
       var t = s.querySelector('.tail'), pad = 16;
