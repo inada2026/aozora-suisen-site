@@ -30,12 +30,25 @@
     var nw0 = img.naturalWidth || 1916, nh0 = img.naturalHeight || 821;
     var dw0 = Math.max(ir.width/nw0, ir.height/nh0)*nw0;
     if(dw0 > ir.width + 1){
-      var want = (window.matchMedia('(max-width:860px)').matches ? 0.42 : 0.56) * ir.width;
+      var EXT = Math.max(0, -(parseFloat(getComputedStyle(fig).marginLeft) || 0));   // 左へ広げた分
+      var want = window.matchMedia('(max-width:860px)').matches ? 0.42 * ir.width : ir.width - 0.40 * (ir.width - EXT);
       var p = (BODY_CX*dw0 - want) / (dw0 - ir.width);
       p = Math.max(0, Math.min(1, p));
       var cur = getComputedStyle(img).objectPosition.split(' ');
       img.style.objectPosition = (p*100).toFixed(2) + '% ' + (cur[1] || '30%');
     }
+    // パソコン：写真の左側だけを透かす。女の子（髪の左端）より手前で必ず不透明にして、女の子に青がかからないようにする
+    (function(){
+      var cs0 = getComputedStyle(img), pos0 = cs0.objectPosition.split(' ');
+      var sc0 = Math.max(ir.width/nw0, ir.height/nh0), dw1 = nw0*sc0;
+      var ox0 = (ir.width - dw1) * (parseFloat(pos0[0])/100);
+      var girlL = ox0 + (390/1916) * dw1;            // 髪の左端
+      if(!window.matchMedia('(max-width:860px)').matches){
+        var A = Math.max(120, girlL - 30);
+        var m = 'linear-gradient(90deg,transparent 0px,rgba(0,0,0,.12) '+(A*.3)+'px,rgba(0,0,0,.45) '+(A*.6)+'px,rgba(0,0,0,.85) '+(A*.85)+'px,#000 '+A+'px)';
+        img.style.webkitMaskImage = m; img.style.maskImage = m;
+      } else { img.style.webkitMaskImage = ''; img.style.maskImage = ''; }
+    })();
     if(MODEB) return;   // 案Bは写真の位置だけ合わせ、写真の吹き出しは置かない
     var cs = getComputedStyle(img);
     var nw = img.naturalWidth || 1916, nh = img.naturalHeight || 821;

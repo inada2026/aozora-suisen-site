@@ -470,7 +470,7 @@ html{scroll-padding-top:80px}
 /* パソコン：写真を青い部分の上の端と右の端まで広げる（上の空きと右の水色の帯をなくす） */
 @media (min-width:861px){
   .fv-photo img{top:0;height:100%}
-  .fv-photo{margin-left:-160px}
+  .fv-photo{margin-left:-220px}
   .fv-copy{position:relative;z-index:3}
   .fv-photo figcaption{right:16px}
 }
