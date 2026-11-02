@@ -17,9 +17,10 @@
   function layout(){
     // パソコン：写真の右端を画面の右端（スクロールバーの手前）にそろえる
     if(!window.matchMedia('(max-width:860px)').matches){
-      fig.style.marginRight = '0px';
-      var gap = document.documentElement.clientWidth - fig.getBoundingClientRect().right;
-      fig.style.marginRight = (-gap) + 'px';
+      var wr = fig.parentElement.getBoundingClientRect();
+      var gap = Math.max(0, document.documentElement.clientWidth - wr.right);
+      var want = (-gap) + 'px';
+      if(fig.style.marginRight !== want) fig.style.marginRight = want;
     } else { fig.style.marginRight = ''; }
     // 動き（拡大・すべり込み）の影響を受けないよう、transform を無視する offset で測る
     var ir = {left:img.offsetLeft, top:img.offsetTop, width:img.offsetWidth, height:img.offsetHeight};
@@ -46,7 +47,8 @@
     var my = ir.top - fr.top + oy + MOUTH.y*dh;
     var r = R_SRC*dw;
     var phone = window.matchMedia('(max-width:860px)').matches;
-    var W = Math.min(fr.width, document.documentElement.clientWidth - fig.getBoundingClientRect().left - 6), H = fr.height;   // 画面の右端（スクロールバーの手前）まで
+    var figL = fig.parentElement.getBoundingClientRect().right - fr.width + (parseFloat(fig.style.marginRight)||0) * -1;
+    var W = Math.min(fr.width, document.documentElement.clientWidth - figL - 8), H = fr.height;   // 画面の右端（スクロールバーの手前）まで
     // 重なってはいけない物：顔（髪を含む）・見出しの各行・無料相談の文とボタン・先に置いた吹き出し
     var fb = fig.getBoundingClientRect();
     function rel(rc){ return {l:rc.left-fb.left, t:rc.top-fb.top, r:rc.right-fb.left, b:rc.bottom-fb.top}; }

@@ -48,7 +48,7 @@ h3{font-size:21px}
 .gnav .head-cta{background:var(--orange);color:#fff;padding:9px 18px;border-radius:999px}
 
 /* ファーストビュー */
-.fv{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--orange) 0 58%,var(--sky) 58% 100%);color:#fff}
+.fv{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--orange) 0 46%,#2a86d0 70%,var(--sky) 100%);color:#fff}
 .fv .wrap{display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:20px;min-height:600px}
 .fv-copy{padding:56px 0 60px}
 .fv-q{font-size:clamp(22px,2.6vw,30px);font-weight:700;margin:0 0 6px;letter-spacing:.02em}
@@ -232,7 +232,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
   body{font-size:16px}
   .sec{padding:60px 0}
   .gnav a:not(.head-cta){display:none}
-  .fv{background:linear-gradient(160deg,var(--orange) 0 70%,var(--sky) 70%)}
+  .fv{background:linear-gradient(160deg,var(--orange) 0 60%,#2a86d0 82%,var(--sky) 100%)}
   .fv .wrap{grid-template-columns:1fr;min-height:0}
   .fv-copy{padding:36px 0 10px}
   .fv-photo{min-height:0;height:300px;margin:0 -20px}
