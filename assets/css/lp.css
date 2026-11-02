@@ -467,3 +467,9 @@ html{scroll-padding-top:80px}
 @media (max-width:860px){
   .fv-imgclip img{-webkit-mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.4) 14%,rgba(0,0,0,.85) 30%,#000 42%);mask-image:linear-gradient(0deg,transparent 0%,rgba(0,0,0,.4) 14%,rgba(0,0,0,.85) 30%,#000 42%)}
 }
+/* パソコン：写真を青い部分の上の端と右の端まで広げる（上の空きと右の水色の帯をなくす） */
+@media (min-width:861px){
+  .fv-photo{margin-right:calc((min(1080px,100vw - 40px) - 100vw)/2)}
+  .fv-photo img{top:0;height:100%}
+  .fv-photo figcaption{right:16px}
+}
