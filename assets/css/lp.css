@@ -284,7 +284,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,.45)}50%{box-shadow:0 0 0 14px rgba(255,0,0,0)}}
 .motion .fv-line{display:block;opacity:0;animation:fvUp .8s cubic-bezier(.2,.7,.2,1) var(--d) forwards}
 .motion .fv-in{opacity:0;animation:fvUp .7s cubic-bezier(.2,.7,.2,1) var(--d) forwards}
-.motion .fv-photo{animation:fvPhoto 1.2s cubic-bezier(.2,.7,.2,1) .2s both;overflow:hidden}
+.motion .fv-photo{animation:fvPhoto 1.2s cubic-bezier(.2,.7,.2,1) .2s both}
+/* 写真だけを枠で切り、吹き出しは枠の外へはみ出せるようにする */
+.fv-imgclip{position:absolute;inset:0;display:block;overflow:hidden}
 .motion .fv-photo img{animation:slowZoom 14s ease-in-out 1.4s infinite alternate}
 .motion [data-anim]{opacity:0;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
 .motion [data-anim=up]{transform:translateY(46px)}
