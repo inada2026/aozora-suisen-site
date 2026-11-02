@@ -23,7 +23,7 @@
     var nw0 = img.naturalWidth || 1916, nh0 = img.naturalHeight || 821;
     var dw0 = Math.max(ir.width/nw0, ir.height/nh0)*nw0;
     if(dw0 > ir.width + 1){
-      var want = (window.matchMedia('(max-width:860px)').matches ? 0.42 : 0.45) * ir.width;
+      var want = (window.matchMedia('(max-width:860px)').matches ? 0.42 : 0.52) * ir.width;
       var p = (BODY_CX*dw0 - want) / (dw0 - ir.width);
       p = Math.max(0, Math.min(1, p));
       var cur = getComputedStyle(img).objectPosition.split(' ');
