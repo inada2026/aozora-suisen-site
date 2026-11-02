@@ -423,9 +423,12 @@ html{scroll-padding-top:80px}
 /* 一番上の写真：生徒の声を3つの吹き出しで、ポンポンポンと出す。
    置き場所としっぽの向きは assets/js/fv-says.js が口の位置から計算する */
 .fv-says{position:absolute;inset:0;z-index:2;pointer-events:none}
-.fv-say{position:absolute;left:0;top:0;margin:0;background:#fff;color:var(--navy);border:2.5px solid var(--navy);border-radius:18px;padding:10px 17px;box-shadow:4px 4px 0 rgba(22,58,102,.22);font-size:17px;line-height:1.5;font-weight:500;white-space:nowrap}
+.fv-say{position:absolute;left:0;top:0;margin:0;background:#fff;color:var(--navy);border:2.5px solid var(--navy);border-radius:26px;padding:10px 20px;box-shadow:4px 4px 0 rgba(22,58,102,.22);font-size:17px;line-height:1.5;font-weight:500;white-space:nowrap}
 .fv-say b{color:var(--orange-deep);background:linear-gradient(transparent 62%,var(--yellow-soft) 62%)}
-.fv-say .tail{position:absolute;width:15px;height:15px;background:#fff;border-right:2.5px solid var(--navy);border-bottom:2.5px solid var(--navy);border-bottom-right-radius:2px}
+.fv-say .tail{position:absolute;height:20px;transform-origin:0 50%;margin-top:0}
+.fv-say .tail::before,.fv-say .tail::after{content:"";position:absolute;left:0;clip-path:polygon(0 0,100% 50%,0 100%)}
+.fv-say .tail::before{top:0;bottom:0;right:0;left:5px;background:var(--navy)}
+.fv-say .tail::after{top:3.5px;bottom:3.5px;right:6px;background:#fff}
 .motion .fv-say{animation:sayPop .55s cubic-bezier(.3,1.6,.5,1) both}
 .motion .fv-say.s1{animation-delay:1.0s}
 .motion .fv-say.s2{animation-delay:1.7s}
@@ -435,7 +438,8 @@ html{scroll-padding-top:80px}
 @media (max-width:860px){
   .fv-photo img{object-position:6% 28%}
   .fv-say{font-size:12.5px;line-height:1.45;padding:5px 10px;border-width:2px;border-radius:12px;box-shadow:3px 3px 0 rgba(22,58,102,.2)}
-  .fv-say .tail{width:10px;height:10px;border-right-width:2px;border-bottom-width:2px}
+  .fv-say .tail{height:14px}
+  .fv-say .tail::after{top:2.5px;bottom:2.5px;right:4.5px}
 }
 /* 案B：吹き出し1つで言葉を順に入れ替える（index.html?fv=b） */
 .fv-says.cycle .fv-say{opacity:0;transform:scale(.85);transition:opacity .35s ease,transform .45s cubic-bezier(.3,1.6,.5,1);animation:none}

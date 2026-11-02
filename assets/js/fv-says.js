@@ -44,8 +44,17 @@
       if(!phone){
         if(i===0){ x = mx + 0.3*r - w/2; y = my - 1.75*r - 18 - h; }      // 頭の上
         else if(i===1){ x = mx + 1.8*r + 26; y = my - 0.3*r - h/2; }      // 顔の右
-        else { x = mx - 1.4*r - w; y = my + 1.1*r; }                      // あごの左下
+        else { x = mx - 2.4*r - 34 - w; y = my - 0.4*r - h/2; }          // 顔の左横（少し離して、しっぽを長く）
         x = Math.min(x, W - w - 4); y = Math.max(y, 4);
+        // 見出しの文字に重ならないよう、同じ高さの行の右端より右へ寄せる
+        var h1 = document.getElementById('fv-title');
+        if(h1){
+          var fb = fig.getBoundingClientRect(), rg = document.createRange(); rg.selectNodeContents(h1);
+          [].forEach.call(rg.getClientRects(), function(lr){
+            var top = lr.top - fb.top, bot = lr.bottom - fb.top, right = lr.right - fb.left;
+            if(bot > y - 6 && top < y + h + 6 && x < right + 14) x = right + 14;
+          });
+        }
       } else {
         if(i===0){ x = mx + 2.6*r + 10; y = my - 3.2*r - h/2; }           // 頭の右上（髪より外）
         else if(i===1){ x = mx - 1.6*r - w; y = my + 2.6*r; }             // 左下
@@ -60,8 +69,13 @@
       // 縁へ寄せる（内側の点を、口に近い方の辺へ）
       if(Math.abs(dx) > Math.abs(dy)) cx = dx>0 ? x+w : x; else cy = dy>0 ? y+h : y;
       var ang = Math.atan2(my-cy, mx-cx)*180/Math.PI;
-      t.style.left = (cx - x) + 'px'; t.style.top = (cy - y) + 'px';
-      t.style.transform = 'translate(-50%,-50%) rotate(' + (ang-45) + 'deg)';
+      var dist = Math.hypot(mx-cx, my-cy);
+      var L = phone ? 14 : (i===2 ? 40 : 24);
+      L = Math.min(L, Math.max(8, dist - (phone ? 10 : 22)));   // 顔に刺さらない長さ
+      var back = 5, rad = ang*Math.PI/180;                       // 付け根を吹き出しの内側へ少し入れる
+      t.style.width = (L + back) + 'px';
+      t.style.left = (cx - x - back*Math.cos(rad)) + 'px'; t.style.top = (cy - y - back*Math.sin(rad)) + 'px';
+      t.style.transform = 'translateY(-50%) rotate(' + ang + 'deg)';
       s.style.transformOrigin = (cx - x) + 'px ' + (cy - y) + 'px';
     });
   }
