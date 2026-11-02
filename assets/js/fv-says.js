@@ -10,7 +10,8 @@
   var says = fig.querySelectorAll('.fv-say');
   // 案B（?fv=b）：見出しの下に、丸い顔＋横長の吹き出しを3つ並べる。写真の吹き出しは出さない
   var CYCLE = false;
-  if(/[?&]fv=b/.test(location.search)){ document.documentElement.classList.add('fvb'); return; }
+  var MODEB = /[?&]fv=b/.test(location.search);
+  if(MODEB){ document.documentElement.classList.add('fvb'); }
   says.forEach(function(s){ if(!s.querySelector('.tail')){ var t=document.createElement('span'); t.className='tail'; t.setAttribute('aria-hidden','true'); s.appendChild(t);} });
 
   function layout(){
@@ -28,6 +29,7 @@
       var cur = getComputedStyle(img).objectPosition.split(' ');
       img.style.objectPosition = (p*100).toFixed(2) + '% ' + (cur[1] || '30%');
     }
+    if(MODEB) return;   // 案Bは写真の位置だけ合わせ、写真の吹き出しは置かない
     var cs = getComputedStyle(img);
     var nw = img.naturalWidth || 1916, nh = img.naturalHeight || 821;
     var sc = Math.max(ir.width/nw, ir.height/nh), dw = nw*sc, dh = nh*sc;
