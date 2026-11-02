@@ -15,6 +15,12 @@
   says.forEach(function(s){ if(!s.querySelector('.tail')){ var t=document.createElement('span'); t.className='tail'; t.setAttribute('aria-hidden','true'); s.appendChild(t);} });
 
   function layout(){
+    // パソコン：写真の右端を画面の右端（スクロールバーの手前）にそろえる
+    if(!window.matchMedia('(max-width:860px)').matches){
+      fig.style.marginRight = '0px';
+      var gap = document.documentElement.clientWidth - fig.getBoundingClientRect().right;
+      fig.style.marginRight = (-gap) + 'px';
+    } else { fig.style.marginRight = ''; }
     // 動き（拡大・すべり込み）の影響を受けないよう、transform を無視する offset で測る
     var ir = {left:img.offsetLeft, top:img.offsetTop, width:img.offsetWidth, height:img.offsetHeight};
     var fr = {left:0, top:0, width:fig.offsetWidth, height:fig.offsetHeight};
