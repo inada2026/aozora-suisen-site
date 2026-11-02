@@ -481,4 +481,5 @@ html{scroll-padding-top:80px}
   .cases{grid-template-rows:auto auto 1fr;row-gap:0}
   .case{display:grid;grid-row:span 3;grid-template-rows:subgrid}
   .case .voice{display:flex;align-items:center}
+  .case-tag{justify-self:start;align-self:end}
 }
