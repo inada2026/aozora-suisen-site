@@ -2,6 +2,7 @@
    吹き出しを顔のまわりに置き、しっぽを必ず口へ向ける。 */
 (function(){
   var MOUTH = {x:520/1916, y:242/821};   // 元写真での口の位置（割合）
+  var BODY_CX = 548/1916;                 // 女の子の体（髪〜かばん）の真ん中（割合）
   var R_SRC = 55/1916;                    // 顔の半分の幅（割合）
   var fig = document.querySelector('.fv-photo');
   if(!fig) return;
@@ -16,6 +17,16 @@
     var ir = {left:img.offsetLeft, top:img.offsetTop, width:img.offsetWidth, height:img.offsetHeight};
     var fr = {left:0, top:0, width:fig.offsetWidth, height:fig.offsetHeight};
     if(!ir.width) return;
+    // 女の子が枠の真ん中より少し左に来るよう、写真の横位置を決める（体が枠で切れないように）
+    var nw0 = img.naturalWidth || 1916, nh0 = img.naturalHeight || 821;
+    var dw0 = Math.max(ir.width/nw0, ir.height/nh0)*nw0;
+    if(dw0 > ir.width + 1){
+      var want = (window.matchMedia('(max-width:860px)').matches ? 0.42 : 0.45) * ir.width;
+      var p = (BODY_CX*dw0 - want) / (dw0 - ir.width);
+      p = Math.max(0, Math.min(1, p));
+      var cur = getComputedStyle(img).objectPosition.split(' ');
+      img.style.objectPosition = (p*100).toFixed(2) + '% ' + (cur[1] || '30%');
+    }
     var cs = getComputedStyle(img);
     var nw = img.naturalWidth || 1916, nh = img.naturalHeight || 821;
     var sc = Math.max(ir.width/nw, ir.height/nh), dw = nw*sc, dh = nh*sc;
@@ -36,9 +47,9 @@
         else { x = mx - 1.4*r - w; y = my + 1.1*r; }                      // あごの左下
         x = Math.min(x, W - w - 4); y = Math.max(y, 4);
       } else {
-        if(i===0){ x = mx + 1.6*r + 12; y = my - 2.2*r - h/2 + 6; }        // 頭の右上
+        if(i===0){ x = mx + 2.6*r + 10; y = my - 3.2*r - h/2; }           // 頭の右上（髪より外）
         else if(i===1){ x = mx - 1.6*r - w; y = my + 2.6*r; }             // 左下
-        else { x = mx + 2.2*r + 12; y = my + 1.6*r; }                     // 右下
+        else { x = mx + 2.6*r + 10; y = my + 1.8*r; }                     // 右下
         x = Math.max(6, Math.min(x, W - w - 6)); y = Math.max(6, Math.min(y, H - h - 6));
       }
       s.style.left = x + 'px'; s.style.top = y + 'px'; s.style.right = 'auto';
@@ -61,6 +72,7 @@
   }
   [100,400,900,1600,3000].forEach(function(ms){ setTimeout(layout, ms); });
   window.addEventListener('resize', layout);
+  if(window.ResizeObserver){ new ResizeObserver(function(){ layout(); }).observe(fig); }
   window.addEventListener('load', layout);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();

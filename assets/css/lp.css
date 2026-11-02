@@ -62,7 +62,7 @@ h3{font-size:21px}
 .fv .cta-pair{justify-content:flex-start}
 .fv-copy{position:relative;z-index:2}
 .fv-photo{align-self:stretch;position:relative;margin:0 0 0 0;min-height:420px}
-.fv-photo img{position:absolute;inset:40px 0 0 0;width:100%;height:calc(100% - 40px);object-fit:cover;object-position:25% 30%;clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);border-bottom:0}
+.fv-photo img{position:absolute;inset:40px 0 0 0;width:100%;height:calc(100% - 40px);object-fit:cover;object-position:25% 30%;border-bottom:0}
 .fv-photo figcaption{position:absolute;right:0;bottom:8px;font-size:11px;color:rgba(31,42,68,.75)}
 .fv-numbers{background:var(--navy);color:#fff}
 .fv-numbers ul{list-style:none;margin:0 auto;max-width:900px;padding:22px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
@@ -423,7 +423,7 @@ html{scroll-padding-top:80px}
 /* 一番上の写真：生徒の声を3つの吹き出しで、ポンポンポンと出す。
    置き場所としっぽの向きは assets/js/fv-says.js が口の位置から計算する */
 .fv-says{position:absolute;inset:0;z-index:2;pointer-events:none}
-.fv-say{position:absolute;left:0;top:0;margin:0;background:#fff;color:var(--navy);border:2.5px solid var(--navy);border-radius:18px;padding:9px 15px;box-shadow:4px 4px 0 rgba(22,58,102,.22);font-size:15px;line-height:1.5;font-weight:500;white-space:nowrap}
+.fv-say{position:absolute;left:0;top:0;margin:0;background:#fff;color:var(--navy);border:2.5px solid var(--navy);border-radius:18px;padding:10px 17px;box-shadow:4px 4px 0 rgba(22,58,102,.22);font-size:17px;line-height:1.5;font-weight:500;white-space:nowrap}
 .fv-say b{color:var(--orange-deep);background:linear-gradient(transparent 62%,var(--yellow-soft) 62%)}
 .fv-say .tail{position:absolute;width:15px;height:15px;background:#fff;border-right:2.5px solid var(--navy);border-bottom:2.5px solid var(--navy);border-bottom-right-radius:2px}
 .motion .fv-say{animation:sayPop .55s cubic-bezier(.3,1.6,.5,1) both}
