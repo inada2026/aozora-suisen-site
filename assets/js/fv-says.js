@@ -138,9 +138,15 @@
   (function(){
     var targets = [fig.querySelector('.fv-says'), document.querySelector('.fv-chat')].filter(Boolean);
     if(!('IntersectionObserver' in window)){ targets.forEach(function(t){ t.classList.add('go'); }); return; }
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('go'); io.unobserve(e.target); } });
-    }, {threshold: 0.5});
-    targets.forEach(function(t){ io.observe(t); });
+    function watch(t, opt){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('go'); io.unobserve(e.target); } });
+      }, opt);
+      io.observe(t);
+    }
+    var says = fig.querySelector('.fv-says'), chat = document.querySelector('.fv-chat');
+    if(says) watch(says, {threshold: 0.3});
+    // 案B：3段がまるごと画面の下から少し上がってきたところで出す
+    if(chat) watch(chat, {threshold: 1, rootMargin: '0px 0px -12% 0px'});
   })();
 })();
