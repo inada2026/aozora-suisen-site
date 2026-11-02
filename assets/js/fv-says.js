@@ -8,8 +8,9 @@
   if(!fig) return;
   var img = fig.querySelector('img');
   var says = fig.querySelectorAll('.fv-say');
-  var CYCLE = /[?&]fv=b/.test(location.search);
-  if(CYCLE){ fig.querySelector('.fv-says').classList.add('cycle'); }
+  // 案B（?fv=b）：見出しの下に、丸い顔＋横長の吹き出しを3つ並べる。写真の吹き出しは出さない
+  var CYCLE = false;
+  if(/[?&]fv=b/.test(location.search)){ document.documentElement.classList.add('fvb'); return; }
   says.forEach(function(s){ if(!s.querySelector('.tail')){ var t=document.createElement('span'); t.className='tail'; t.setAttribute('aria-hidden','true'); s.appendChild(t);} });
 
   function layout(){
@@ -102,10 +103,6 @@
     });
   }
   layout(); img.addEventListener('load', layout);
-  if(CYCLE){
-    var k = 0; says[0].classList.add('on');
-    setInterval(function(){ says[k].classList.remove('on'); k = (k+1) % says.length; says[k].classList.add('on'); }, 3200);
-  }
   [100,400,900,1600,3000].forEach(function(ms){ setTimeout(layout, ms); });
   window.addEventListener('resize', layout);
   if(window.ResizeObserver){ new ResizeObserver(function(){ layout(); }).observe(fig); }
