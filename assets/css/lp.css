@@ -1,9 +1,9 @@
 /* 推薦サイト トップ（2026-10-31 作り替え）
-   見本：眞野先生の「あおぞらテキストコミュニケーション研修」ページの、明るい橙と黄色・大きな見出し・順番に読める並べ方
+   見本：眞野先生の「あおぞらテキストコミュニケーション研修」ページの、（11/2 眞野さんの希望で、チラシと公式LINEロゴの青に変更。黄色は差し色）明るい色・大きな見出し・順番に読める並べ方
    署名モチーフ：黄色の蛍光ペン（作文の添削で線を引く手つき）を、見出しの大事な言葉に4か所だけ */
 :root{
-  --orange:#f28c00;--orange-deep:#d96f00;--yellow:#ffc928;--yellow-soft:#fff3c4;--cream:#fffaf0;
-  --navy:#1f2a44;--ink:#2b2b2b;--muted:#5b5b5b;--line:#eadfca;--white:#fff;--green:#06c755;
+  --orange:#006fb7;--orange-deep:#0b4ea2;--sky:#5aa5e6;--yellow:#ffc928;--yellow-soft:#fff3c4;--cream:#f2f8fd;--pale:#e3effa;
+  --navy:#163a66;--ink:#2b2b2b;--muted:#5b5b5b;--line:#d3e3f2;--white:#fff;--green:#06c755;
   --font:"Noto Sans JP","Hiragino Sans","メイリオ",Meiryo,sans-serif;
 }
 *{box-sizing:border-box}
@@ -48,7 +48,7 @@ h3{font-size:21px}
 .gnav .head-cta{background:var(--orange);color:#fff;padding:9px 18px;border-radius:999px}
 
 /* ファーストビュー */
-.fv{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--orange) 0 58%,var(--yellow) 58% 100%);color:#fff}
+.fv{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--orange) 0 58%,var(--sky) 58% 100%);color:#fff}
 .fv .wrap{display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:20px;min-height:600px}
 .fv-copy{padding:56px 0 60px}
 .fv-q{font-size:clamp(22px,2.6vw,30px);font-weight:700;margin:0 0 6px;letter-spacing:.02em}
@@ -101,10 +101,10 @@ h3{font-size:21px}
 .about li p{margin:0}
 
 /* オレンジ帯：ねらい */
-.on-orange{background:linear-gradient(115deg,var(--orange) 0 62%,var(--yellow) 62%);color:#fff;position:relative}
+.on-orange{background:linear-gradient(115deg,var(--orange) 0 62%,var(--sky) 62%);color:#fff;position:relative}
 .on-orange h2{color:#fff}
 .band-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.band-box{background:var(--yellow-soft);color:var(--ink);padding:30px 32px;border-radius:4px;font-size:16px}
+.band-box{background:#fff;color:var(--ink);padding:30px 32px;border-radius:4px;font-size:16px}
 .band-box p:last-child{margin:0}
 .ring{width:100%;max-width:380px;margin:auto}
 
@@ -115,7 +115,7 @@ h3{font-size:21px}
 .checks li::before{content:"";position:absolute;left:6px;top:22px;width:16px;height:8px;border-left:4px solid var(--orange);border-bottom:4px solid var(--orange);transform:rotate(-45deg)}
 
 /* 選ばれる理由（ジグザグ） */
-.reasons{background:var(--yellow-soft)}
+.reasons{background:var(--pale)}
 .reason{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:34px 0}
 .reason:nth-child(even) .reason-media{order:2}
 .reason h3{color:var(--orange-deep);font-size:23px;margin-bottom:12px;font-weight:600}
@@ -145,7 +145,7 @@ h3{font-size:21px}
 .loan p{margin:0 0 6px}
 
 /* カリキュラム */
-.curri{background:var(--yellow)}
+.curri{background:var(--pale)}
 .curri-box{background:#fff;max-width:880px;margin:0 auto;padding:36px 40px;border-radius:4px;display:grid;grid-template-columns:1fr 1fr;gap:10px 40px}
 .curri-box h3{grid-column:auto;display:inline-block;background:var(--yellow);padding:4px 16px;border:2px solid var(--navy);box-shadow:4px 4px 0 var(--navy);font-size:18px;margin-bottom:14px;justify-self:start}
 .curri-box ul{margin:0;padding-left:1.2em}
@@ -178,7 +178,7 @@ h3{font-size:21px}
 .qa-videos .q{color:var(--orange-deep);font-weight:700;margin-right:.3em}
 
 /* 講師 */
-.teacher{background:var(--yellow-soft)}
+.teacher{background:var(--pale)}
 .teacher h2{color:var(--orange-deep);margin-bottom:6px}
 .teacher-main{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:start;margin-top:34px}
 .teacher-main>div{min-width:0}
@@ -210,7 +210,7 @@ h3{font-size:21px}
 .faq details p{padding:0 0 18px 44px;margin:0}
 
 /* 最後の呼びかけ */
-.closing{background:linear-gradient(115deg,var(--orange) 0 58%,var(--yellow) 58%);color:#fff;text-align:center}
+.closing{background:linear-gradient(115deg,var(--orange) 0 58%,var(--sky) 58%);color:#fff;text-align:center}
 .closing h2{color:#fff}
 .closing p{max-width:36em;margin:0 auto 28px}
 
@@ -232,7 +232,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0}
   body{font-size:16px}
   .sec{padding:60px 0}
   .gnav a:not(.head-cta){display:none}
-  .fv{background:linear-gradient(160deg,var(--orange) 0 70%,var(--yellow) 70%)}
+  .fv{background:linear-gradient(160deg,var(--orange) 0 70%,var(--sky) 70%)}
   .fv .wrap{grid-template-columns:1fr;min-height:0}
   .fv-copy{padding:36px 0 10px}
   .fv-photo{min-height:0;height:300px;margin:0 -20px}
@@ -377,4 +377,28 @@ html{scroll-padding-top:80px}
 @media (max-width:860px){
   .sec-sub,.cta-note,.event-lead p,.loan-lead p,.closing p,.curri-note,.more-link,.video-cap{text-align:left}
   .sec-sub{margin-left:0;margin-right:0}
+}
+
+/* 2026-11-02 眞野さんの直し */
+.fv-bubble{position:absolute;right:4%;top:58px;z-index:2;max-width:300px;background:#fff;color:var(--navy);border:3px solid var(--navy);border-radius:22px;padding:14px 18px;box-shadow:5px 5px 0 rgba(22,58,102,.25);font-size:16px;line-height:1.6}
+.fv-bubble p{margin:0}
+.fv-bubble p+p{margin-top:6px}
+.fv-bubble b{color:var(--orange-deep);background:linear-gradient(transparent 62%,var(--yellow-soft) 62%)}
+.fv-bubble::before{content:"";position:absolute;left:-22px;top:40px;border-style:solid;border-width:12px 22px 12px 0;border-color:transparent var(--navy) transparent transparent}
+.fv-bubble::after{content:"";position:absolute;left:-16px;top:43px;border-style:solid;border-width:9px 17px 9px 0;border-color:transparent #fff transparent transparent}
+.case-who{font-weight:700;color:var(--orange-deep);margin:10px 0 2px;font-size:15px}
+.result-all{list-style:none;padding:0;margin:20px 0 8px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.result-all li{background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 16px;font-weight:600;color:var(--navy);font-size:16px}
+.result-note{text-align:center;font-size:13px;color:var(--muted)}
+.staff-list{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:12px}
+.staff-school{font-weight:700;color:#fff;background:var(--orange);display:inline-block;padding:2px 14px;border-radius:4px;margin:0 0 8px}
+.staff-list ul{list-style:none;padding:0;margin:0}
+.staff-list li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.6}
+.staff-list li b{display:block;font-size:17px;color:var(--navy)}
+@media (max-width:860px){
+  .fv-bubble{right:10px;top:auto;bottom:12px;max-width:62%;font-size:13px;line-height:1.5;padding:9px 12px;border-width:2px;border-radius:16px}
+  .fv-bubble p+p{margin-top:3px}
+  .fv-bubble::before{left:-16px;top:22px;border-width:9px 16px 9px 0}
+  .fv-bubble::after{left:-12px;top:24px;border-width:7px 13px 7px 0}
+  .staff-list{grid-template-columns:1fr}
 }
