@@ -62,7 +62,7 @@ h3{font-size:21px}
 .fv .cta-pair{justify-content:flex-start}
 .fv-copy{position:relative;z-index:2}
 .fv-photo{align-self:stretch;position:relative;margin:0 0 0 0;min-height:420px}
-.fv-photo img{position:absolute;inset:40px 0 0 0;width:100%;height:calc(100% - 40px);object-fit:cover;object-position:41% 30%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);border-bottom:0}
+.fv-photo img{position:absolute;inset:40px 0 0 0;width:100%;height:calc(100% - 40px);object-fit:cover;object-position:25% 30%;clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);border-bottom:0}
 .fv-photo figcaption{position:absolute;right:0;bottom:8px;font-size:11px;color:rgba(31,42,68,.75)}
 .fv-numbers{background:var(--navy);color:#fff}
 .fv-numbers ul{list-style:none;margin:0 auto;max-width:900px;padding:22px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
@@ -414,24 +414,42 @@ html{scroll-padding-top:80px}
 .reviews-maphint{font-size:14px;color:var(--muted);margin:0 0 8px}
 @media (max-width:600px){.reviews .reviews-btn .btn{font-size:15px;padding-left:14px;padding-right:14px}.rs-num{font-size:38px}}
 
-/* 一番上の写真：生徒の声を3つの吹き出しで順に出す */
-.fv-says{position:absolute;right:3%;top:62px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
-.fv-say{position:relative;margin:0;background:#fff;color:var(--navy);border:2.5px solid var(--navy);border-radius:18px;padding:10px 16px;box-shadow:4px 4px 0 rgba(22,58,102,.22);font-size:16px;line-height:1.5;font-weight:500}
+/* 見出しのかぎ括弧を詰める（「の左の空き・」とのあいだ） */
+.fv h1{font-feature-settings:"palt"}
+.fv h1 .kk-o{margin-left:-.08em}
+
+/* 一番上の写真：生徒の声を左・右・左の3つの吹き出しで、ポンポンポンと出す */
+.fv-says{position:absolute;inset:0;z-index:2;pointer-events:none}
+.fv-say{position:absolute;margin:0;background:#fff;color:var(--navy);border:2.5px solid var(--navy);border-radius:18px;padding:10px 16px;box-shadow:4px 4px 0 rgba(22,58,102,.22);font-size:16px;line-height:1.5;font-weight:500;white-space:nowrap}
 .fv-say b{color:var(--orange-deep);background:linear-gradient(transparent 62%,var(--yellow-soft) 62%)}
-.fv-say.s2{margin-right:26px}
-.fv-say.s3{margin-right:6px}
-.fv-say::before{content:"";position:absolute;left:-16px;top:16px;border-style:solid;border-width:8px 16px 8px 0;border-color:transparent var(--navy) transparent transparent}
-.fv-say::after{content:"";position:absolute;left:-11px;top:18.5px;border-style:solid;border-width:5.5px 11px 5.5px 0;border-color:transparent #fff transparent transparent}
-.motion .fv-say{animation:sayIn .5s cubic-bezier(.2,.7,.2,1) both}
+.fv-say.s1{left:-12%;top:7%}
+.fv-say.s2{right:-3%;top:36%}
+.fv-say.s3{left:-12%;top:58%}
+/* しっぽ：左の吹き出しは右向き、右の吹き出しは左向き（どれも女の子の方へ） */
+.fv-say::before,.fv-say::after{content:"";position:absolute;border-style:solid}
+.fv-say.s1::before,.fv-say.s3::before{right:-16px;top:16px;border-width:8px 0 8px 16px;border-color:transparent transparent transparent var(--navy)}
+.fv-say.s1::after,.fv-say.s3::after{right:-11px;top:18.5px;border-width:5.5px 0 5.5px 11px;border-color:transparent transparent transparent #fff}
+.fv-say.s2::before{left:-16px;top:16px;border-width:8px 16px 8px 0;border-color:transparent var(--navy) transparent transparent}
+.fv-say.s2::after{left:-11px;top:18.5px;border-width:5.5px 11px 5.5px 0;border-color:transparent #fff transparent transparent}
+.motion .fv-say{animation:sayPop .55s cubic-bezier(.3,1.6,.5,1) both}
 .motion .fv-say.s1{animation-delay:1.0s}
-.motion .fv-say.s2{animation-delay:1.8s}
-.motion .fv-say.s3{animation-delay:2.6s}
-@keyframes sayIn{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:none}}
+.motion .fv-say.s2{animation-delay:1.7s}
+.motion .fv-say.s3{animation-delay:2.4s}
+@keyframes sayPop{0%{opacity:0;transform:scale(.4)}100%{opacity:1;transform:scale(1)}}
+.motion .fv-say.s1,.motion .fv-say.s3{transform-origin:100% 30%}
+.motion .fv-say.s2{transform-origin:0 30%}
 @media (prefers-reduced-motion:reduce){.motion .fv-say{animation:none}}
 @media (max-width:860px){
-  .fv-says{right:10px;top:12px;gap:8px}
-  .fv-say{font-size:13px;line-height:1.45;padding:6px 11px;border-width:2px;border-radius:13px;box-shadow:3px 3px 0 rgba(22,58,102,.2)}
-  .fv-say.s2{margin-right:14px}.fv-say.s3{margin-right:4px}
-  .fv-say::before{left:-12px;top:11px;border-width:6px 12px 6px 0}
-  .fv-say::after{left:-8px;top:13px;border-width:4px 8px 4px 0}
+  .fv-photo img{object-position:6% 28%}
+  .fv-say{font-size:12.5px;line-height:1.45;padding:5px 10px;border-width:2px;border-radius:12px;box-shadow:3px 3px 0 rgba(22,58,102,.2)}
+  /* スマホは顔が左寄りになるので、右・左・右の順に置く */
+  .fv-say.s1{left:auto;right:8px;top:10px}
+  .fv-say.s2{right:auto;left:8px;top:64%}
+  .fv-say.s3{left:auto;right:8px;top:50%}
+  .fv-say.s1::before,.fv-say.s3::before{right:auto;left:-12px;top:10px;border-width:6px 12px 6px 0;border-color:transparent var(--navy) transparent transparent}
+  .fv-say.s1::after,.fv-say.s3::after{right:auto;left:-8px;top:12px;border-width:4px 8px 4px 0;border-color:transparent #fff transparent transparent}
+  .fv-say.s2::before{left:auto;right:-12px;top:10px;border-width:6px 0 6px 12px;border-color:transparent transparent transparent var(--navy)}
+  .fv-say.s2::after{left:auto;right:-8px;top:12px;border-width:4px 0 4px 8px;border-color:transparent transparent transparent #fff}
+  .motion .fv-say.s1,.motion .fv-say.s3{transform-origin:0 30%}
+  .motion .fv-say.s2{transform-origin:100% 30%}
 }
