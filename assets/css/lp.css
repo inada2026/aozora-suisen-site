@@ -474,3 +474,11 @@ html{scroll-padding-top:80px}
   .fv-copy{position:relative;z-index:3}
   .fv-photo figcaption{right:16px}
 }
+/* 悩み3つ：答えも薄い箱に入れ、3つの問い・箱の高さをそろえる */
+.case-ans{background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:14px;padding:16px 20px 20px}
+.case-ans .case-who{margin-top:0}
+@media (min-width:861px){
+  .cases{grid-template-rows:auto auto 1fr;row-gap:0}
+  .case{display:grid;grid-row:span 3;grid-template-rows:subgrid}
+  .case .voice{display:flex;align-items:center}
+}
