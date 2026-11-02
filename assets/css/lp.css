@@ -483,3 +483,9 @@ html{scroll-padding-top:80px}
   .case .voice{display:flex;align-items:center}
   .case-tag{justify-self:start;align-self:end}
 }
+/* 見出しを言葉の切れ目で改行する（「準／備」のような変な所で切らない） */
+.nb{display:inline-block}
+/* スマホで横にはみ出してページが左に寄るのを防ぐ（iPhoneのSafari対策） */
+html,body{overflow-x:hidden}
+@supports (overflow:clip){html,body{overflow-x:clip}}
+img,iframe,video,svg,table{max-width:100%}
