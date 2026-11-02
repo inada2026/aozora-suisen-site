@@ -7,6 +7,8 @@
   if(!fig) return;
   var img = fig.querySelector('img');
   var says = fig.querySelectorAll('.fv-say');
+  var CYCLE = /[?&]fv=b/.test(location.search);
+  if(CYCLE){ fig.querySelector('.fv-says').classList.add('cycle'); }
   says.forEach(function(s){ if(!s.querySelector('.tail')){ var t=document.createElement('span'); t.className='tail'; t.setAttribute('aria-hidden','true'); s.appendChild(t);} });
 
   function layout(){
@@ -25,7 +27,8 @@
     var r = R_SRC*dw;
     var phone = window.matchMedia('(max-width:860px)').matches;
     var W = fr.width, H = fr.height;
-    says.forEach(function(s, i){
+    says.forEach(function(s, i0){
+      var i = CYCLE ? (phone ? 0 : 1) : i0;
       var w = s.offsetWidth, h = s.offsetHeight, x, y;
       if(!phone){
         if(i===0){ x = mx + 0.3*r - w/2; y = my - 1.75*r - 18 - h; }      // 頭の上
@@ -52,6 +55,10 @@
     });
   }
   layout(); img.addEventListener('load', layout);
+  if(CYCLE){
+    var k = 0; says[0].classList.add('on');
+    setInterval(function(){ says[k].classList.remove('on'); k = (k+1) % says.length; says[k].classList.add('on'); }, 3200);
+  }
   [100,400,900,1600,3000].forEach(function(ms){ setTimeout(layout, ms); });
   window.addEventListener('resize', layout);
   window.addEventListener('load', layout);
