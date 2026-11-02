@@ -462,3 +462,10 @@ html{scroll-padding-top:80px}
   .fv-ava{width:44px;height:44px;border-width:2px;background-size:441px auto;background-position:-93px -31px}
   .fv-chat-say{font-size:15px;padding:9px 16px;border-radius:22px}
 }
+/* 写真と青い背景の境目をグラデーションでなじませる（パソコン：左端／スマホ：下端） */
+.fv-imgclip::after{content:"";position:absolute;top:40px;bottom:0;left:0;width:30%;pointer-events:none;
+  background:linear-gradient(90deg,var(--orange) 0%,rgba(0,111,183,.55) 38%,rgba(0,111,183,0) 100%)}
+@media (max-width:860px){
+  .fv-imgclip::after{top:auto;left:0;right:0;bottom:0;width:auto;height:32%;
+    background:linear-gradient(0deg,var(--orange) 0%,rgba(0,111,183,.5) 40%,rgba(0,111,183,0) 100%)}
+}
