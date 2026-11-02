@@ -40,7 +40,7 @@
     var my = ir.top - fr.top + oy + MOUTH.y*dh;
     var r = R_SRC*dw;
     var phone = window.matchMedia('(max-width:860px)').matches;
-    var W = fr.width, H = fr.height;
+    var W = Math.min(fr.width, document.documentElement.clientWidth - fig.getBoundingClientRect().left - 6), H = fr.height;   // 画面の右端（スクロールバーの手前）まで
     // 重なってはいけない物：顔（髪を含む）・見出しの各行・無料相談の文とボタン・先に置いた吹き出し
     var fb = fig.getBoundingClientRect();
     function rel(rc){ return {l:rc.left-fb.left, t:rc.top-fb.top, r:rc.right-fb.left, b:rc.bottom-fb.top}; }
