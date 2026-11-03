@@ -392,6 +392,8 @@ html{scroll-padding-top:80px}
 .staff-school{font-weight:700;color:#fff;background:var(--orange);display:inline-block;padding:2px 14px;border-radius:4px;margin:0 0 8px}
 .staff-list ul{list-style:none;padding:0;margin:0}
 .staff-list li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.6}
+.staff-list li.has-face{display:flex;gap:14px;align-items:flex-start}
+.staff .staff-list img.staff-face{width:64px;height:64px;flex:0 0 64px;border-radius:50%;margin-top:2px}
 .staff-list li b{display:block;font-size:17px;color:var(--navy)}
 @media (max-width:860px){
           .staff-list{grid-template-columns:1fr}
