@@ -495,3 +495,19 @@ html{scroll-padding-top:80px}
 html,body{overflow-x:hidden}
 @supports (overflow:clip){html,body{overflow-x:clip}}
 img,iframe,video,svg,table{max-width:100%}
+
+/* 塾代の比べ表（11/4 眞野さんの資料から） */
+.juku-cmp{margin-top:34px;background:#fff;border-radius:6px;padding:26px 30px;color:var(--navy)}
+.juku-cmp-kicker{margin:0;font-size:15px;font-weight:700;color:#2a7bc0}
+.juku-cmp-h{margin:4px 0 14px;font-size:26px;font-weight:700;line-height:1.4}
+.juku-cmp-h em{font-style:normal;color:#c8571b;white-space:nowrap}
+.juku-cmp-sub{margin:0 0 8px;font-weight:700}
+.juku-cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.juku-cmp table{width:100%;min-width:480px;border-collapse:collapse;font-size:15px}
+.juku-cmp th,.juku-cmp td{border:1px solid #c9d3e0;padding:8px 10px;text-align:right;white-space:nowrap}
+.juku-cmp th:first-child,.juku-cmp td:first-child{text-align:left}
+.juku-cmp thead th{background:#1f3a5f;color:#fff}
+.juku-cmp tbody tr{background:#eef4fa}
+.juku-cmp tr.sum{background:#fde8d8;font-weight:700}
+.juku-cmp-src{margin:10px 0 0;font-size:12px;color:#6b7785}
+@media (max-width:640px){.juku-cmp{padding:20px 16px}.juku-cmp-h{font-size:21px}.juku-cmp table{font-size:13px}}
