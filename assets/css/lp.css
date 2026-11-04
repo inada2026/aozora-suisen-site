@@ -511,3 +511,10 @@ img,iframe,video,svg,table{max-width:100%}
 .juku-cmp tr.sum{background:#fde8d8;font-weight:700}
 .juku-cmp-src{margin:10px 0 0;font-size:12px;color:#6b7785}
 @media (max-width:640px){.juku-cmp{padding:20px 16px}.juku-cmp-h{font-size:21px}.juku-cmp table{font-size:13px}}
+.school-cmp table{min-width:0}
+.school-cmp th,.school-cmp td{text-align:center;white-space:normal}
+.school-cmp td{font-size:20px;font-weight:700}
+.school-cmp td small{font-size:13px;font-weight:400}
+.school-cmp td:first-child{font-size:15px}
+.school-cmp-note{margin:10px 0 0;font-size:14px;line-height:1.7}
+@media (max-width:640px){.school-cmp td{font-size:17px}}
