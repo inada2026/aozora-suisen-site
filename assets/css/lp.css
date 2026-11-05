@@ -589,3 +589,19 @@ img,iframe,video,svg,table{max-width:100%}
 
 /* 11/5 スマホのヘッダーは「体験会」を出す（Zoomだけだとハードルが高い・眞野さん）。4つは下の帯にある */
 @media (max-width:860px){.gnav a.head-cta{display:none}.gnav a.head-taiken{display:inline-block}}
+
+/* 11/5 ボタンを減らす（稲田さん・眞野さん「商売商売しない」）。最初の画面は体験会1つ＋小さな文字のリンク、4つは各ページの最後だけ、下の帯は外す */
+.fv-entry{margin-top:4px;max-width:560px}
+.fv .btn.fv-taiken{min-height:0;padding:10px 26px;font-size:17px;border-radius:14px;box-shadow:0 4px 0 #0b2442}
+.fv .btn.fv-taiken small{font-size:12.5px;line-height:1.45;margin-top:2px}
+.fv-other{margin:14px 0 0;font-size:14px;line-height:1.8;color:#fff}
+.fv-other a{color:#fff;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.fv .cta-one{margin-top:8px}
+.cta4.soudan-last{margin-top:28px}
+.sticky-cta{display:none!important}
+footer{padding-bottom:40px}
+@media (max-width:860px){
+  .fv .btn.fv-taiken{width:auto;font-size:16px;padding:10px 22px}
+  .fv-other{font-size:13.5px}
+  .fv .cta-one .btn{width:auto}
+}
