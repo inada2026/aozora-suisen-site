@@ -1,18 +1,19 @@
-# あおぞら作文教室 都立推薦サイト — VibeBoxへの引っ越し（2026-11-05版）
+# あおぞら作文教室 都立推薦サイト — VibeBoxへの引っ越し（2026-11-05 夕方版）
 
 最初にこのファイルを全部読んでから作業してください。
 
 ## これは何か
 - あおぞら作文教室（眞野玲子先生）の「都立高校推薦入試対策クラス」のサイト。制作・管理は株式会社inadog（稲田）。
 - このリポジトリ（`inada2026/aozora-suisen-site` の **`renewal-2026-10-31` ブランチ**）の中身が、今いちばん新しい完成形そのもの（静的HTML・CSS・JS・画像）。ビルドは不要。
-- 今の確認用URL：https://aozora-cafe-suisen.site-v6.workers.dev/ （Windowsから wrangler で直接出していた。眞野先生はこのURLで見ている）
+- 今の公開URL：https://aozora-cafe-suisen.site-v6.workers.dev/ （11/5夕方にWindowsから wrangler で正式公開。検索にも出し始めた。眞野先生・LINE・YouTubeの説明欄からもこのURLに来る）
+- **このURLは変えてはいけない**。URLは「サイトの名前（aozora-cafe-suisen）」と「inadogのCloudflareのアカウント（site-v6）」の2つで決まる。VibeBoxから出すときも、出し先を inadog の Cloudflare アカウント、Worker の名前を aozora-cafe-suisen にすれば同じURLのまま入れ替わる。どちらかが違うと別のURLになるので、出す前に必ず確かめる
 - 10/24に作った古い引っ越しパック（Windows `R:\ClaudeCode_inada\vibebox-hikkoshi\aozora-suisen-site\`、10/20版）は**古いので使わない**。
 
 ## やってほしいこと（作り直さず「移す」）
 1. 見た目・文章・構成を**変えずに**、VibeBoxのプロジェクトとして載せる。ファイル名・フォルダ名もそのまま。
 2. 公開先は inadog の Cloudflare。できれば今と同じ名前 **`aozora-cafe-suisen`**（URLが変わらないように）。同じ名前にできない場合は、新しいURLを稲田さんに伝える。
 3. 公開範囲は **一般**（誰でも開ける）。眞野先生がログインなしで開けること。
-4. **検索に載らない設定を残す**（各ページの `noindex,nofollow` と `robots.txt` の `Disallow: /`）。正式公開の指示が出るまで外さない。
+4. **検索の設定は今のまま**。2026-11-05に正式公開した（眞野先生「公開しちゃってください」）。index・gakko・junbi・soudan は検索に出す。kouza・index-old・edogawa・joto・kohoku・theme4・zoom1029/・404 は noindex のまま。robots.txt は今の中身（Allow: / ＋ Disallow: /kakunin/ /zoom1029/ /kouza.html /index-old.html）のまま変えない。
 5. 公開するのはサイトのファイルだけ。**この `VIBEBOX_START.md` と `.git` は公開しない**。
 6. 載せたら、スマホ幅（390px）とPC幅（1280px）で `index.html` `gakko.html` `junbi.html` `soudan.html` を開き、横はみ出し・画像欠落・リンク切れが無いか見る。トップの料金の所で、横棒グラフが伸びること（画面に入ったとき）も見る。
 
