@@ -586,3 +586,6 @@ img,iframe,video,svg,table{max-width:100%}
   .cta4 .btn{font-size:16px;min-height:70px;padding:8px 8px}
   .cta4 .btn small{font-size:12px}
 }
+
+/* 11/5 スマホのヘッダーは「体験会」を出す（Zoomだけだとハードルが高い・眞野さん）。4つは下の帯にある */
+@media (max-width:860px){.gnav a.head-cta{display:none}.gnav a.head-taiken{display:inline-block}}
