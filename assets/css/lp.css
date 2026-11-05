@@ -605,3 +605,6 @@ footer{padding-bottom:40px}
   .fv-other{font-size:13.5px}
   .fv .cta-one .btn{width:auto}
 }
+
+/* 11/5 合格実績に年度を添える */
+.result-all li small{display:block;font-size:11px;font-weight:400;color:#6b7280;margin-top:2px;letter-spacing:0}
