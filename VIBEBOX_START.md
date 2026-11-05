@@ -1,4 +1,6 @@
-> **2026-11-05 夜：VibeBoxへの引っ越しは取りやめ。** VibeBoxは公開先が 〜.inadog-ai.com になり、無料枠3MBにも入らない（サイトは約9MB）。当面は今の workers.dev の住所のまま、出すのは Windows 側だけ。Mac 側は push まで。本番は suisen.sakubuncafe.com（Xserver）へ、眞野先生のOKとログイン情報が揃ってから。以下は記録として残す。
+> **2026-11-05 夜（最新）：本番の住所は専用ドメイン https://aozora-suisen.com/ に決定。** sakubuncafe.com の下（suisen.sakubuncafe.com・Xserver）はやめた（Soichiro側も設定を見て触れるため）。aozora-suisen.com は inadog の Cloudflare で買い（年1,600円ほど・稲田さん負担）、VibeBox で aozora-suisen.com 用の新しい project を作って出す。容量は Cloudflare の 2026-09-04 の変更で無料でも1つのappに64MBまで入るので、zoom1029/ と kakunin/ も含めてサイト全体（約9MB）をそのまま載せる。今の workers.dev の住所は、全ページを新しい住所へ自動で飛ばす（Windows側の作業）。眞野先生のOK待ち。それまでは今の workers.dev のまま、出すのは Windows 側だけ。Mac 側は push まで。
+>
+> （その前の版：VibeBoxは住所が inadog-ai.com になり3MB上限で不可、と書いていたが、3MBは古い情報だった）
 
 # あおぞら作文教室 都立推薦サイト — VibeBoxへの引っ越し（2026-11-05 夕方版）
 
