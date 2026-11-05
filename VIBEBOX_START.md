@@ -1,3 +1,5 @@
+> **2026-11-05 夜：VibeBoxへの引っ越しは取りやめ。** VibeBoxは公開先が 〜.inadog-ai.com になり、無料枠3MBにも入らない（サイトは約9MB）。当面は今の workers.dev の住所のまま、出すのは Windows 側だけ。Mac 側は push まで。本番は suisen.sakubuncafe.com（Xserver）へ、眞野先生のOKとログイン情報が揃ってから。以下は記録として残す。
+
 # あおぞら作文教室 都立推薦サイト — VibeBoxへの引っ越し（2026-11-05 夕方版）
 
 最初にこのファイルを全部読んでから作業してください。
