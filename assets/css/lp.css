@@ -559,3 +559,30 @@ img,iframe,video,svg,table{max-width:100%}
   .gap-row{grid-template-columns:auto 1fr}
   .gap-total{font-size:18px}
 }
+
+/* 申し込みボタン4つ（11/5 眞野さん：体験会・電話・Zoom・LINE） */
+.cta4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1000px;margin:0 auto}
+.cta4 .btn{min-height:72px;padding:10px 12px;font-size:17px;border-radius:18px;gap:0}
+.cta4 .btn small{font-size:12.5px;line-height:1.45;margin-top:2px}
+.cta4 .btn-line{box-shadow:0 5px 0 #04913e}
+.btn-taiken{background:var(--navy);color:#fff;border:3px solid var(--navy);box-shadow:0 5px 0 #0b2442}
+.btn-tel{background:#fff;color:var(--navy);border:3px solid var(--navy);box-shadow:0 5px 0 var(--navy)}
+.cta4.after-quote{margin-top:56px}
+.fv .cta4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:560px;margin:0}
+.closing .btn-taiken,.fv .btn-taiken{border-color:#fff}
+.gnav{gap:16px}
+.gnav .head-taiken{background:var(--navy);color:#fff;padding:9px 16px;border-radius:999px}
+.gnav .head-tel{background:#fff;color:var(--navy);border:2px solid var(--navy);padding:7px 16px;border-radius:999px}
+.gnav .head-cta,.gnav .head-line{padding:9px 16px}
+.gnav .head-cta{background:var(--yellow);color:var(--navy);border:2px solid var(--navy);padding:7px 16px}
+.column-link{margin-top:12px}
+.sticky-cta{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding-left:8px;padding-right:8px}
+.sticky-cta a{font-size:14px;min-height:48px}
+.sticky-cta .s-taiken{background:var(--navy);color:#fff}
+.sticky-cta .s-tel{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+@media (max-width:1180px) and (min-width:861px){.gnav a:not([class]){display:none}}
+@media (max-width:860px){
+  .cta4,.fv .cta4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:none}
+  .cta4 .btn{font-size:16px;min-height:70px;padding:8px 8px}
+  .cta4 .btn small{font-size:12px}
+}
