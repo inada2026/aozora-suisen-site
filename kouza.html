@@ -53,9 +53,12 @@
 .types button[aria-selected="true"]{color:var(--navy);border-color:var(--terra)}
 .types + div .lesson:first-child{border-top:none}
 .coming{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
-.coming b{font:500 12px var(--body);letter-spacing:.1em;color:var(--terra);white-space:nowrap;padding-top:2px}
+.coming b{font:500 12px var(--body);letter-spacing:.1em;color:var(--terra);white-space:nowrap;align-self:start;border:1px solid var(--terra);border-radius:3px;padding:2px 10px;margin-top:1px}
+.coming .who{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.part{font:600 13px var(--body);letter-spacing:.16em;color:var(--terra);margin:0 0 6px}
 .coming p{margin:0}
 .lesson + .coming{border-top:none}
+.coming + .coming{border-top:none}
 
 .late .route{list-style:none;padding:0;margin:26px 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .late .route li{margin:0;font-family:var(--heading);font-size:18px}
@@ -138,19 +141,19 @@
 
 <section class="section paper indexed"><div class="wrap">
   <span class="section-number">02</span>
-  <div class="section-heading"><p class="eyebrow">11月前半・全員</p><h2>書く力の基礎</h2><p class="small">原稿用紙の使い方から、意見の書き方まで。ここが全部の土台になります。</p></div>
-  <div id="s2"></div>
+  <div class="section-heading"><p class="part">作文のイロハ</p><p class="eyebrow">11月前半・全員</p><h2>書く力の基礎</h2><p class="small">原稿用紙の使い方から、意見の書き方まで。ここが全部の土台になります。</p></div>
+  <div><div id="s2"></div><div class="coming"><b>準備中</b><p>作文の三原則（同じことの繰り返しを避ける、など）の動画を準備しています。<span class="who">眞野先生が撮影します</span></p></div></div>
 </div></section>
 
 <section class="section indexed"><div class="wrap">
   <span class="section-number">03</span>
-  <div class="section-heading"><p class="eyebrow">11月後半・自分の型だけ</p><h2>志望校の「型」の対策</h2><p class="small">01の1本目の課題で調べた、自分の志望校の型をえらんでください。</p></div>
+  <div class="section-heading"><p class="part">作文のイロハ</p><p class="eyebrow">11月後半・自分の型だけ</p><h2>志望校の「型」の対策</h2><p class="small">01の1本目の課題で調べた、自分の志望校の型をえらんでください。</p></div>
   <div><div class="types" role="tablist" id="types"></div><div id="s3"></div></div>
 </div></section>
 
 <section class="section paper indexed"><div class="wrap">
   <span class="section-number">04</span>
-  <div class="section-heading"><p class="eyebrow">11月後半〜12月</p><h2>面接と自己PRカード</h2><p class="small">自分のよさを、志望校が求める姿とつなげて話せるようにします。</p></div>
+  <div class="section-heading"><p class="part">面接のイロハ</p><p class="eyebrow">11月後半〜12月</p><h2>面接と自己PRカード</h2><p class="small">自分のよさを、志望校が求める姿とつなげて話せるようにします。</p></div>
   <div><div id="s4"></div><div class="coming"><b>撮影中</b><p>面接の動画4本（話すのが得意な子／苦手な子／「自分には何もない」と思っている子／自己PR）を、公開したらここに追加します。</p></div></div>
 </div></section>
 
@@ -166,11 +169,16 @@
   <div><div class="coming"><b>12月から</b><p>本番の前に見ておきたいポイントを、12月と1月に公開します。</p></div></div>
 </div></section>
 
+<section class="section indexed"><div class="wrap">
+  <span class="section-number">07</span>
+  <div class="section-heading"><p class="eyebrow">冬休み</p><h2>オンラインクラス</h2></div>
+  <div><div class="coming"><b>準備中</b><p>冬休みに、眞野先生のオンラインクラスを録画して、このページから見られるようにします。</p></div></div>
+</div></section>
+
 <section class="section navy late"><div class="wrap" style="max-width:760px">
   <p class="eyebrow">12月から始める人へ</p>
   <h2>この順番で進めれば間に合います</h2>
   <ol class="route"><li class="s">01 地図</li><li class="a">→</li><li class="s">03 自分の型</li><li class="a">→</li><li class="s">04 面接</li><li class="a">→</li><li class="s">05 志望校</li></ol>
-  <p>02の基礎は、最初の授業で眞野先生が「この動画を」とえらんだものだけで大丈夫です。</p>
 </div></section>
 
 </main>
@@ -187,22 +195,10 @@ var DATA = {
     ["iTaot2gS1TM","「本校の期待する生徒の姿」徹底解説","9:22","志望校の「期待する生徒の姿」を書き写して、自分に当てはまるところに線を引きましょう。"],
     ["CV-3_2e7P5k","推薦入試の作文問題 どんどん難しくなっています","12:42",""]
   ],
-  s2: [
-    ["WsOJa3EtI5Q","合格を勝ち取る 基本の書き方","2:28","原稿用紙の使い方を守って、自己紹介を200字で書きましょう。"],
-    ["Vtg2SD2IHfc","上手く伝わる作文とは？","2:41","前の課題の200字を、伝わる形に書き直しましょう。"],
-    ["NurBsmPgDvU","意見作文の書き方","4:43","「中学生に宿題は必要か」について、あなたの意見と理由を1つ、150字で書きましょう。"],
-    ["TohpMXjq1Dg","読み手を引きつける作文の技法","7:39","前の課題の書き出しを、2通り書いてみましょう。"],
-    ["iuL7tGx0yO0","作文に必要な3つの視点","8:17","同じテーマを3つの視点からメモしましょう（文にしなくて大丈夫です）。"]
-  ],
+  s2: [],
   s3: [
-    ["テーマ型", [
-      ["VmLs0R7adMU","流れが重要！ 課題・解決・提案","8:06","身近な課題を1つ選び、「課題→解決→提案」の順にメモしましょう。"]
-    ]],
-    ["資料読み取り型", [
-      ["jeS7ErfrjJ8","資料読み取りのコツ","9:31","志望校の過去問の資料を見て、読み取れることを3つ箇条書きにしましょう。"],
-      ["Cd7wLJg-85I","苦戦しがちな読解問題のコツ 前編","6:32",""],
-      ["slrdICCnrhI","苦戦しがちな読解問題のコツ 後編","9:56","過去問の文章を読んで、筆者の言いたいことを1文でまとめましょう。"]
-    ]],
+    ["テーマ型", []],
+    ["資料読み取り型", []],
     ["志望動機型", [
       ["T_Xq1Lzjpb8","志望動機の書き方とコツ","0:51","その学校を選んだ理由を、思いつくだけ箇条書きにしましょう。"]
     ]],
@@ -211,6 +207,27 @@ var DATA = {
   s4: [
     ["CJA0zIDUIe4","しっかり自己アピールしよう","5:48","中学校でがんばったことを3つ、箇条書きにしましょう。"],
     ["0RiFGwD5K_w","自分を知る 相手を知る 大切なのはマッチング","7:52","01で線を引いた「期待する生徒の姿」と、がんばったこと3つをつなげて1文にしましょう。"]
+  ]
+};
+
+// 2024年より前に公開した動画（2020年3月の「受験作文対策」シリーズ）。
+// 眞野先生の指示（2026-11-05）で「2024年以降に撮った物だけ」にしたため、ページには出さずここに退避。
+// 戻すときは、行をそのまま DATA の該当箇所へ移す。
+var DATA_OLD = {
+  s2: [
+    ["WsOJa3EtI5Q","合格を勝ち取る 基本の書き方","2:28","原稿用紙の使い方を守って、自己紹介を200字で書きましょう。"],          // 2020-03-18
+    ["Vtg2SD2IHfc","上手く伝わる作文とは？","2:41","前の課題の200字を、伝わる形に書き直しましょう。"],                      // 2020-03-18
+    ["NurBsmPgDvU","意見作文の書き方","4:43","「中学生に宿題は必要か」について、あなたの意見と理由を1つ、150字で書きましょう。"], // 2020-03-20
+    ["TohpMXjq1Dg","読み手を引きつける作文の技法","7:39","前の課題の書き出しを、2通り書いてみましょう。"],                  // 2020-03-21
+    ["iuL7tGx0yO0","作文に必要な3つの視点","8:17","同じテーマを3つの視点からメモしましょう（文にしなくて大丈夫です）。"]     // 2020-03-31
+  ],
+  "テーマ型": [
+    ["VmLs0R7adMU","流れが重要！ 課題・解決・提案","8:06","身近な課題を1つ選び、「課題→解決→提案」の順にメモしましょう。"]   // 2020-03-21
+  ],
+  "資料読み取り型": [
+    ["jeS7ErfrjJ8","資料読み取りのコツ","9:31","志望校の過去問の資料を見て、読み取れることを3つ箇条書きにしましょう。"],    // 2020-03-31
+    ["Cd7wLJg-85I","苦戦しがちな読解問題のコツ 前編","6:32",""],                                                   // 2020-03-31
+    ["slrdICCnrhI","苦戦しがちな読解問題のコツ 後編","9:56","過去問の文章を読んで、筆者の言いたいことを1文でまとめましょう。"]  // 2020-03-31
   ]
 };
 
@@ -259,7 +276,8 @@ function showType(i) {
   panel.innerHTML = "";
   var list = DATA.s3[i][1];
   if (list.length) list.forEach(function (v, j) { panel.appendChild(lesson(v, j + 1)); });
-  else panel.innerHTML = '<div class="coming"><b>準備中</b><p>チャレンジスクールの動画は準備中です。志願申告書と作文は、個別指導でいっしょに進めます。</p></div>';
+  else if (DATA.s3[i][0] === "チャレンジスクール") panel.innerHTML = '<div class="coming"><b>準備中</b><p>チャレンジスクールの動画は準備中です。志願申告書と作文は、個別指導でいっしょに進めます。</p></div>';
+  else panel.innerHTML = '<div class="coming"><b>準備中</b><p>' + esc(DATA.s3[i][0]) + 'の動画は準備中です。公開したらここに追加します。</p></div>';
 }
 DATA.s3.forEach(function (g, i) {
   var t = document.createElement("button");
