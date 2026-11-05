@@ -142,7 +142,7 @@
 <section class="section paper indexed"><div class="wrap">
   <span class="section-number">02</span>
   <div class="section-heading"><p class="part">作文のイロハ</p><p class="eyebrow">11月前半・全員</p><h2>書く力の基礎</h2><p class="small">原稿用紙の使い方から、意見の書き方まで。ここが全部の土台になります。</p></div>
-  <div><div id="s2"></div><div class="coming"><b>準備中</b><p>作文の三原則（同じことの繰り返しを避ける、など）の動画を準備しています。<span class="who">眞野先生が撮影します</span></p></div></div>
+  <div><div id="s2"></div><div id="s2todo"></div></div>
 </div></section>
 
 <section class="section indexed"><div class="wrap">
@@ -231,6 +231,27 @@ var DATA_OLD = {
   ]
 };
 
+// 撮影予定（2024年より前の動画の代わりに撮り直すもの。2026-11-05 眞野さんの指示を反映）。撮って公開したら DATA へ移し、ここから消す
+var TODO = {
+  s2: [
+    ["原稿用紙の使い方と、基本の書き方","2020年版の「合格を勝ち取る 基本の書き方」の撮り直し"],
+    ["伝わる作文への書き直し","2020年版の「上手く伝わる作文とは？」の撮り直し"],
+    ["意見作文の書き方","2020年版の撮り直し"],
+    ["読み手を引きつける書き出し","2020年版の「読み手を引きつける作文の技法」の撮り直し"],
+    ["作文に必要な3つの視点","2020年版の撮り直し"],
+    ["作文の三原則（同じことの繰り返しを避ける、など）","新しく撮る"]
+  ],
+  "テーマ型": [["課題・解決・提案の流れ","2020年版の「流れが重要！」の撮り直し"]],
+  "資料読み取り型": [
+    ["資料読み取りのコツ","2020年版の撮り直し"],
+    ["読解問題のコツ","2020年版の前編・後編の撮り直し（1本にまとめても可）"]
+  ],
+  "チャレンジスクール": [["志願申告書と作文","新しく撮る"]]
+};
+function todoHTML(list) {
+  return list.map(function (t) { return '<div class="coming"><b>撮影予定</b><p>' + esc(t[0]) + '<span class="who">眞野先生が撮影します（' + esc(t[1]) + '）</span></p></div>'; }).join("");
+}
+
 var KEY = "aozora30-done", KEY_TYPE = "aozora30-type";
 function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
 function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
@@ -266,6 +287,8 @@ function track(list) { list.forEach(function (v) { if (ids.indexOf(v[0]) < 0) id
   track(DATA[k]);
 });
 
+document.getElementById("s2todo").innerHTML = todoHTML(TODO.s2);
+
 var types = document.getElementById("types"), panel = document.getElementById("s3");
 DATA.s3.forEach(function (g) { track(g[1]); });
 var cur = load(KEY_TYPE, 0);
@@ -276,8 +299,7 @@ function showType(i) {
   panel.innerHTML = "";
   var list = DATA.s3[i][1];
   if (list.length) list.forEach(function (v, j) { panel.appendChild(lesson(v, j + 1)); });
-  else if (DATA.s3[i][0] === "チャレンジスクール") panel.innerHTML = '<div class="coming"><b>準備中</b><p>チャレンジスクールの動画は準備中です。志願申告書と作文は、個別指導でいっしょに進めます。</p></div>';
-  else panel.innerHTML = '<div class="coming"><b>準備中</b><p>' + esc(DATA.s3[i][0]) + 'の動画は準備中です。公開したらここに追加します。</p></div>';
+  panel.insertAdjacentHTML("beforeend", todoHTML(TODO[DATA.s3[i][0]] || []));
 }
 DATA.s3.forEach(function (g, i) {
   var t = document.createElement("button");
