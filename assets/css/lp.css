@@ -497,24 +497,65 @@ html,body{overflow-x:hidden}
 img,iframe,video,svg,table{max-width:100%}
 
 /* 塾代の比べ表（11/4 眞野さんの資料から） */
-.juku-cmp{margin-top:34px;background:#fff;border-radius:6px;padding:26px 30px;color:var(--navy)}
-.juku-cmp-kicker{margin:0;font-size:15px;font-weight:700;color:#2a7bc0}
-.juku-cmp-h{margin:4px 0 14px;font-size:26px;font-weight:700;line-height:1.4}
-.juku-cmp-h em{font-style:normal;color:#c8571b;white-space:nowrap}
-.juku-cmp-sub{margin:0 0 8px;font-weight:700}
-.juku-cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.juku-cmp table{width:100%;min-width:480px;border-collapse:collapse;font-size:15px}
-.juku-cmp th,.juku-cmp td{border:1px solid #c9d3e0;padding:8px 10px;text-align:right;white-space:nowrap}
-.juku-cmp th:first-child,.juku-cmp td:first-child{text-align:left}
-.juku-cmp thead th{background:#1f3a5f;color:#fff}
-.juku-cmp tbody tr{background:#eef4fa}
-.juku-cmp tr.sum{background:#fde8d8;font-weight:700}
-.juku-cmp-src{margin:10px 0 0;font-size:12px;color:#6b7785}
-@media (max-width:640px){.juku-cmp{padding:20px 16px}.juku-cmp-h{font-size:21px}.juku-cmp table{font-size:13px}}
-.school-cmp table{min-width:0}
-.school-cmp th,.school-cmp td{text-align:center;white-space:normal}
-.school-cmp td{font-size:20px;font-weight:700}
-.school-cmp td small{font-size:13px;font-weight:400}
-.school-cmp td:first-child{font-size:15px}
-.school-cmp-note{margin:10px 0 0;font-size:14px;line-height:1.7}
-@media (max-width:640px){.school-cmp td{font-size:17px}}
+/* 塾代くらべ（11/5）：横棒が左から伸びて、あおぞらの短い棒が最後に出る */
+.cost-race{margin-top:40px;background:#fff;border-radius:6px;padding:30px 34px 22px;color:var(--navy)}
+.cost-kicker,.gap-kicker{margin:0;font-size:15px;font-weight:700;letter-spacing:.06em}
+.cost-kicker{color:var(--orange)}
+.cost-h,.gap-h{margin:6px 0 22px;font-size:clamp(23px,2.6vw,30px);line-height:1.45;word-break:auto-phrase;text-wrap:pretty}
+.cost-h br.sp,.gap-h br.sp{display:none}
+.race{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.race li{display:grid;grid-template-columns:13em 1fr;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.race-name{font-weight:600;font-size:16px;line-height:1.35}
+.race-name small{display:block;font-size:13px;font-weight:500;color:var(--muted)}
+.race-track{position:relative;display:flex;align-items:center;gap:12px;min-height:34px}
+.race-bar{display:block;height:22px;width:calc(var(--w) * .78);background:#c3cfdd;border-radius:0 3px 3px 0;transform-origin:left center;transition:transform 1.1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(.25s + var(--i) * .22s)}
+.race-num{font-size:24px;font-weight:700;white-space:nowrap;line-height:1}
+.race-num small{font-size:14px;margin-left:2px}
+.race-us{background:var(--yellow-soft);margin:0 -14px;padding-left:14px!important;padding-right:14px!important}
+.race-us .race-name{font-weight:700;color:var(--navy)}
+.race-us .race-bar{height:30px;background:var(--yellow);box-shadow:inset 0 0 0 2px var(--navy)}
+.race-us .race-num{font-size:34px;color:var(--orange-deep)}
+.motion .cost-race .race-bar{transform:scaleX(0)}
+.motion .cost-race.is-in .race-bar{transform:scaleX(1)}
+.motion .cost-race .race-num{opacity:0;transition:opacity .5s ease;transition-delay:calc(.9s + var(--i) * .22s)}
+.motion .cost-race.is-in .race-num{opacity:1}
+.cost-note{margin:16px 0 0;font-size:14px;line-height:1.75;color:var(--ink)}
+.cost-more{margin-top:12px;border-top:1px solid var(--line)}
+.cost-more summary{cursor:pointer;font-size:15px;font-weight:600;padding:12px 0;color:var(--navy)}
+.cost-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cost-more table{width:100%;min-width:460px;border-collapse:collapse;font-size:14px}
+.cost-more th,.cost-more td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:right;white-space:nowrap;font-weight:500}
+.cost-more thead th{border-bottom:2px solid var(--navy);font-weight:700}
+.cost-more th:first-child{text-align:left}
+.cost-more tr.sum th,.cost-more tr.sum td{font-weight:700;border-bottom:2px solid var(--navy)}
+.cost-src,.gap-src{margin:10px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+/* 都立と私立（11/5）：箱に入れず青地にそのまま。公立の棒を黄色に */
+.school-gap{margin-top:56px;padding:6px 0 4px;color:#fff;border-top:2px solid rgba(255,255,255,.55)}
+.gap-kicker{color:var(--yellow);margin-top:26px}
+.gap-h{color:#fff}
+.gap-x{color:var(--yellow);font-size:1.35em;white-space:nowrap}
+.gap-rows{display:grid;gap:18px;max-width:880px}
+.gap-row{display:grid;grid-template-columns:7em auto 1fr;align-items:baseline;gap:6px 18px}
+.gap-name{margin:0;font-weight:700;font-size:18px}
+.gap-num{margin:0;font-size:clamp(34px,4.4vw,48px);font-weight:700;line-height:1}
+.gap-num small{font-size:15px;font-weight:500;margin-left:4px}
+.gap-bar{grid-column:1/-1;display:block;height:16px;width:var(--w);background:rgba(255,255,255,.4);border-radius:0 3px 3px 0;transform-origin:left center;transition:transform 1.1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(.3s + var(--i) * .3s)}
+.gap-pub .gap-bar{background:var(--yellow)}
+.gap-pub .gap-num{color:var(--yellow)}
+.motion .school-gap .gap-bar{transform:scaleX(0)}
+.motion .school-gap.is-in .gap-bar{transform:scaleX(1)}
+.gap-total{margin:24px 0 0;font-size:20px;font-weight:700}
+.gap-total b{display:inline-block;font-size:clamp(34px,4.4vw,46px);color:var(--navy);background:var(--yellow);padding:2px 14px;margin:0 4px;line-height:1.25;box-shadow:4px 4px 0 var(--navy)}
+.gap-note{margin:18px 0 0;font-size:14px;line-height:1.75;max-width:880px}
+.gap-src{color:rgba(255,255,255,.8)}
+@media (prefers-reduced-motion:reduce){.race-bar,.gap-bar{transition:none}}
+@media (max-width:640px){
+  .cost-race{padding:22px 16px 16px}
+  .cost-h br.sp,.gap-h br.sp{display:inline}
+  .race li{grid-template-columns:1fr;gap:4px}
+  .race-us{margin:0 -16px;padding-left:16px!important;padding-right:16px!important}
+  .race-bar{width:calc(var(--w) * .72)}
+  .race-num{font-size:21px}.race-us .race-num{font-size:28px}
+  .gap-row{grid-template-columns:auto 1fr}
+  .gap-total{font-size:18px}
+}
