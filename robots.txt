@@ -1,2 +1,6 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /kakunin/
+Disallow: /zoom1029/
+Disallow: /kouza.html
+Disallow: /index-old.html

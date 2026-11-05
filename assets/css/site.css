@@ -159,3 +159,22 @@ h1,h2,h3{word-break:auto-phrase;text-wrap:pretty}
 .page-hero .cta,.page-hero .cta span,.hero .cta,.hero .cta span{color:#163a66!important}
 
 @media (max-width:768px){.section.closing p,.closing .section-body p,.page-hero p{text-align:left}}
+
+/* 申し込みボタン4つ（11/5 眞野さん：体験会・電話・Zoom・LINE）。トップ（lp.css の .cta4）と同じ形 */
+.cta4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1000px;margin:14px 0 22px}
+.cta4 a.btn{display:flex;align-items:center;justify-content:center;min-height:72px;padding:10px 12px;border-radius:18px;font-family:var(--heading);font-weight:700;font-size:17px;line-height:1.4;text-align:center;text-decoration:none;word-break:auto-phrase;text-wrap:pretty;transition:transform .15s}
+.cta4 a.btn:hover{transform:translateY(-2px)}
+.cta4 a.btn small{display:block;font-size:12.5px;font-weight:500;line-height:1.45;margin-top:2px}
+.cta4 a.btn.btn-taiken{background:var(--navy);color:#fff;border:3px solid var(--navy);box-shadow:0 5px 0 #0b2442}
+.cta4 a.btn.btn-tel{background:#fff;color:var(--navy);border:3px solid var(--navy);box-shadow:0 5px 0 var(--navy)}
+.cta4 a.btn.btn-main{background:#ffc928;color:var(--navy);border:3px solid var(--navy);box-shadow:0 5px 0 var(--navy)}
+.cta4 a.btn.btn-line{background:#06c755;color:#fff;border:3px solid #06c755;box-shadow:0 5px 0 #04913e}
+.page-hero .cta4,.section.navy .cta4{max-width:560px}
+.page-hero .cta4{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px}
+.page-hero .cta4 a.btn.btn-taiken,.section.navy .cta4 a.btn.btn-taiken{border-color:#fff}
+.section.navy .cta4{max-width:none}
+@media (max-width:860px){
+  .cta4,.page-hero .cta4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:none}
+  .cta4 a.btn{font-size:16px;min-height:70px;padding:8px 8px}
+  .cta4 a.btn small{font-size:12px}
+}
