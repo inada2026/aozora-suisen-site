@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>推薦対策コース 受講生のページ｜あおぞら作文教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/lp.css?v=59">
+<style>
+/* 受講生のページだけの部品。色・文字・ボタン・動きはトップ（lp.css / lp-motion.js）と同じ物を使う */
+.kz-progress{display:flex;align-items:center;gap:12px;background:var(--navy);color:#fff;border-radius:999px;padding:6px 8px 6px 18px;font-size:13px;font-weight:600;white-space:nowrap}
+.kz-progress .track{width:120px;height:8px;border-radius:99px;background:rgba(255,255,255,.25);overflow:hidden}
+.kz-progress .track span{display:block;height:100%;width:0;background:var(--yellow);transition:width .5s}
+.kz-progress .cnt{background:#fff;color:var(--navy);border-radius:999px;padding:2px 12px;font-size:13px}
+.kz-progress .cnt b{color:var(--orange);font-size:17px}
+
+.fv .fv-kicker{display:inline-block;font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--navy);background:var(--yellow);border-radius:999px;padding:3px 16px;margin:0 0 18px}
+.fv h1 .soft{color:#a9d3f7}
+.fv .fv-copy{padding:64px 0 56px}
+.fv .fv-lead{color:#fff;font-size:16px;line-height:1.9;margin:0 0 26px;max-width:30em}
+.fv-photo img{object-position:50% 40%}
+@media(min-width:861px){.fv-photo{margin-right:min(-20px,calc((1080px - 100vw) / 2))}}
+@media(max-width:860px){.fv-photo img{object-position:75% 35%}}
+
+.kz-teacher .wrap{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;max-width:900px}
+.kz-teacher .face img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 8px 24px rgba(22,58,102,.15)}
+.kz-teacher .face figcaption{text-align:center;font-weight:600;color:var(--navy);margin-top:12px;font-size:15px}
+.kz-teacher h2{text-align:left;margin-bottom:18px}
+.kz-teacher p{margin:0}
+
+.kz-map{background:#fff}
+.kz-map .result-all a{display:block;text-decoration:none;color:var(--navy)}
+.kz-map .result-all li{padding:0;transition:transform .15s,border-color .15s}
+.kz-map .result-all li:hover{transform:translateY(-2px);border-color:var(--orange)}
+.kz-map .result-all a{padding:8px 20px}
+.kz-map .result-all .n{color:var(--orange);font-weight:700;margin-right:6px}
+
+.step:nth-of-type(odd){background:var(--cream)}
+.step:nth-of-type(even){background:#fff}
+.step-head{max-width:860px;margin:0 auto 34px}
+.step-head .case-tag{font-style:italic}
+.step-head .when{display:block;font-weight:700;color:var(--orange-deep);font-size:15px;margin:6px 0 2px}
+.step-head h2{text-align:left;margin:0 0 8px}
+.step-head p{margin:0;color:var(--muted)}
+.step-body{max-width:860px;margin:0 auto}
+
+.lsn{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start;background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px;margin:0 0 18px}
+.step:nth-of-type(even) .lsn{background:var(--cream)}
+.lsn .video{border-radius:8px}
+.lsn .play{width:56px;height:40px;margin:-20px 0 0 -28px;border-radius:11px}
+.lsn .play::after{left:22px;top:11px;border-width:9px 0 9px 15px}
+.lsn-meta{display:flex;gap:10px;align-items:center;margin-bottom:4px}
+.lsn-no{font-weight:700;color:var(--orange);font-size:15px}
+.lsn-len{font-size:13px;color:var(--muted)}
+.lsn h3{font-size:19px;margin:0 0 12px}
+.lsn-kadai{background:var(--yellow-soft);border-radius:10px;padding:10px 16px;font-size:15px;line-height:1.8;margin:0 0 14px}
+.lsn-kadai b{display:inline-block;background:var(--navy);color:#fff;font-size:12px;border-radius:4px;padding:0 8px;margin-right:8px;vertical-align:1px}
+.watched{font:600 15px var(--font);color:var(--navy);background:#fff;border:2px solid var(--navy);border-radius:999px;padding:8px 22px;min-height:44px;cursor:pointer;box-shadow:0 3px 0 var(--navy);transition:transform .15s}
+.watched:hover{transform:translateY(-1px)}
+.watched[aria-pressed="true"]{background:var(--yellow)}
+.watched[aria-pressed="true"]::before{content:"";display:inline-block;width:12px;height:6px;border-left:3px solid var(--navy);border-bottom:3px solid var(--navy);transform:rotate(-45deg);margin:0 10px 4px 0}
+.lsn.done{border-color:var(--yellow)}
+
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center;border-bottom:1px solid var(--line);padding:16px 4px;margin:0}
+.todo li:first-child{border-top:2px solid var(--navy)}
+.todo .tag{grid-row:span 2;align-self:center;font-size:12px;font-weight:700;color:var(--orange-deep);border:2px solid var(--orange);border-radius:999px;padding:2px 12px;white-space:nowrap}
+.todo .t{font-weight:600;color:var(--navy);font-size:17px;line-height:1.6}
+.todo small{font-size:13px;color:var(--muted);line-height:1.6}
+.lsn + .todo,.lsn ~ .todo{margin-top:8px}
+
+.types{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}
+.types button{font:600 15px var(--font);color:var(--navy);background:#fff;border:2px solid var(--line);border-radius:999px;padding:6px 20px;min-height:44px;cursor:pointer}
+.types button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.kz-late{background:var(--navy);color:#fff;text-align:center}
+.kz-late .k{color:var(--yellow);font-weight:700;margin:0 0 6px}
+.kz-late h2{color:#fff}
+.kz-late ol{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 8px}
+.kz-late li{margin:0}
+.kz-late .s{display:inline-block;background:var(--yellow);color:var(--navy);font-weight:700;border-radius:999px;padding:8px 22px;font-size:17px}
+.kz-late .a{color:var(--yellow);font-weight:700}
+
+@media(max-width:860px){
+  .kz-progress .track,.kz-progress .lbl{display:none}
+  .fv .fv-copy{padding:28px 0 36px}
+  .kz-teacher .wrap{grid-template-columns:1fr;gap:20px;justify-items:center}
+  .kz-teacher .face img{width:150px;height:150px}
+  .lsn{grid-template-columns:1fr;gap:14px;padding:14px}
+  .kz-map .result-all{justify-content:flex-start}
+}
+@media print{.watched,.kz-progress,.video{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="kouza.html"><small>都立推薦対策コース</small>受講生のページ</a>
+    <div class="kz-progress" aria-live="polite"><span class="lbl">見終わった動画</span><span class="track"><span id="bar"></span></span><span class="cnt"><b id="n">0</b> / <span id="total">0</span></span></div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="fv" aria-labelledby="fv-title">
+  <div class="wrap">
+    <div class="fv-copy">
+      <p class="fv-kicker">都立推薦対策コース　11月〜1月末</p>
+      <h1 id="fv-title">動画で学んで<br>書いて<br><span class="soft">見てもらう</span></h1>
+      <p class="fv-lead">上から順に動画を見て、見終わったら課題をノートに書きましょう。ノートは次の授業に持ってきてください。</p>
+      <a class="btn btn-main" href="#st1">01の動画から始める</a>
+    </div>
+    <figure class="fv-photo">
+      <span class="fv-imgclip"><img src="assets/img/suisen-class-1600.webp" srcset="assets/img/suisen-class-800.webp 800w, assets/img/suisen-class-1600.webp 1600w" sizes="(max-width:860px) 160vw, 1300px" alt="推薦入試対策クラスで、中学生が作文を書いている様子" width="800" height="509" fetchpriority="high"></span>
+    </figure>
+  </div>
+</section>
+<div class="fv-numbers">
+  <ul class="wrap">
+    <li><b>数分〜10分</b>動画1本の<br>長さ</li>
+    <li><b>5〜10分</b>課題をノートに<br>書く時間</li>
+    <li><b>毎回</b>授業で<br>眞野先生が見ます</li>
+  </ul>
+</div>
+
+<section class="sec about" aria-labelledby="how-title">
+  <div class="narrow">
+    <h2 id="how-title">このページの使い方</h2>
+    <p class="sec-sub">1回分は、動画1本と課題1つです</p>
+    <ol>
+      <li><span class="num">01</span><div><h3>動画を見る</h3><p>上から順に見ます。見終わったら「見終わったら押す」を押すと、上の数が増えます。</p></div></li>
+      <li><span class="num">02</span><div><h3>課題をノートに書く</h3><p>動画の下にある課題を、ノートに書きます。5〜10分でできる量です。</p></div></li>
+      <li><span class="num">03</span><div><h3>次の授業で、眞野先生に見てもらう</h3><p>ノートを授業に持ってきてください。分からなかったところも、そのとき聞けます。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec kz-teacher" aria-labelledby="teacher-title">
+  <div class="wrap">
+    <figure class="face reveal"><img src="assets/img/portrait.webp" alt="眞野玲子"><figcaption>塾長　眞野玲子</figcaption></figure>
+    <div class="reveal">
+      <h2 id="teacher-title">動画で基礎を、<br><span class="mark">授業でその子に合わせて</span></h2>
+      <p>書き方の基礎は、動画で何度でも見返せます。授業の時間は、一人ひとりの作文と志望校に合わせた指導に使います。分からないところは、そのままにせず授業で聞いてください。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec kz-map" aria-labelledby="map-title">
+  <div class="wrap">
+    <h2 id="map-title">本番までの7つの段</h2>
+    <p class="sec-sub" style="text-align:center;margin-left:auto;margin-right:auto">押すと、その段へ飛びます</p>
+    <ul class="result-all reveal">
+      <li><a href="#st1"><span class="n">01</span>全体の地図<small>入会した週</small></a></li>
+      <li><a href="#st2"><span class="n">02</span>書く力の基礎<small>11月前半</small></a></li>
+      <li><a href="#st3"><span class="n">03</span>志望校の「型」<small>11月後半</small></a></li>
+      <li><a href="#st4"><span class="n">04</span>面接と自己PRカード<small>11月後半〜12月</small></a></li>
+      <li><a href="#st5"><span class="n">05</span>志望校別の対策<small>11月〜12月</small></a></li>
+      <li><a href="#st6"><span class="n">06</span>直前の対策<small>12月・1月</small></a></li>
+      <li><a href="#st7"><span class="n">07</span>オンラインクラス<small>冬休み</small></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec step" id="st1"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 01</span><span class="when">入会した週</span><h2>まず全体の地図をつかむ</h2><p>推薦入試で何が聞かれるのか、志望校がどんな子を求めているのかを知ります。</p></div>
+  <div class="step-body" id="s1"></div>
+</div></section>
+
+<section class="sec step" id="st2"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 02</span><span class="when">作文のイロハ　11月前半・全員</span><h2>書く力の基礎</h2><p>原稿用紙の使い方から、意見の書き方まで。ここが全部の土台になります。</p></div>
+  <div class="step-body"><div id="s2"></div><div id="s2todo"></div></div>
+</div></section>
+
+<section class="sec step" id="st3"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 03</span><span class="when">作文のイロハ　11月後半・自分の型だけ</span><h2>志望校の「型」の対策</h2><p>01の1本目の課題で調べた、自分の志望校の型をえらんでください。</p></div>
+  <div class="step-body"><div class="types" role="tablist" id="types"></div><div id="s3"></div></div>
+</div></section>
+
+<section class="sec step" id="st4"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 04</span><span class="when">面接のイロハ　11月後半〜12月</span><h2>面接と自己PRカード</h2><p>自分のよさを、志望校が求める姿とつなげて話せるようにします。</p></div>
+  <div class="step-body"><div id="s4"></div><ul class="todo"><li><span class="tag">撮影中</span><span class="t">面接の動画4本</span><small>話すのが得意な子／苦手な子／「自分には何もない」と思っている子／自己PR。公開したらここに追加します</small></li></ul></div>
+</div></section>
+
+<section class="sec step" id="st5"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 05</span><span class="when">11月〜12月・志望校の回だけ</span><h2>志望校別の対策</h2></div>
+  <div class="step-body"><ul class="todo"><li><span class="tag">順に公開</span><span class="t">学校ごとの動画</span><small>撮影した順に追加します。見たら、その学校の過去問を1年分書いて、個別指導で見てもらいましょう</small></li></ul></div>
+</div></section>
+
+<section class="sec step" id="st6"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 06</span><span class="when">12月・1月</span><h2>直前の対策</h2></div>
+  <div class="step-body"><ul class="todo"><li><span class="tag">12月から</span><span class="t">本番の前に見ておきたいポイント</span><small>12月と1月に公開します</small></li></ul></div>
+</div></section>
+
+<section class="sec step" id="st7"><div class="wrap">
+  <div class="step-head reveal"><span class="case-tag">STEP 07</span><span class="when">冬休み</span><h2>オンラインクラス</h2></div>
+  <div class="step-body"><ul class="todo"><li><span class="tag">準備中</span><span class="t">眞野先生のオンラインクラス</span><small>冬休みに録画して、このページから見られるようにします</small></li></ul></div>
+</div></section>
+
+<section class="sec kz-late" aria-labelledby="late-title">
+  <div class="wrap">
+    <p class="k">12月から始める人へ</p>
+    <h2 id="late-title">この順番で進めれば間に合います</h2>
+    <ol><li class="s">01 地図</li><li class="a">→</li><li class="s">03 自分の型</li><li class="a">→</li><li class="s">04 面接</li><li class="a">→</li><li class="s">05 志望校</li></ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="font-weight:900;font-size:18px;margin:0">あおぞら作文教室</p>
+    <p style="margin:0">都立推薦対策コース　受講生のページ</p>
+  </div>
+</footer>
+
+<script>
+var KZ_THUMB={'t_Tl-pd2Tvg':1,'iTaot2gS1TM':1,'CV-3_2e7P5k':1,'T_Xq1Lzjpb8':1,'CJA0zIDUIe4':1,'0RiFGwD5K_w':1};
+
+var DATA = {
+  s1: [
+    ["t_Tl-pd2Tvg","作文の出題3パターンと、面接の原稿づくり","5:46","自分の志望校が3パターンのどれか、学校のホームページで過去問を見て書きましょう。"],
+    ["iTaot2gS1TM","「本校の期待する生徒の姿」徹底解説","9:22","志望校の「期待する生徒の姿」を書き写して、自分に当てはまるところに線を引きましょう。"],
+    ["CV-3_2e7P5k","推薦入試の作文問題 どんどん難しくなっています","12:42",""]
+  ],
+  s2: [],
+  s3: [
+    ["テーマ型", []],
+    ["資料読み取り型", []],
+    ["志望動機型", [
+      ["T_Xq1Lzjpb8","志望動機の書き方とコツ","0:51","その学校を選んだ理由を、思いつくだけ箇条書きにしましょう。"]
+    ]],
+    ["チャレンジスクール", []]
+  ],
+  s4: [
+    ["CJA0zIDUIe4","しっかり自己アピールしよう","5:48","中学校でがんばったことを3つ、箇条書きにしましょう。"],
+    ["0RiFGwD5K_w","自分を知る 相手を知る 大切なのはマッチング","7:52","01で線を引いた「期待する生徒の姿」と、がんばったこと3つをつなげて1文にしましょう。"]
+  ]
+};
+
+// 2024年より前に公開した動画（2020年3月の「受験作文対策」シリーズ）。
+// 眞野先生の指示（2026-11-05）で「2024年以降に撮った物だけ」にしたため、ページには出さずここに退避。
+// 戻すときは、行をそのまま DATA の該当箇所へ移す。
+var DATA_OLD = {
+  s2: [
+    ["WsOJa3EtI5Q","合格を勝ち取る 基本の書き方","2:28","原稿用紙の使い方を守って、自己紹介を200字で書きましょう。"],          // 2020-03-18
+    ["Vtg2SD2IHfc","上手く伝わる作文とは？","2:41","前の課題の200字を、伝わる形に書き直しましょう。"],                      // 2020-03-18
+    ["NurBsmPgDvU","意見作文の書き方","4:43","「中学生に宿題は必要か」について、あなたの意見と理由を1つ、150字で書きましょう。"], // 2020-03-20
+    ["TohpMXjq1Dg","読み手を引きつける作文の技法","7:39","前の課題の書き出しを、2通り書いてみましょう。"],                  // 2020-03-21
+    ["iuL7tGx0yO0","作文に必要な3つの視点","8:17","同じテーマを3つの視点からメモしましょう（文にしなくて大丈夫です）。"]     // 2020-03-31
+  ],
+  "テーマ型": [
+    ["VmLs0R7adMU","流れが重要！ 課題・解決・提案","8:06","身近な課題を1つ選び、「課題→解決→提案」の順にメモしましょう。"]   // 2020-03-21
+  ],
+  "資料読み取り型": [
+    ["jeS7ErfrjJ8","資料読み取りのコツ","9:31","志望校の過去問の資料を見て、読み取れることを3つ箇条書きにしましょう。"],    // 2020-03-31
+    ["Cd7wLJg-85I","苦戦しがちな読解問題のコツ 前編","6:32",""],                                                   // 2020-03-31
+    ["slrdICCnrhI","苦戦しがちな読解問題のコツ 後編","9:56","過去問の文章を読んで、筆者の言いたいことを1文でまとめましょう。"]  // 2020-03-31
+  ]
+};
+
+// 撮影予定（2024年より前の動画の代わりに撮り直すもの。2026-11-05 眞野さんの指示を反映）。撮って公開したら DATA へ移し、ここから消す
+var TODO = {
+  s2: [
+    ["原稿用紙の使い方と、基本の書き方","2020年版の「合格を勝ち取る 基本の書き方」の撮り直し"],
+    ["伝わる作文への書き直し","2020年版の「上手く伝わる作文とは？」の撮り直し"],
+    ["意見作文の書き方","2020年版の撮り直し"],
+    ["読み手を引きつける書き出し","2020年版の「読み手を引きつける作文の技法」の撮り直し"],
+    ["作文に必要な3つの視点","2020年版の撮り直し"],
+    ["作文の三原則（同じことの繰り返しを避ける、など）","新しく撮る"]
+  ],
+  "テーマ型": [["課題・解決・提案の流れ","2020年版の「流れが重要！」の撮り直し"]],
+  "資料読み取り型": [
+    ["資料読み取りのコツ","2020年版の撮り直し"],
+    ["読解問題のコツ","2020年版の前編・後編の撮り直し（1本にまとめても可）"]
+  ],
+  "チャレンジスクール": [["志願申告書と作文","新しく撮る"]]
+};
+function todoHTML(list) {
+  if (!list || !list.length) return "";
+  return '<ul class="todo">' + list.map(function (t) { return '<li><span class="tag">撮影予定</span><span class="t">' + esc(t[0]) + '</span><small>眞野先生が撮影します（' + esc(t[1]) + '）</small></li>'; }).join("") + '</ul>';
+}
+var KEY = "aozora30-done", KEY_TYPE = "aozora30-type";
+function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+var done = load(KEY, {}) || {}, ids = [];
+function lesson(v, n) {
+  var id = v[0];
+  var el = document.createElement("article");
+  el.className = "lsn" + (done[id] ? " done" : "");
+  el.innerHTML =
+    '<div class="video"><button type="button" class="video-facade" data-id="' + id + '" data-start="0" aria-label="動画を再生：' + esc(v[1]) + '"><img src="' + (KZ_THUMB[id] ? 'assets/img/kouza/' + id + '.webp?v=1' : 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg') + '" alt="" width="480" height="270" loading="lazy"><span class="play" aria-hidden="true"></span></button></div>' +
+    '<div><div class="lsn-meta"><span class="lsn-no">動画 ' + ("0" + n).slice(-2) + '</span><span class="lsn-len">' + v[2] + '</span></div>' +
+    '<h3>' + esc(v[1]) + '</h3>' +
+    (v[3] ? '<p class="lsn-kadai"><b>課題</b>' + esc(v[3]) + '</p>' : '') +
+    '<button type="button" class="watched" aria-pressed="' + (done[id] ? "true" : "false") + '">' + (done[id] ? "見終わった" : "見終わったら押す") + '</button></div>';
+  var b = el.querySelector(".watched");
+  b.addEventListener("click", function () {
+    done[id] = !done[id];
+    el.classList.toggle("done", done[id]);
+    b.setAttribute("aria-pressed", done[id] ? "true" : "false");
+    b.textContent = done[id] ? "見終わった" : "見終わったら押す";
+    save(KEY, done); update();
+  });
+  return el;
+}
+function track(list) { list.forEach(function (v) { if (ids.indexOf(v[0]) < 0) ids.push(v[0]); }); }
+function fill(elId, list) { var box = document.getElementById(elId); list.forEach(function (v, i) { box.appendChild(lesson(v, i + 1)); }); track(list); }
+fill("s1", DATA.s1); fill("s2", DATA.s2); fill("s4", DATA.s4);
+document.getElementById("s2todo").innerHTML = todoHTML(TODO.s2);
+DATA.s3.forEach(function (g) { track(g[1]); });
+var types = document.getElementById("types"), panel = document.getElementById("s3"), cur = load(KEY_TYPE, 0);
+if (typeof cur !== "number" || cur < 0 || cur >= DATA.s3.length) cur = 0;
+function showType(i) {
+  cur = i; save(KEY_TYPE, i);
+  Array.prototype.forEach.call(types.children, function (t, j) { t.setAttribute("aria-selected", j === i ? "true" : "false"); });
+  panel.innerHTML = "";
+  DATA.s3[i][1].forEach(function (v, j) { panel.appendChild(lesson(v, j + 1)); });
+  panel.insertAdjacentHTML("beforeend", todoHTML(TODO[DATA.s3[i][0]] || []));
+  if (window.kzReady) panel.querySelectorAll('.video-facade').forEach(function (f) { f.addEventListener('click', function () { window.open('https://www.youtube.com/watch?v=' + f.dataset.id, '_blank', 'noopener'); }); });
+}
+DATA.s3.forEach(function (g, i) {
+  var t = document.createElement("button");
+  t.type = "button"; t.setAttribute("role", "tab"); t.textContent = g[0];
+  t.addEventListener("click", function () { showType(i); });
+  types.appendChild(t);
+});
+showType(cur);
+function update() {
+  var n = ids.filter(function (id) { return done[id]; }).length;
+  document.getElementById("bar").style.width = (ids.length ? n / ids.length * 100 : 0) + "%";
+  document.getElementById("n").textContent = n;
+  document.getElementById("total").textContent = ids.length;
+}
+update();
+</script>
+<script src="assets/js/video.js?v=3"></script>
+<script src="assets/js/lp-motion.js?v=1"></script>
+<script>window.kzReady = true;</script>
+</body>
+</html>
