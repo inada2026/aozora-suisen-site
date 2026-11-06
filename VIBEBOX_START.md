@@ -1,3 +1,10 @@
+> **2026-11-06（最新・これに従う）：眞野先生のOKが出た（11/5 20:33「新しいアドレス、すごく良いです」）。VibeBoxから出す。**
+> - VibeBoxで **新しい project** を作り、このブランチ `renewal-2026-10-31` の中身（約9MB、`zoom1029/` `kakunin/` 含む全部）をそのまま載せる。作り直さない。`VIBEBOX_START.md` `.git` `.wrangler/` は公開しない
+> - 出し先は inadog の Cloudflare。住所は **https://aozora-suisen.com/**（稲田さんが inadog の Cloudflare で購入済みのドメインを、この project につなぐ）。`www.aozora-suisen.com` も同じ所へ
+> - 下の本文にある「Worker名 aozora-cafe-suisen・URLを変えない」は古い指示。**今の workers.dev は触らない**（新しい住所が開いたら、Windows側が最後に1回だけ「全ページを新しい住所へ自動で飛ばす」形に入れ替える）
+> - 検索の設定（noindex・robots.txt）は本文 4. のとおり変えない。載せたら本文 6. の確認をする
+> - 以後の直しは VibeBox からだけ出す。Windows側はこのブランチへ push するだけ
+
 > **2026-11-05 夜（最新）：本番の住所は専用ドメイン https://aozora-suisen.com/ に決定。** sakubuncafe.com の下（suisen.sakubuncafe.com・Xserver）はやめた（Soichiro側も設定を見て触れるため）。aozora-suisen.com は inadog の Cloudflare で買い（年1,600円ほど・稲田さん負担）、VibeBox で aozora-suisen.com 用の新しい project を作って出す。容量は Cloudflare の 2026-09-04 の変更で無料でも1つのappに64MBまで入るので、zoom1029/ と kakunin/ も含めてサイト全体（約9MB）をそのまま載せる。今の workers.dev の住所は、全ページを新しい住所へ自動で飛ばす（Windows側の作業）。眞野先生のOK待ち。それまでは今の workers.dev のまま、出すのは Windows 側だけ。Mac 側は push まで。
 >
 > （その前の版：VibeBoxは住所が inadog-ai.com になり3MB上限で不可、と書いていたが、3MBは古い情報だった）
